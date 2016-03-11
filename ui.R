@@ -22,8 +22,7 @@ dashboardPage(dashboardHeader(title = "AutoDeskR"),
                   tabItem(tabName = "drawing",
                           fluidRow(
                             box(
-                                tags$body(includeHTML('www/template.html')),
-                                tags$body(includeHTML('www/viewer.html'))
+                                htmlTemplate("template.html")
                             )
                           )
                   )

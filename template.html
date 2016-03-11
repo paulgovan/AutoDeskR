@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!-- template.html -->
+<html>
+  <head>
+    <link href="style.css" rel="stylesheet"/>
+    <script src="three.min.js"></script>
+    <script src="viewer3D.min.js"></script>
+
+    <script>
+      var viewablePath = [{"path":"1/V5-3110001.svf","name":"Scene"}];
+
+      var viewer = null;
+      document.addEventListener("DOMContentLoaded", function(event) { 
+
+      viewer = new Autodesk.Viewing.Private.GuiViewer3D(
+        document.getElementById("viewer-local"));
+        
+      var options = {
+          'docid': viewablePath[0].path,
+          'env': 'Local'
+        };
+        
+        Autodesk.Viewing.Initializer (options, function() {
+				  viewer.initialize();
+          viewer.load (options.docid);
+			  });
+      });
+    </script>
+    {{ headContent() }}
+  </head>
+  
+  <body>
+    <div id="viewer-local" style="height:75vh; position:relative; overflow: hidden;"></div>
+  </body>
+</html>
