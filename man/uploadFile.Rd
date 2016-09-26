@@ -28,7 +28,7 @@ Upload a File to an App-Managed Bucket.
 \dontrun{
 # Upload the "aerial.dwg" file to "mybucket"
 uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
-   token = Sys.getenv("bucket_key"), bucket = "mybucket")
+   token = Sys.getenv("access_token"), bucket = "mybucket")
 }
 }
 \seealso{

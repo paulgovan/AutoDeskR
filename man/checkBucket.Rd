@@ -21,7 +21,7 @@ Check the Status of an App-Managed Bucket.
 \examples{
 \dontrun{
 # Check the status of a bucket with the name "mybucket"
-checkBucket(token = Sys.getenv("bucket_key"), bucket = "mybucket")
+checkBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
 }
 }
 \seealso{

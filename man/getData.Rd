@@ -27,7 +27,7 @@ Get the Geometry Data for a File.
 \dontrun{
 # Get the geometry data for the "aerial.dwg" svf file
 myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
+getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("access_token"))
 }
 }
 \seealso{

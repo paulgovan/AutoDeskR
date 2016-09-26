@@ -12,7 +12,7 @@
 #' \dontrun{
 #' mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
 #' myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
-#' makePdf(mySource, myDestination, token = Sys.getenv("bucket_key"))
+#' makePdf(mySource, myDestination, token = Sys.getenv("access_token"))
 #' }
 #' @import httr
 #' @import jsonlite
@@ -80,7 +80,7 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
 #' \dontrun{
 #' mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
 #' myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
-#' checkPdf(mySource, myDestination, token = Sys.getenv("bucket_key"))
+#' checkPdf(mySource, myDestination, token = Sys.getenv("access_token"))
 #' }
 #' @import httr
 #' @import jsonlite

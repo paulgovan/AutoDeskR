@@ -25,7 +25,7 @@ Translate a File into SVF Format.
 \dontrun{
 # Translate the "aerial.dwg" file into a svf file
 myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-translateSvf(urn <- myUrn, token = Sys.getenv("token"))
+translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
 }
 }
 \seealso{

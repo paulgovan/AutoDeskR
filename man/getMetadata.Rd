@@ -25,7 +25,7 @@ Get the Metadata for a File.
 \dontrun{
 # Get the metadata for the "aerial.dwg" svf file
 myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-getMetadata(urn <- myUrn, token = Sys.getenv("token"))
+getMetadata(urn <- myUrn, token = Sys.getenv("access_token"))
 }
 }
 \seealso{

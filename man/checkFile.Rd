@@ -21,7 +21,7 @@ Check the Status of a Translated File.
 \dontrun{
 # Check the status of the translated "aerial.dwg" svf file
 myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-checkFile(urn <- myUrn, token = Sys.getenv("token"))
+checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
 }
 }
 \seealso{

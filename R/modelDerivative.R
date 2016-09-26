@@ -13,7 +13,7 @@
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into a svf file
 #' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' translateSvf(urn <- myUrn, token = Sys.getenv("token"))
+#' translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
 #' }
 #' @import httr
 #' @import jsonlite
@@ -75,7 +75,7 @@ translateSvf <- function(urn = NULL, token = NULL) {
 #' \dontrun{
 #' # Check the status of the translated "aerial.dwg" svf file
 #' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' checkFile(urn <- myUrn, token = Sys.getenv("token"))
+#' checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
 #' }
 #' @import httr
 #' @import jsonlite
@@ -122,7 +122,7 @@ checkFile <- function(urn = NULL, token = NULL) {
 #' \dontrun{
 #' # Get the metadata for the "aerial.dwg" svf file
 #' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' getMetadata(urn <- myUrn, token = Sys.getenv("token"))
+#' getMetadata(urn <- myUrn, token = Sys.getenv("access_token"))
 #' }
 #' @import httr
 #' @import jsonlite
@@ -169,7 +169,7 @@ getMetadata <- function(urn = NULL, token = NULL) {
 #' \dontrun{
 #' # Get the geometry data for the "aerial.dwg" svf file
 #' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
+#' getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("access_token"))
 #' }
 #' @import httr
 #' @import jsonlite
