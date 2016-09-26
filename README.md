@@ -46,7 +46,7 @@ To check the status of a bucket:
 checkBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
 ```
 
-To upload a file to the bucket, use the `uploadFile()` function, which returns an object containing the `bucketKey`, `objectId` (i.e. urn), `objectKey` (i.e. file name), `size`, `contentType` (i.e. "application/octet-stream"), `location` and other content information. Note the unique urn of the file and store it in `.Renviron` for future use. 
+Finally, to upload a file to the bucket, use the `uploadFile()` function, which returns an object containing the `bucketKey`, `objectId` (i.e. urn), `objectKey` (i.e. file name), `size`, `contentType` (i.e. "application/octet-stream"), `location` and other content information. Note the unique urn of the file and store it in `.Renviron` for future use. 
 
 ```
 uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
