@@ -17,7 +17,7 @@ devtools::install_github('paulgovan/autodeskr')
 # Authentication
 AutoDesk uses OAuth-based authentication for access to their services. To get started with this package, first visit the [Create an App](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/create-app/) tutorial for instructions on creating an app and getting a Client ID and Secret. 
 
-We highly recommend that the Client ID, Secret, access tokens, and so on be stored in a file called `.Renviron` in the current working directory and accessing these keys with the `Sys.getenv()` function. This way potentially sensitive information is never explicitly passed to functions in this package. For more information on storing keys in the `.Renviron` file and accessing them with the `Sys.getenv()`, see the appendix in this [API Best Practices](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) vignette.  
+We highly recommend that the Client ID, Secret, access tokens, and so on be stored in a file called `.Renviron` in the current working directory and accessing these keys with the `Sys.getenv()` function. This way potentially sensitive information is never explicitly passed to functions in this package. For more information on storing keys in the `.Renviron` file and accessing them with `Sys.getenv()`, see the appendix in this [API Best Practices](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) vignette.  
 
 To get an access token, use the `getToken()` function, which returns an object with the `access_token`, `type`, and `expires_in` variables.:
 
