@@ -47,3 +47,17 @@ uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
     token = Sys.getenv("access_token"), bucket = "mybucket")
 ```
 
+# Design Automation
+##  Convert a DWG File to a PDF File
+To convert a DWG file to a PEF file, use the `makePdf` function, where `source` and `destination` are the publicly accessible source of the DWG file and destination for the PDF file, respectively. 
+
+```
+mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
+myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
+makePdf(mySource, myDestination, token = Sys.getenv("access_token"))
+```
+
+Note that in this example, the "access_token" must be generated with the `code:all` scope.
+
+# Model Derivative
+
