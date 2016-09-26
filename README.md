@@ -30,10 +30,11 @@ getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"))
 Design files are hosted in the cloud and organized into buckets. To create a bucket, first get a token with the `bucket:create`, `bucket:read`, and `data:write` scopes. 
 
 ```
-getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), scope = "bucket:create bucket:read data:write")
+getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
+    scope = "bucket:create bucket:read data:write")
 ```
 
-Then use the `makeBucket()` function to create a bucket, where "access_token" is generated with the `getToken()` function and stored in the `.Renviron` file and `bucket` is a name for the bucket. 
+Then use the `makeBucket()` function to create a bucket, where "access_token" is generated with the `getToken()` function and `bucket` is a name for the bucket. 
 
 ```
 makeBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
@@ -43,6 +44,6 @@ To upload a file to the bucket, use the `uploadFile()` function.
 
 ```
 uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
-    token = Sys.getenv("bucket_key"), bucket = "mybucket")
+    token = Sys.getenv("access_token"), bucket = "mybucket")
 ```
 
