@@ -17,7 +17,7 @@ devtools::install_github('paulgovan/autodeskr')
 # Authentication
 AutoDesk uses OAuth based authentication for access to their services. To get started with this package, first visit [https://developer.autodesk.com/en/docs/oauth/v2/tutorials/create-app/](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/create-app/) for instructions on creating an app and getting a Client ID and Secret. 
 
-Recommended best practice is to store the Client ID and Secret in a file called \code{.Renviron} and save this file in the current working directory.  See [https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) for more information on storing the Client ID, Secret, access tokens, and so on in the \code{.Renviron} file. 
+Recommended best practice is to store the Client ID and Secret in a file called \code{.Renviron} and save this file in the current working directory.  See the appendix in [https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) for more information on storing the Client ID, Secret, access tokens, and so on in the \code{.Renviron} file. 
 
 Assuming the Client ID and Secret are stored in \code{.Renviron} file as \code{client_id} and \{client_secret}, respectively, to get a 2-legged token:
 
