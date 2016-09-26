@@ -40,7 +40,13 @@ Then use the `makeBucket()` function to create a bucket, where "access_token" is
 makeBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
 ```
 
-To upload a file to the bucket, use the `uploadFile()` function.  
+To check the status of a bucket:
+
+```
+checkBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
+```
+
+To upload a file to the bucket, use the `uploadFile()` function, which returns an object containing the `bucketKey`, `objectId` (i.e. urn), `objectKey` (i.e. file name), `size`, `contentType` (i.e. "application/octet-stream"), `location` and other content information. Note the unique urn of the file and store it in `.Renviron` for future use. 
 
 ```
 uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
@@ -49,7 +55,7 @@ uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
 
 # Design Automation
 ##  Convert a DWG File to a PDF File
-To convert a DWG file to a PEF file, use the `makePdf` function, where `source` and `destination` are the publicly accessible source of the DWG file and destination for the PDF file, respectively. 
+To convert a DWG file to a PDF file, use the `makePdf` function, where `source` and `destination` are the publicly accessible source of the DWG file and destination for the PDF file, respectively. 
 
 ```
 mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
@@ -58,6 +64,13 @@ makePdf(mySource, myDestination, token = Sys.getenv("access_token"))
 ```
 
 Note that in this example, the "access_token" must be generated with the `code:all` scope.
+
+
+To check the status of the conversion process:
+
+```
+checkPdf(mySource, myDestination, token = Sys.getenv("access_token"))
+```
 
 # Model Derivative
 
