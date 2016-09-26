@@ -17,14 +17,14 @@ devtools::install_github('paulgovan/autodeskr')
 # Authentication
 AutoDesk uses OAuth based authentication for access to their services. To get started with this package, first visit the  [Create an App](https://developer.autodesk.com/en/docs/oauth/v2/tutorials/create-app/) tutorial for instructions on creating an app and getting a Client ID and Secret. 
 
-Recommended best practice is to store the Client ID and Secret in a file called `.Renviron` and save this file in the current working directory.  See the appendix of [https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) for more information on storing the Client ID, Secret, access tokens, and so on in the `.Renviron` file. 
+We highly recommend that the Client ID, Secret, access tokens, and so on be stored in a file called `.Renviron` in the current working directory and accessing these keys with the `Sys.getenv()` function. This way, potentially sensitive information is never explicitly passed to functions in this package. For more information on storing keys in the `.Renviron` file and accessing them with the `Sys.getenv()` see the appendix in this [API Best Practices](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) vignette.  
 
-Assuming the Client ID and Secret are stored in the `.Renviron` file as `client_id` and `client_secret`, respectively, to get an authentication token:
+To get an access the token, use the `getToken()` function: 
 
 ```
 getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"))
 ```
 
-This function returns an object with the `access_token`, `type`, and `expires_in` variables. 
+which returns an object with the `access_token`, `type`, and `expires_in` variables. 
 
 # Data Management
