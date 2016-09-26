@@ -19,7 +19,7 @@ AutoDesk uses OAuth-based authentication for access to their services. To get st
 
 We highly recommend that the Client ID, Secret, access tokens, and so on be stored in a file called `.Renviron` in the current working directory and accessing these keys with the `Sys.getenv()` function. This way potentially sensitive information is never explicitly passed to functions in this package. For more information on storing keys in the `.Renviron` file and accessing them with the `Sys.getenv()`, see the appendix in this [API Best Practices](https://cran.r-project.org/web/packages/httr/vignettes/api-packages.html) vignette.  
 
-To get an access the token, use the `getToken()` function, which returns an object with the `access_token`, `type`, and `expires_in` variables.: 
+To get an access token, use the `getToken()` function, which returns an object with the `access_token`, `type`, and `expires_in` variables.:
 
 ```
 getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"))
