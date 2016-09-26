@@ -81,7 +81,7 @@ getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
     scope = "data:read data:write")
 ```
 
-AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding a urn. 
+AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding the urn. 
 
 ```
 myURN <- jsonlite::base64_enc(Sys.getenv("urn"))
@@ -100,3 +100,23 @@ checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
 ```
 
 Finally, embed the urn of the file in the viewer, which will be described later on.
+
+## Extract Data from a File
+To extract data from a file, get a token with the `data:read` and `data:write` scopes, encode the urn of the file using the `jsonlite::base64_enc()` function, and translate the file into the SVF format using the `translateSvf` function.  Next, retrieve the metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
+
+```
+getMetadata(urn <- myUrn, token = Sys.getenv("access_token"))
+```
+
+Finally, get the properties of the file with the `getData()` function.
+
+```
+getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("access_token"))
+```
+
+## Extract Geometry from a File
+To get the object tree of a file, follow the previous instructions for extracting data from a file, and note the "guid", "urn", and "access_token". Then use the `getObjectTree()` function.
+
+```
+getObjectTree(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
+```
