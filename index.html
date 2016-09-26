@@ -29,7 +29,7 @@
       <div class="inner clearfix">
         <section id="main-content">
           <h1>
-<a id="the-autodeskr-package" class="anchor" href="#the-autodeskr-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The AutoDeskR Package</h1>
+<a id="the-autodeskr-package" class="anchor" href="#the-autodeskr-package" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The AutoDeskR Package:</h1>
 
 <p>AutoDeskR is an R package that provides an interface to the:</p>
 
@@ -40,7 +40,7 @@
 <li>Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting design data.</li>
 </ul>
 
-<p>For more information about the AutoDesk Forge Platform , please visit <a href="https://developer.autodesk.com">https://developer.autodesk.com</a></p>
+<p>For more information about the AutoDesk Forge Platform, please visit <a href="https://developer.autodesk.com">https://developer.autodesk.com</a></p>
 
 <h1>
 <a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Quick Start</h1>
@@ -84,7 +84,7 @@
 <pre><code>checkBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
 </code></pre>
 
-<p>To upload a file to the bucket, use the <code>uploadFile()</code> function, which returns an object containing the <code>bucketKey</code>, <code>objectId</code> (i.e. urn), <code>objectKey</code> (i.e. file name), <code>size</code>, <code>contentType</code> (i.e. "application/octet-stream"), <code>location</code> and other content information. Note the unique urn of the file and store it in <code>.Renviron</code> for future use. </p>
+<p>Finally, to upload a file to the bucket, use the <code>uploadFile()</code> function, which returns an object containing the <code>bucketKey</code>, <code>objectId</code> (i.e. urn), <code>objectKey</code> (i.e. file name), <code>size</code>, <code>contentType</code> (i.e. "application/octet-stream"), <code>location</code> and other content information. Note the unique urn of the file and store it in <code>.Renviron</code> for future use. </p>
 
 <pre><code>uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
     token = Sys.getenv("access_token"), bucket = "mybucket")
@@ -112,6 +112,103 @@ makePdf(mySource, myDestination, token = Sys.getenv("access_token"))
 
 <h1>
 <a id="model-derivative" class="anchor" href="#model-derivative" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Model Derivative</h1>
+
+<h2>
+<a id="translate-a-file-into-obj-format" class="anchor" href="#translate-a-file-into-obj-format" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Translate a File into OBJ Format</h2>
+
+<p>To translate a file into OBJ format, first get an access token with the <code>data:read</code> and <code>data:write</code> scopes.</p>
+
+<pre><code>getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
+    scope = "data:read data:write")
+</code></pre>
+
+<p>AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the <code>jsonlite</code> package has a nifty function for encoding the urn. </p>
+
+<pre><code>myURN &lt;- jsonlite::base64_enc(Sys.getenv("urn"))
+</code></pre>
+
+<p>Then, translate the file into the OBJ format:</p>
+
+<pre><code>translateSvf(urn &lt;- myUrn, token = Sys.getenv("access_token"))
+</code></pre>
+
+<p>To check the status of the translation process:</p>
+
+<pre><code>checkFile(urn &lt;- myUrn, token = Sys.getenv("access_token"))
+</code></pre>
+
+<p>Next, get the output_urn of the translated file using the <code>getOutputUrn()</code> function, which returns an object containing the <code>result</code>, output <code>urn</code> and other activity information.</p>
+
+<pre><code>getOutputUrn(urn &lt;- myUrn, token = Sys.getenv("token"))
+</code></pre>
+
+<p>Finally, to download the OBJ file locally:</p>
+
+<pre><code>myOutputUrn &lt;- jsonlite::base64_enc(Sys.getenv("output_urn"))
+downloadFile(urn &lt;- myUrn, output_urn &lt;- myOutputUrn, token = Sys.getenv("token"))
+</code></pre>
+
+<h2>
+<a id="prepare-a-file-for-the-viewer" class="anchor" href="#prepare-a-file-for-the-viewer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prepare a File for the Viewer</h2>
+
+<p>To prepare a file for the viewer, first get an access token with the <code>data:read</code> and <code>data:write</code> scopes.</p>
+
+<pre><code>getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
+    scope = "data:read data:write")
+</code></pre>
+
+<p>Encode the urn using the <code>jsonlite::base64_enc</code> function. </p>
+
+<pre><code>myURN &lt;- jsonlite::base64_enc(Sys.getenv("urn"))
+</code></pre>
+
+<p>Then, translate the file into the SVF format:</p>
+
+<pre><code>translateSvf(urn &lt;- myUrn, token = Sys.getenv("access_token"))
+</code></pre>
+
+<p>To check the status of the translation process:</p>
+
+<pre><code>checkFile(urn &lt;- myUrn, token = Sys.getenv("access_token"))
+</code></pre>
+
+<p>Finally, embed the urn of the file in the viewer, which will be described later on.</p>
+
+<h2>
+<a id="extract-data-from-a-file" class="anchor" href="#extract-data-from-a-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extract Data from a File</h2>
+
+<p>To extract data from a file, get a token with the <code>data:read</code> and <code>data:write</code> scopes, encode the urn of the file using the <code>jsonlite::base64_enc()</code> function, and translate the file into the SVF format using the <code>translateSvf</code> function.  Next, retrieve the metadata for a file using the <code>getMetadata()</code> function, which returns an object with the <code>type</code>, <code>name</code>, and <code>guid</code> of the file. Note the <code>guid</code> and store it in <code>.Renviron</code>.</p>
+
+<pre><code>getMetadata(urn &lt;- myUrn, token = Sys.getenv("access_token"))
+</code></pre>
+
+<p>Finally, get the properties of the file with the <code>getData()</code> function.</p>
+
+<pre><code>getData(guid &lt;- Sys.getenv("guid"), urn &lt;- myUrn, token = Sys.getenv("access_token"))
+</code></pre>
+
+<h2>
+<a id="extract-geometry-from-a-file" class="anchor" href="#extract-geometry-from-a-file" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Extract Geometry from a File</h2>
+
+<p>To get the object tree of a file, follow the previous instructions for extracting data from a file, and note the "guid", "urn", and "access_token". Then use the <code>getObjectTree()</code> function.</p>
+
+<pre><code>getObjectTree(guid &lt;- Sys.getenv("guid"), urn &lt;- myUrn, token = Sys.getenv("token"))
+</code></pre>
+
+<h1>
+<a id="issues" class="anchor" href="#issues" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Issues</h1>
+
+<p>This project is in its <em>very</em> early stages. Please let us know if there are any issues using the GitHub issue tracker at <a href="https://github.com/paulgovan/AutoDeskR/issues">https://github.com/paulgovan/AutoDeskR/issues</a></p>
+
+<h1>
+<a id="contributions" class="anchor" href="#contributions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributions</h1>
+
+<p>Contributions are welcome by sending a <a href="https://github.com/paulgovan/AutoDeskR/pulls">pull request</a></p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h1>
+
+<p>AutoDeskR is licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache</a> licence. © Paul Govan (2016)</p>
         </section>
 
         <aside id="sidebar">
