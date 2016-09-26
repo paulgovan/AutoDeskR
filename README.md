@@ -73,6 +73,46 @@ checkPdf(mySource, myDestination, token = Sys.getenv("access_token"))
 ```
 
 # Model Derivative
+
+## Translate a File into OBJ Format
+To translate a file into OBJ format, first get an access token with the `data:read` and `data:write` scopes.
+
+```
+getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
+    scope = "data:read data:write")
+```
+
+AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding the urn. 
+
+```
+myURN <- jsonlite::base64_enc(Sys.getenv("urn"))
+```
+
+Then, translate the file into the OBJ format:
+
+```
+translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
+```
+
+To check the status of the translation process:
+
+```
+checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
+```
+
+Next, get the output_urn of the translated file using the `getOutputUrn()` function, which returns an object containing the `result`, output `urn` and other activity information.
+
+```
+getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+```
+
+Finally, to download the OBJ file locally:
+
+```
+myOutputUrn <- jsonlite::base64_enc(Sys.getenv("output_urn"))
+downloadFile(urn <- myUrn, output_urn <- myOutputUrn, token = Sys.getenv("token"))
+```
+
 ## Prepare a File for the Viewer
 To prepare a file for the viewer, first get an access token with the `data:read` and `data:write` scopes.
 
@@ -81,7 +121,7 @@ getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
     scope = "data:read data:write")
 ```
 
-AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding the urn. 
+Encode the urn using the `jsonlite::base64_enc` function. 
 
 ```
 myURN <- jsonlite::base64_enc(Sys.getenv("urn"))
