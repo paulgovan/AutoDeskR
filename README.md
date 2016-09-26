@@ -1,2 +1,2 @@
 # AutoDeskR
-A simple shiny app that wraps the AutoDesk Viewer API
+An R Interface to the Autodesk API
