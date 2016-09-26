@@ -160,3 +160,14 @@ To get the object tree of a file, follow the previous instructions for extractin
 ```
 getObjectTree(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
 ```
+
+# Issues
+This project is in its *very* early stages. Please let us know if there are any issues using the GitHub issue tracker at [https://github.com/paulgovan/AutoDeskR/issues](https://github.com/paulgovan/AutoDeskR/issues)
+
+# Contributions
+Contributions are welcome by sending a [pull request](https://github.com/paulgovan/AutoDeskR/pulls)
+
+# License
+AutoDeskR is licensed under the [Apache](http://www.apache.org/licenses/LICENSE-2.0) licence. &copy; Paul Govan (2016)
+
+
