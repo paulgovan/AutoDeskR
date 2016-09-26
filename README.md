@@ -5,7 +5,7 @@ AutoDeskR is an R package that provides an interface to the:
 * Design Automation API for performing automated tasks on design files in the cloud.
 * Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting design data.
 
-For more information about the AutoDesk Forge Platform , please visit [https://developer.autodesk.com](https://developer.autodesk.com)
+For more information about the AutoDesk Forge Platform, please visit [https://developer.autodesk.com](https://developer.autodesk.com)
 
 # Quick Start
 To install AutoDeskR in [R](https://www.r-project.org):
@@ -73,4 +73,30 @@ checkPdf(mySource, myDestination, token = Sys.getenv("access_token"))
 ```
 
 # Model Derivative
+## Prepare a File for the Viewer
+To prepare a file for the viewer, first get an access token with the `data:read` and `data:write` scopes.
 
+```
+getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
+    scope = "data:read data:write")
+```
+
+AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding a urn. 
+
+```
+myURN <- jsonlite::base64_enc(Sys.getenv("urn"))
+```
+
+Then, translate the file into the SVF format:
+
+```
+translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
+```
+
+To check the status of the translation process:
+
+```
+checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
+```
+
+Finally, embed the urn of the file in the viewer, which will be described later on.
