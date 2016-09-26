@@ -1,8 +1,8 @@
-# AutoDesk Forge Platform APIs in R:
-* Authentication: obtain authentication across the Forge Platfrom.
-* Data Management: manage data across the platform's cloud services. 
-* Design Automation: perform automated tasks on design files in the cloud.
-* Model Derivative: translate design files into different formats, send them to the online viewer, and extract design data.
+# The AutoDeskR package provides an interface to the:
+* Authentication API for obtaining authentication to the Forge Platfrom.
+* Data Management API for managing data across the platform's cloud services. 
+* Design Automation API for performing automated tasks on design files in the cloud.
+* Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting design data.
 
 For more information  about the AutoDesk Forge Platform , please visit [https://developer.autodesk.com](https://developer.autodesk.com)
 
@@ -10,7 +10,7 @@ For more information  about the AutoDesk Forge Platform , please visit [https://
 To install AutoDeskR in [R](https://www.r-project.org):
 
 ```
-devtools::install_github('paulgovan/BayesianNetwork')
+devtools::install_github('paulgovan/autodeskr')
 ```
 
 # Authentication
