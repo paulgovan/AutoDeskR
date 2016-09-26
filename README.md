@@ -25,6 +25,6 @@ Assuming the Client ID and Secret are stored in the `.Renviron` file as `client_
 getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"))
 ```
 
-This function returns an object with an `access_token`, `type`, and `expires_in` variables. 
+This function returns an object with the `access_token`, `type`, and `expires_in` variables. 
 
 # Data Management
