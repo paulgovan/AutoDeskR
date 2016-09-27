@@ -141,13 +141,13 @@ checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
 Finally, embed the urn of the file in the viewer, which will be described in a future tutorial.
 
 ## Extract Data from a File
-To extract data from a file, get a token with the `data:read` and `data:write` scopes, encode the urn of the file using the `jsonlite::base64_enc()` function, and translate the file into the SVF format using the `translateSvf` function.  Next, retrieve the metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
+To extract data from a file, first get a token with the `data:read` and `data:write` scopes, encode the urn of the file using the `jsonlite::base64_enc()` function, and translate the file into the SVF format using the `translateSvf` function.  Next, retrieve the metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
 
 ```
 getMetadata(urn <- myUrn, token = Sys.getenv("access_token"))
 ```
 
-Finally, get the properties of the file with the `getData()` function.
+Then get the properties of the file with the `getData()` function.
 
 ```
 getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("access_token"))
@@ -168,5 +168,3 @@ Contributions are welcome by sending a [pull request](https://github.com/paulgov
 
 # License
 AutoDeskR is licensed under the [Apache](http://www.apache.org/licenses/LICENSE-2.0) licence. &copy; Paul Govan (2016)
-
-
