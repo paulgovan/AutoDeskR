@@ -1,5 +1,7 @@
 #' Get a 2-Legged Token for Authentication.
 #'
+#' Get a 2-legged token for OAuth-based authentication to the AutoDesk Forge
+#' Platform.
 #' @param id A string. Client ID for the app generated from the AutoDesk Dev
 #'   Portal.
 #' @param secret A string. Client Secret for the app generated from the AutoDesk

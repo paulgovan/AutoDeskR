@@ -22,7 +22,7 @@ An object containing the \code{result}, \code{urn}, and additional
   activity information.
 }
 \description{
-Download a file locally.
+Download a file from the Forge Platform using the Model Derivative API.
 }
 \examples{
 \dontrun{

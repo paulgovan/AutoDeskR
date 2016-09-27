@@ -1,5 +1,6 @@
 #' Convert a DWG to a PDF.
 #'
+#' Convert a publicly accessible DWG file to a publicly accessible PDF using the Design Automation API.
 #' @param source A string. Publicly accessible web address of the input dwg
 #'   file.
 #' @param destination A string. Publicly accessible web address for the output
@@ -72,10 +73,16 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
 
 #' Check the status of a PDF.
 #'
-#' @param source A string. Publicly accessible web address of the input dwg file.
-#' @param destination A string. Publicly accessible web address for the output pdf file.
-#' @param token A string. Token generated with \code{\link{getToken}} function with \code{code:all} scope.
-#' @seealso \url{https://developer.autodesk.com/en/docs/design-automation/v2/overview/}
+#' Check the status of a recently created PDF file using the Design Automation
+#' API.
+#' @param source A string. Publicly accessible web address of the input dwg
+#'   file.
+#' @param destination A string. Publicly accessible web address for the output
+#'   pdf file.
+#' @param token A string. Token generated with \code{\link{getToken}} function
+#'   with \code{code:all} scope.
+#' @seealso
+#'   \url{https://developer.autodesk.com/en/docs/design-automation/v2/overview/}
 #' @examples
 #' \dontrun{
 #' mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"

@@ -19,7 +19,7 @@ An object containing the \code{type}, \code{name}, and \code{guid} of
   the file.
 }
 \description{
-Get the Metadata for a File.
+Get the metadata of an uploaded file using the Model Derivative API.
 }
 \examples{
 \dontrun{

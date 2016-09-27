@@ -1,11 +1,17 @@
 Package: AutoDeskR
 Type: Package
 Title: An Interface To The 'AutoDesk' API
-Description: Authentication, Data Management, Design Automation, and Model Derivative APIs.
+Description: An interface to the AutoDesk APIs including the Authentication API for
+    obtaining authentication to the AutoDesk Forge Platfrom, Data Management API
+    for managing data across the platform's cloud services, Design Automation API
+    for performing automated tasks on design files in the cloud, and Model
+    Derivative API for translating design files into different formats, sending
+    them to the viewer app, and extracting design data.
 Version: 0.1.0
 URL: https://github.com/paulgovan/autodeskr
 BugReports: https://github.com/paulgovan/autodeskr/issues
-Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com", role = c("aut", "cre"))
+Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com",
+    role = c("aut", "cre"))
 Depends:
     R (>= 2.10.0)
 License: Apache License | file LICENSE

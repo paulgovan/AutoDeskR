@@ -7,14 +7,18 @@
 checkPdf(source = NULL, destination = NULL, token = NULL)
 }
 \arguments{
-\item{source}{A string. Publicly accessible web address of the input dwg file.}
+\item{source}{A string. Publicly accessible web address of the input dwg
+file.}
 
-\item{destination}{A string. Publicly accessible web address for the output pdf file.}
+\item{destination}{A string. Publicly accessible web address for the output
+pdf file.}
 
-\item{token}{A string. Token generated with \code{\link{getToken}} function with \code{code:all} scope.}
+\item{token}{A string. Token generated with \code{\link{getToken}} function
+with \code{code:all} scope.}
 }
 \description{
-Check the status of a PDF.
+Check the status of a recently created PDF file using the Design Automation
+API.
 }
 \examples{
 \dontrun{

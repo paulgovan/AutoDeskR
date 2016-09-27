@@ -22,7 +22,7 @@ An object containing the \code{bucketKey}, \code{objectId} (i.e.
   information.
 }
 \description{
-Upload a File to an App-Managed Bucket.
+Upload a design file to an app-managed bucket using the Data Management API.
 }
 \examples{
 \dontrun{

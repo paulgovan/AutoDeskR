@@ -1,5 +1,6 @@
 #' Translate a File into SVF Format.
 #'
+#' Translate an uploaded file into SVF format using the Model Derivative API.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
 #'   Base64 encoded. To encode the URN, see, for example, the
 #'   \code{jsonlite::base64_enc} function.
@@ -64,6 +65,7 @@ translateSvf <- function(urn = NULL, token = NULL) {
 
 #' Check the Status of a Translated File.
 #'
+#' Check the status of a recently translated file using the Model Derivative API.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
 #'   Base64 encoded. To encode the URN, see, for example, the
 #'   \code{jsonlite::base64_enc} function.
@@ -109,6 +111,7 @@ checkFile <- function(urn = NULL, token = NULL) {
 
 #' Get the Metadata for a File.
 #'
+#' Get the metadata of an uploaded file using the Model Derivative API.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
 #'   Base64 encoded. To encode the URN, see, for example, the
 #'   \code{jsonlite::base64_enc} function.
@@ -155,6 +158,7 @@ getMetadata <- function(urn = NULL, token = NULL) {
 
 #' Get the Geometry Data for a File.
 #'
+#' Get the geometry of an uploaded file using the Model Derivative API.
 #' @param guid A string. GUID retrieved via the \code{\link{getMetadata}}
 #'   function.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
@@ -204,6 +208,7 @@ getData <- function(guid = NULL, urn = NULL, token = NULL) {
 
 #' Get the Object Tree of a File.
 #'
+#' Get the object tree of an uploaded file using the Model Derivative API.
 #' @param guid A string. GUID retrieved via the \code{\link{getMetadata}}
 #'   function.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
@@ -252,6 +257,7 @@ getObjectTree <- function(guid = NULL, urn = NULL, token = NULL){
 
 #' Translate a File into OBJ Format.
 #'
+#' Translate an uploaded file into OBJ format using the Model Derivative API.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
 #'   Base64 encoded. To encode the URN, see, for example, the
 #'   \code{jsonlite::base64_enc} function.
@@ -312,6 +318,7 @@ translateObj <- function(urn = NULL, token = NULL) {
 
 #' Get the Output URN for a File.
 #'
+#' Get the output urn of a translated file using the Model Derivative API.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
 #'   Base64 encoded. To encode the URN, see, for example, the
 #'   \code{jsonlite::base64_enc} function.
@@ -359,6 +366,7 @@ getOutputUrn <- function(urn, token) {
 
 #' Download a file locally.
 #'
+#' Download a file from the Forge Platform using the Model Derivative API.
 #' @param urn A string. Source URN (objectId) for the file. Note the URN must be
 #'   Base64 encoded. To encode the URN, see, for example, the
 #'   \code{jsonlite::base64_enc} function.

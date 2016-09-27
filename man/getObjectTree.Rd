@@ -21,7 +21,7 @@ with \code{data:read} and \code{data:write} scopes.}
 An object containing the object tree for the selected file. the file.
 }
 \description{
-Get the Object Tree of a File.
+Get the object tree of an uploaded file using the Model Derivative API.
 }
 \examples{
 \dontrun{

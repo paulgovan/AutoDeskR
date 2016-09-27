@@ -16,7 +16,7 @@ An object containing the \code{bucketKey}, \code{bucketOwner}, and
   \code{createdDate}.
 }
 \description{
-Check the Status of an App-Managed Bucket.
+Check the status of a recently created app-managed bucket using the Data Management API.
 }
 \examples{
 \dontrun{

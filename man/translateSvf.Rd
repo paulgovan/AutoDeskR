@@ -19,7 +19,7 @@ An object containing the \code{result}, \code{urn}, and additional
   activity information.
 }
 \description{
-Translate a File into SVF Format.
+Translate an uploaded file into SVF format using the Model Derivative API.
 }
 \examples{
 \dontrun{

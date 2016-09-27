@@ -17,7 +17,7 @@ pdf file.}
 with \code{code:all} scope.}
 }
 \description{
-Convert a DWG to a PDF.
+Convert a publicly accessible DWG file to a publicly accessible PDF using the Design Automation API.
 }
 \examples{
 \dontrun{

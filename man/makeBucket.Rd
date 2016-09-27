@@ -21,7 +21,7 @@ An object containing the \code{bucketKey}, \code{bucketOwner}, and
   \code{createdDate}.
 }
 \description{
-Make a Bucket for an App.
+Make an app-based bucket for storage of design files using the Data Management API.
 }
 \examples{
 \dontrun{

@@ -15,7 +15,7 @@ Base64 encoded. To encode the URN, see, for example, the
 with \code{data:read} and \code{data:write} scopes.}
 }
 \description{
-Check the Status of a Translated File.
+Check the status of a recently translated file using the Model Derivative API.
 }
 \examples{
 \dontrun{

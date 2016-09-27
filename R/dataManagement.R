@@ -1,5 +1,6 @@
 #' Make a Bucket for an App.
 #'
+#' Make an app-based bucket for storage of design files using the Data Management API.
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{bucket:create}, \code{bucket:read}, and \code{data:write}
 #'   scopes.
@@ -49,6 +50,7 @@ makeBucket <- function(token = NULL, bucket = "mybucket", policy = "transient") 
 
 #' Check the Status of an App-Managed Bucket.
 #'
+#' Check the status of a recently created app-managed bucket using the Data Management API.
 #' @param token A string. Token generated with \code{\link{getToken}} function with \code{bucket:create}, \code{bucket:read}, and \code{data:write} scopes.
 #' @param bucket A string. Name of the bucket. Defaults to \code{mybucket}.
 #' @return An object containing the \code{bucketKey}, \code{bucketOwner}, and
@@ -90,6 +92,7 @@ checkBucket <- function(token = NULL, bucket = "mybucket") {
 
 #' Upload a File to an App-Managed Bucket.
 #'
+#' Upload a design file to an app-managed bucket using the Data Management API.
 #' @param file A string. File path.
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{bucket:create}, \code{bucket:read}, and \code{data:write}

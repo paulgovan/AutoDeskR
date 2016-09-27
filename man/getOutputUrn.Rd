@@ -19,7 +19,7 @@ An object containing the \code{result}, \code{urn}, and additional
   activity information.
 }
 \description{
-Get the Output URN for a File.
+Get the output urn of a translated file using the Model Derivative API.
 }
 \examples{
 \dontrun{

@@ -21,7 +21,7 @@ with \code{data:read} and \code{data:write} scopes.}
 An object containing the geometry data for the selected file.
 }
 \description{
-Get the Geometry Data for a File.
+Get the geometry of an uploaded file using the Model Derivative API.
 }
 \examples{
 \dontrun{

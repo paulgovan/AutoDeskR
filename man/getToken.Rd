@@ -25,7 +25,8 @@ An object containing the \code{access_token}, \code{code_type}, and
   \code{expires_in} milliseconds.
 }
 \description{
-Get a 2-Legged Token for Authentication.
+Get a 2-legged token for OAuth-based authentication to the AutoDesk Forge
+Platform.
 }
 \examples{
 \dontrun{
