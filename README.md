@@ -88,7 +88,7 @@ AutoDesk requires that the urn of the file be Base-64 encoded. Fortunately, the 
 myURN <- jsonlite::base64_enc(Sys.getenv("urn"))
 ```
 
-Then, translate the file into the OBJ format:
+Then, translate the file into OBJ format:
 
 ```
 translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
@@ -100,13 +100,13 @@ To check the status of the translation process:
 checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
 ```
 
-Next, get the output_urn of the translated file using the `getOutputUrn()` function, which returns an object containing the `result`, output `urn` and other activity information.
+To get the output_urn of the translated file, use the `getOutputUrn()` function, which returns an object containing the `result`, output `urn` and other activity information.
 
 ```
 getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
 ```
 
-Finally, to download the OBJ file locally:
+To download the OBJ file locally:
 
 ```
 myOutputUrn <- jsonlite::base64_enc(Sys.getenv("output_urn"))
