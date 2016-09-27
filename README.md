@@ -73,7 +73,6 @@ checkPdf(mySource, myDestination, token = Sys.getenv("access_token"))
 ```
 
 # Model Derivative
-
 ## Translate a File into OBJ Format
 To translate a file into OBJ format, first get an access token with the `data:read` and `data:write` scopes.
 
@@ -127,7 +126,7 @@ Encode the urn using the `jsonlite::base64_enc` function.
 myURN <- jsonlite::base64_enc(Sys.getenv("urn"))
 ```
 
-Then, translate the file into the SVF format:
+Then, translate the file into SVF format:
 
 ```
 translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
@@ -139,7 +138,7 @@ To check the status of the translation process:
 checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
 ```
 
-Finally, embed the urn of the file in the viewer, which will be described later on.
+Finally, embed the urn of the file in the viewer, which will be described in a future tutorial.
 
 ## Extract Data from a File
 To extract data from a file, get a token with the `data:read` and `data:write` scopes, encode the urn of the file using the `jsonlite::base64_enc()` function, and translate the file into the SVF format using the `translateSvf` function.  Next, retrieve the metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
