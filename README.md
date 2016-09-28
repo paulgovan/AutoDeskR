@@ -103,7 +103,7 @@ myEncodedUrn <- jsonlite::base64_enc(myUrn)
 Then, translate the file into OBJ format:
 
 ```
-resp <- translateSvf(urn <- myEncodedUrn, token = myToken)
+resp <- translateObj(urn <- myEncodedUrn, token = myToken)
 ```
 
 To check the status of the translation process:
