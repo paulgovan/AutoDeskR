@@ -66,7 +66,7 @@ viewer3D <- function(urn = NULL, token = NULL, viewerType = "header") {
 #' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
 #' ui <- function(request) {
 #'  fluidPage(
-#'    viewerUI("tc", myURN, Sys.getenv("access_token"))
+#'    viewerUI("pg", myURN, Sys.getenv("access_token"))
 #'  )
 #' }
 #' server <- function(input, output, session) {
