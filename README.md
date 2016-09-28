@@ -161,7 +161,7 @@ resp <- checkFile(urn <- myEncodedUrn, token = myToken)
 resp
 ```
 
-Finally, embed the urn of the file in the viewer, which is described in the *Viewer* section.
+Finally, embed the urn of the file in the viewer, which is described in the **Viewer** section.
 
 ## Extract Data from a File
 To extract data from a file, follow the steps in the previous section for getting a token with the `data:read` and `data:write` scopes, encoding the `urn` of the file using the `jsonlite::base64_enc()` function, and translating the file into SVF format using the `translateSvf()` function.  Next, retrieve metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
@@ -186,7 +186,7 @@ resp
 ```
 
 # Viewer
-AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in *Prepare a File for the Viewer* above. Then simply pass the `urn` of the file and the `access_token` to the `viewer3D()` function:
+AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in **Prepare a File for the Viewer** above. Then simply pass the `urn` of the file and the `access_token` to the `viewer3D()` function:
 
 ```
 viewer3D(urn = myEncodedUrn, token = myToken)
