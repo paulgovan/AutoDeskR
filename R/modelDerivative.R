@@ -13,8 +13,8 @@
 #' @examples
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into a svf file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
+#' myEncodedUrn <- jsonlite::base64_enc(myUrn)
+#' resp <- translateSvf(urn = myEncodedUrn, token = myToken)
 #' }
 #' @import httr
 #' @import jsonlite
@@ -76,8 +76,8 @@ translateSvf <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Check the status of the translated "aerial.dwg" svf file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
+#' resp <- checkFile(urn = myEncodedUrn, token = myToken)
+#' resp
 #' }
 #' @import httr
 #' @import jsonlite
@@ -124,8 +124,8 @@ checkFile <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the metadata for the "aerial.dwg" svf file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' getMetadata(urn <- myUrn, token = Sys.getenv("access_token"))
+#' resp <- getMetadata(urn <- myEncodedUrn, token = myToken)
+#' myGuid <- resp$content$data$metadata[[1]]$guid
 #' }
 #' @import httr
 #' @import jsonlite
@@ -172,8 +172,7 @@ getMetadata <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the geometry data for the "aerial.dwg" svf file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' getData(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("access_token"))
+#' resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
 #' }
 #' @import httr
 #' @import jsonlite
@@ -222,8 +221,8 @@ getData <- function(guid = NULL, urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the object tree for the "aerial.dwg" svf file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' getObjectTree(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
+#' resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+#' resp
 #' }
 #' @import httr
 #' @import jsonlite
@@ -270,8 +269,7 @@ getObjectTree <- function(guid = NULL, urn = NULL, token = NULL){
 #' @examples
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into a obj file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' translateObj(urn <- myUrn, token = Sys.getenv("token"))
+#' resp <- translateObj(urn <- myEncodedUrn, token = myToken)
 #' }
 #' @import httr
 #' @import jsonlite
@@ -331,8 +329,8 @@ translateObj <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the output urn for the "aerial.dwg" obj file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+#' resp <- getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+#' resp
 #' }
 #' @import httr
 #' @import jsonlite
@@ -381,9 +379,8 @@ getOutputUrn <- function(urn, token) {
 #' @examples
 #' \dontrun{
 #' # Download the "aerial.dwg" png file
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' myOutputUrn <- jsonlite::base64_enc(Sys.getenv("output_urn"))
-#' downloadFile(urn <- myUrn, output_urn <- myOutputUrn, token = Sys.getenv("token"))
+#' myEncodedOutputUrn <- jsonlite::base64_enc(myOutputUrn)
+#' resp <- downloadFile(urn <- myEncodedUrn, output_urn <- myEncodedOutputUrn, token = myToken)
 #' }
 #' @import httr
 #' @import jsonlite

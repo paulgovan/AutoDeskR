@@ -13,8 +13,8 @@
 #' @examples
 #' \dontrun{
 #' # View the "aerial.dwg" file in the AutoDesk viewer
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-#' viewer3D(urn <- myUrn, token = Sys.getenv("access_token"))
+#' myEncodedUrn <- jsonlite::base64_enc(myUrn)
+#' viewer3D(urn <- myEncodedUrn, token = myToken)
 #' }
 #' @importFrom shiny shinyApp htmlTemplate
 #' @export
@@ -61,17 +61,16 @@ viewer3D <- function(urn = NULL, token = NULL, viewerType = "header") {
 #' \url{https://developer.autodesk.com/en/docs/viewer/v2/overview/}
 #' @examples
 #' \dontrun{
-#' myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
 #' ui <- function(request) {
-#'  fluidPage(
-#'    viewerUI("pg", myURN, Sys.getenv("access_token"))
+#'  shiny::fluidPage(
+#'    viewerUI("pg", myEncodedUrn, myToken)
 #'  )
 #' }
 #' server <- function(input, output, session) {
 #' }
-#' shinyApp(ui, server)
+#' shiny::shinyApp(ui, server)
 #' }
-#' @importFrom shiny htmlTemplate NS
+#' @importFrom shiny htmlTemplate NS fluidPage shinyApp
 #' @export
 viewerUI <- function(id, urn = NULL, token = NULL, viewerType = "header") {
 

@@ -24,8 +24,8 @@ Get the metadata of an uploaded file using the Model Derivative API.
 \examples{
 \dontrun{
 # Get the metadata for the "aerial.dwg" svf file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-getMetadata(urn <- myUrn, token = Sys.getenv("access_token"))
+resp <- getMetadata(urn <- myEncodedUrn, token = myToken)
+myGuid <- resp$content$data$metadata[[1]]$guid
 }
 }
 \seealso{

@@ -21,7 +21,8 @@ Check the status of a recently created app-managed bucket using the Data Managem
 \examples{
 \dontrun{
 # Check the status of a bucket with the name "mybucket"
-checkBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
+resp <- checkBucket(token = myToken, bucket = "mybucket")
+resp
 }
 }
 \seealso{

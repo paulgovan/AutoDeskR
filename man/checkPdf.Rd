@@ -24,7 +24,8 @@ API.
 \dontrun{
 mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
 myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
-checkPdf(mySource, myDestination, token = Sys.getenv("access_token"))
+resp <- checkPdf(mySource, myDestination, token = myToken)
+resp
 }
 }
 \seealso{

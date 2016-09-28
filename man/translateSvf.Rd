@@ -24,8 +24,8 @@ Translate an uploaded file into SVF format using the Model Derivative API.
 \examples{
 \dontrun{
 # Translate the "aerial.dwg" file into a svf file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-translateSvf(urn <- myUrn, token = Sys.getenv("access_token"))
+myEncodedUrn <- jsonlite::base64_enc(myUrn)
+resp <- translateSvf(urn = myEncodedUrn, token = myToken)
 }
 }
 \seealso{

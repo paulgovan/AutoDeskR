@@ -24,8 +24,8 @@ Launch the Viewer.
 \examples{
 \dontrun{
 # View the "aerial.dwg" file in the AutoDesk viewer
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-viewer3D(urn <- myUrn, token = Sys.getenv("access_token"))
+myEncodedUrn <- jsonlite::base64_enc(myUrn)
+viewer3D(urn <- myEncodedUrn, token = myToken)
 }
 }
 \seealso{

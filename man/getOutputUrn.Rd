@@ -24,8 +24,8 @@ Get the output urn of a translated file using the Model Derivative API.
 \examples{
 \dontrun{
 # Get the output urn for the "aerial.dwg" obj file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+resp <- getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+resp
 }
 }
 \seealso{

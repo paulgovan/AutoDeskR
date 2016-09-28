@@ -26,7 +26,7 @@ Make an app-based bucket for storage of design files using the Data Management A
 \examples{
 \dontrun{
 # Make a transient bucket with the name "mybucket"
-makeBucket(token = Sys.getenv("access_token"), bucket = "mybucket", policy = "transient")
+resp <- makeBucket(token = myToken, bucket = "mybucket", policy = "transient")
 }
 }
 \seealso{

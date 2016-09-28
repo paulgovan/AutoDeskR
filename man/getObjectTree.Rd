@@ -26,8 +26,8 @@ Get the object tree of an uploaded file using the Model Derivative API.
 \examples{
 \dontrun{
 # Get the object tree for the "aerial.dwg" svf file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-getObjectTree(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
+resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp
 }
 }
 \seealso{

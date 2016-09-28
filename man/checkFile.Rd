@@ -20,8 +20,8 @@ Check the status of a recently translated file using the Model Derivative API.
 \examples{
 \dontrun{
 # Check the status of the translated "aerial.dwg" svf file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-checkFile(urn <- myUrn, token = Sys.getenv("access_token"))
+resp <- checkFile(urn = myEncodedUrn, token = myToken)
+resp
 }
 }
 \seealso{

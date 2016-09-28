@@ -27,8 +27,9 @@ Upload a design file to an app-managed bucket using the Data Management API.
 \examples{
 \dontrun{
 # Upload the "aerial.dwg" file to "mybucket"
-uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
-   token = Sys.getenv("access_token"), bucket = "mybucket")
+resp <- uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
+           token = myToken, bucket = "mybucket")
+myUrn <- resp$content$objectId
 }
 }
 \seealso{

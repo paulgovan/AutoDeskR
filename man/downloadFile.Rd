@@ -27,9 +27,8 @@ Download a file from the Forge Platform using the Model Derivative API.
 \examples{
 \dontrun{
 # Download the "aerial.dwg" png file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-myOutputUrn <- jsonlite::base64_enc(Sys.getenv("output_urn"))
-downloadFile(urn <- myUrn, output_urn <- myOutputUrn, token = Sys.getenv("token"))
+myEncodedOutputUrn <- jsonlite::base64_enc(myOutputUrn)
+resp <- downloadFile(urn <- myEncodedUrn, output_urn <- myEncodedOutputUrn, token = myToken)
 }
 }
 \seealso{

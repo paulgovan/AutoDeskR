@@ -18,8 +18,9 @@
 #' @examples
 #' \dontrun{
 #' # Get a 2-legged token with the "data:read" and "data:write" scopes
-#' getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
-#'    scope = "data:write data:read")
+#' resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
+#'            scope = "data:write data:read")
+#' myToken <- resp$content$access_token
 #' }
 #' @import httr
 #' @import jsonlite

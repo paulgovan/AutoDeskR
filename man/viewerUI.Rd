@@ -25,15 +25,14 @@ UI Module Function.
 }
 \examples{
 \dontrun{
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
 ui <- function(request) {
- fluidPage(
-   viewerUI("pg", myURN, Sys.getenv("access_token"))
+ shiny::fluidPage(
+   viewerUI("pg", myEncodedUrn, myToken)
  )
 }
 server <- function(input, output, session) {
 }
-shinyApp(ui, server)
+shiny::shinyApp(ui, server)
 }
 }
 \seealso{

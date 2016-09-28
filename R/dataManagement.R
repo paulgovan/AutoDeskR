@@ -13,7 +13,7 @@
 #' @examples
 #' \dontrun{
 #' # Make a transient bucket with the name "mybucket"
-#' makeBucket(token = Sys.getenv("access_token"), bucket = "mybucket", policy = "transient")
+#' resp <- makeBucket(token = myToken, bucket = "mybucket", policy = "transient")
 #' }
 #' @import httr
 #' @import jsonlite
@@ -59,7 +59,8 @@ makeBucket <- function(token = NULL, bucket = "mybucket", policy = "transient") 
 #' @examples
 #' \dontrun{
 #' # Check the status of a bucket with the name "mybucket"
-#' checkBucket(token = Sys.getenv("access_token"), bucket = "mybucket")
+#' resp <- checkBucket(token = myToken, bucket = "mybucket")
+#' resp
 #' }
 #' @import httr
 #' @import jsonlite
@@ -106,8 +107,9 @@ checkBucket <- function(token = NULL, bucket = "mybucket") {
 #' @examples
 #' \dontrun{
 #' # Upload the "aerial.dwg" file to "mybucket"
-#' uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
-#'    token = Sys.getenv("access_token"), bucket = "mybucket")
+#' resp <- uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
+#'            token = myToken, bucket = "mybucket")
+#' myUrn <- resp$content$objectId
 #' }
 #' @import httr
 #' @import jsonlite

@@ -24,8 +24,7 @@ Translate an uploaded file into OBJ format using the Model Derivative API.
 \examples{
 \dontrun{
 # Translate the "aerial.dwg" file into a obj file
-myUrn <- jsonlite::base64_enc(Sys.getenv("urn"))
-translateObj(urn <- myUrn, token = Sys.getenv("token"))
+resp <- translateObj(urn <- myEncodedUrn, token = myToken)
 }
 }
 \seealso{
