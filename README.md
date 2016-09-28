@@ -192,6 +192,8 @@ AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use th
 viewer3D(urn = myEncodedUrn, token = myToken)
 ```
 
+![aerial](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/aerial.png?raw=true)
+
 And voila! We can view 2D and 3D models in R!
 
 The viewer can also be embedded in Shiny applications, interactive R markdown documents, and other web pages thanks to the Shiny Modules framework. Here is a simple example of a Shiny app and the `viewerUI()` function:
