@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- template.html -->
+    <head>
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
+        <meta charset="utf-8">
+
+        <!-- The Viewer CSS -->
+        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css" type="text/css">
+        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/A360.css" type="text/css">
+
+        <!-- Developer CSS -->
+        <style>
+            #MyViewerDiv {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                background-color: #F0F8FF;
+                border: solid 1px #000000;
+            }
+        </style>
+        {{ headContent() }}
+    </head>
+    <body>
+        <div id="MyViewerDiv"></div>
+
+        <!-- The Viewer JS -->
+        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js"></script>
+        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/Autodesk360App.js"></script>
+
+        <!-- Developer JS -->
+        <script>
+            var viewerApp;
+            var options = {
+              env: 'AutodeskProduction',
+              getAccessToken: function(onGetAccessToken) {
+                var accessToken = {{ accessToken }};
+                var expireTimeSeconds = 60 * 30;
+                onGetAccessToken(accessToken, expireTimeSeconds);
+              }
+            }
+            var documentId = {{ documentID }};
+            Autodesk.Viewing.Initializer(options, function onInitialized(){
+                viewerApp = new Autodesk.A360ViewingApplication('MyViewerDiv');
+                viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D                 );
+                viewerApp.loadDocumentWithItemAndObject(documentId);
+            });
+        </script>
+    </body>
+</html>

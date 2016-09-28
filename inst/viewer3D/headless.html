@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<!-- template.html -->
+  <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=no" />
+    <style>
+    .MyNavButton {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    padding: 1em;
+    font-size: 1em;
+    cursor: pointer;
+    }
+    #MyPrevButton {
+    left: 0;
+    }
+    #MyNextButton {
+    right: 0;
+    }
+    #MyViewerDiv {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    background-color: #F0F8FF;
+    border: solid 1px #000000;
+    }
+</style>
+    {{ headContent() }}
+  </head>
+  <body>
+    <div id="MyViewerDiv"></div>
+    <button id="MyPrevButton" class="MyNavButton">Previous</button>
+    <button id="MyNextButton" class="MyNavButton">Next</button>
+
+    <!-- The Viewer JS -->
+    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js"></script>
+    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
+
+    <!-- Developer JS -->
+    <script>
+      var viewerApp;
+      var options = {
+        env: 'AutodeskProduction',
+        accessToken: {{ accessToken }}
+      };
+
+      var documentId = {{ documentID }};
+      Autodesk.Viewing.Initializer(options, onInitialized);
+
+      function onInitialized() {
+        viewerApp = new Autodesk.Viewing.ViewingApplication('MyViewerDiv');
+        viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Viewer3D);
+        viewerApp.loadDocument(documentId, onDocumentLoaded);
+      }
+
+      var currentIndex = 0; // New variable to keep track of loaded viewable.
+
+      function onDocumentLoaded(lmvDoc) {
+        var modelNodes = viewerApp.bubble.search(av.BubbleNode.MODEL_NODE); // 3D designs
+        var sheetNodes = viewerApp.bubble.search(av.BubbleNode.SHEET_NODE); // 2D designs
+        var allNodes = modelNodes.concat(sheetNodes);
+        if (allNodes.length) {
+          viewerApp.selectItem(allNodes[0].data);
+        }
+
+        createCustomUI(allNodes); // Create UI for Prev and Next buttons
+        }
+
+        function createCustomUI(allNodes) {
+          // Previous button
+          var prevBtn = document.getElementById('MyPrevButton');
+          prevBtn.addEventListener('click', function(){
+            currentIndex = currentIndex === 0 ? (allNodes.length -1) : (currentIndex - 1);
+            loadModelCurrentIndex(allNodes);
+          });
+
+          // Next button
+          var nextBtn = document.getElementById('MyNextButton');
+          nextBtn.addEventListener('click', function(){
+            currentIndex = (currentIndex + 1) % allNodes.length;
+            loadModelCurrentIndex(allNodes);
+          });
+        }
+
+        function loadModelCurrentIndex(allNodes) {
+          viewerApp.selectItem(allNodes[currentIndex].data);
+        }
+      </script>
+
+  </body>
+</html>
