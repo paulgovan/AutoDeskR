@@ -103,24 +103,24 @@ myEncodedUrn <- jsonlite::base64_enc(myUrn)
 Then, translate the file into OBJ format:
 
 ```
-resp <- translateObj(urn <- myEncodedUrn, token = myToken)
+resp <- translateObj(urn = myEncodedUrn, token = myToken)
 ```
 
 To check the status of the translation process:
 
 ```
-resp <- checkFile(urn <- myEncodedUrn, token = myToken)
+resp <- checkFile(urn = myEncodedUrn, token = myToken)
 resp
 ```
 
-To download an OBJ file locally, we need the "output_urn" of the translated file, which is different than the "urn" of the source file. In this case, use the `getOutputUrn()` function, which returns an object containing the `result`, output `urn` and other activity information.
+To download an OBJ file locally, we need the output `urn` of the translated file, which is different than the `urn` of the source file. In this case, use the `getOutputUrn()` function, which returns an object containing the `result`, output `urn` and other activity information.
 
 ```
-resp <- getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+resp <- getOutputUrn(urn = myUrn, token = Sys.getenv("token"))
 resp
 ```
 
-Depending on the type of file and translation process, the response may contain multiple output `urn`s for different file types (e.g. obj, svf, png). In order to find the correct OBJ file, look through the `resp` object for a `urn` than ends in ".obj" and assign this `urn` to `myOutputUrn`, similar to the following:
+Depending on the type of file and translation process, the response may contain multiple output `urn`s for different file types (e.g. obj, svf, png). In order to find the correct OBJ file, look through the `resp` object for a `urn` than ends in ".obj" and assign this `urn` to `myOutputUrn`, which should look similar to the following:
 
 ```
 myOutputUrn < "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWxkZXJpdmF0aXZlL0E1LmlhbQ/output/geometry/bc3339b2-73cd-4fba-9cb3-15363703a354.obj"
@@ -129,8 +129,8 @@ myOutputUrn < "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9k
 Finally, to download the OBJ file locally:
 
 ```
-myEncodedOutputUrn <- jsonlite::base64_enc(myOutputUrn)
-resp <- downloadFile(urn <- myEncodedUrn, output_urn <- myEncodedOutputUrn, token = myToken)
+myEncodedOutputUrn = jsonlite::base64_enc(myOutputUrn)
+resp <- downloadFile(urn = myEncodedUrn, output_urn <- myEncodedOutputUrn, token = myToken)
 ```
 
 ## Prepare a File for the Viewer
@@ -151,13 +151,13 @@ myEncodedUrn <- jsonlite::base64_enc(myUrn)
 Then, translate the file into SVF format:
 
 ```
-resp <- translateSvf(urn <- myEncodedUrn, token = myToken)
+resp <- translateSvf(urn = myEncodedUrn, token = myToken)
 ```
 
 To check the status of the translation process:
 
 ```
-resp <- checkFile(urn <- myEncodedUrn, token = myToken)
+resp <- checkFile(urn = myEncodedUrn, token = myToken)
 resp
 ```
 
@@ -167,21 +167,21 @@ Finally, embed the urn of the file in the viewer, which is described in the **Vi
 To extract data from a file, follow the steps in the previous section for getting a token with the `data:read` and `data:write` scopes, encoding the `urn` of the file using the `jsonlite::base64_enc()` function, and translating the file into SVF format using the `translateSvf()` function.  Next, retrieve metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
 
 ```
-resp <- getMetadata(urn <- myEncodedUrn, token = myToken)
+resp <- getMetadata(urn = myEncodedUrn, token = myToken)
 myGuid <- resp$content$data$metadata[[1]]$guid
 ```
 
 Then extract data from the model with the `getData()` function.
 
 ```
-resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getData(guid = myGuid, urn = myEncodedUrn, token = myToken)
 ```
 
 ## Extract Geometry from a File
 To get the object tree of a file, follow the steps in the previous section for extracting data from a file, and note the `guid` and `urn`. Then use the `getObjectTree()` function.
 
 ```
-resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getObjectTree(guid = myGuid, urn = myEncodedUrn, token = myToken)
 resp
 ```
 
