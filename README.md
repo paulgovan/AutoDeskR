@@ -158,27 +158,32 @@ resp <- checkFile(urn <- myEncodedUrn, token = myToken)
 resp
 ```
 
-Finally, embed the urn of the file in the viewer, which is described in the #Viewer# section.
+Finally, embed the urn of the file in the viewer, which is described in the *Viewer* section.
 
 ## Extract Data from a File
 To extract data from a file, follow the steps in the previous section for getting a token with the `data:read` and `data:write` scopes, encoding the `urn` of the file using the `jsonlite::base64_enc()` function, and translating the file into SVF format using the `translateSvf()` function.  Next, retrieve metadata for a file using the `getMetadata()` function, which returns an object with the `type`, `name`, and `guid` of the file. Note the `guid` and store it in `.Renviron`.
 
 ```
 resp <- getMetadata(urn <- myEncodedUrn, token = myToken)
+myGuid <- resp$content$data$metadata[[1]]$guid
 ```
 
 Then extract data from the model with the `getData()` function.
 
 ```
-getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
 ```
 
 ## Extract Geometry from a File
-To get the object tree of a file, follow the previous instructions for extracting data from a file, and note the "guid", "urn", and "access_token". Then use the `getObjectTree()` function.
+To get the object tree of a file, follow the steps in the previous section for extracting data from a file, and note the `guid` and `urn`. Then use the `getObjectTree()` function.
 
 ```
-getObjectTree(guid <- Sys.getenv("guid"), urn <- myUrn, token = Sys.getenv("token"))
+resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp
 ```
+
+# Acknowledgements
+Many thanks to the developers at AutoDesk for providing this great set of tools, and for the support needed to learn and implement these APIs.
 
 # Issues
 This project is in its *very* early stages. Please let us know if there are any issues using the GitHub issue tracker at [https://github.com/paulgovan/AutoDeskR/issues](https://github.com/paulgovan/AutoDeskR/issues)
