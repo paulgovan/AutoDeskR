@@ -6,6 +6,7 @@ AutoDeskR is an R package that provides an interface to the:
 * Data Management API for managing data across the platform's cloud services. 
 * Design Automation API for performing automated tasks on model files in the cloud.
 * Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting model data.
+* Viewer for rendering 2D and 3D models.
 
 For more information about the AutoDesk Forge Platform, please visit [https://developer.autodesk.com](https://developer.autodesk.com)
 
@@ -182,6 +183,28 @@ To get the object tree of a file, follow the steps in the previous section for e
 ```
 resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
 resp
+```
+
+# Viewer
+AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in *Prepare a File for the Viewer* above. Then simply pass the `urn` of the file and the `access_token` to the `viewer3D()` function:
+
+```
+viewer3D(urn = myEncodedUrn, token = myToken)
+```
+
+And voila! We can view 2D and 3D models in R!
+
+The viewer can also be embedded in Shiny applications, interactive R markdown documents, and other web pages thanks to the Shiny Modules framework. Here is a simple example of a Shiny app and the `viewerUI()` function:
+
+```
+ui <- function(request) {
+ shiny::fluidPage(
+   viewerUI("pg", myEncodedUrn, myToken)
+ )
+}
+server <- function(input, output, session) {
+}
+shiny::shinyApp(ui, server)
 ```
 
 # Acknowledgements
