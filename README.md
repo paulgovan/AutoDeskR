@@ -68,16 +68,16 @@ The Design Automation API provides the ability to run automated scripts on desig
 ```
 mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
 myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
-resp <- makePdf(mySource, myDestination, token = myToken)
+resp <- makePdf(source = mySource, destination = myDestination, token = myToken)
 ```
 
-Note that in this example, the "access_token" must be generated with the `code:all` scope.
+Note that in this example, the `token` must be generated with the `code:all` scope.
 
 
 To check the status of the conversion process:
 
 ```
-resp <- checkPdf(mySource, myDestination, token = myToken)
+resp <- checkPdf(source = mySource, destination = myDestination, token = myToken)
 resp
 ```
 
@@ -85,7 +85,7 @@ resp
 The Model Derivative API enables users to translate their designs into different formats and extract valuable data.
 
 ## Translate a File into OBJ Format
-To translate a file into OBJ format, first get an access token with the `data:read` and `data:write` scopes.
+Certain types of files can be translated into OBJ format. To see which types of files can be translated into what format, see the [Supported Translation Formats Table](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/). To translate a supported file into OBJ format, first get an access token with the `data:read` and `data:write` scopes.
 
 ```
 resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
