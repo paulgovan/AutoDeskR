@@ -85,7 +85,7 @@ resp
 The Model Derivative API enables users to translate their designs into different formats and extract valuable data.
 
 ## Translate a File into OBJ Format
-Certain types of files can be translated into OBJ format. To see which types of files can be translated into what format, see the [Supported Translation Formats Table](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/). To translate a supported file into OBJ format, first get an access token with the `data:read` and `data:write` scopes.
+Certain types of files can be translated into OBJ format. To find out which types of files can be translated into what format, see the [Supported Translation Formats Table](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/). To translate a supported file into OBJ format, first get an access token with the `data:read` and `data:write` scopes.
 
 ```
 resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
