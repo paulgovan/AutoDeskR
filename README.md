@@ -186,7 +186,7 @@ resp
 ```
 
 # Viewer
-AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in **Prepare a File for the Viewer** above. Then simply pass the `urn` of the file and the `access_token` to the `viewer3D()` function:
+AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in **Prepare a File for the Viewer** above. Then simply pass the `urn` of the file and the `token` to the `viewer3D()` function:
 
 ```
 viewer3D(urn = myEncodedUrn, token = myToken)
