@@ -171,19 +171,20 @@ resp <- getMetadata(urn = myEncodedUrn, token = myToken)
 myGuid <- resp$content$data$metadata[[1]]$guid
 ```
 
-Then extract data from the model with the `getData()` function.
+To get the object tree of a model, use the `getObjectTree()` function.
+
+```
+resp <- getObjectTree(guid = myGuid, urn = myEncodedUrn, token = myToken)
+resp
+```
+
+To extract data from the model, use the `getData()` function.
 
 ```
 resp <- getData(guid = myGuid, urn = myEncodedUrn, token = myToken)
 ```
 
 ## Extract Geometry from a File
-To get the object tree of a file, follow the steps in the previous section for extracting data from a file, and note the `guid` and `urn`. Then use the `getObjectTree()` function.
-
-```
-resp <- getObjectTree(guid = myGuid, urn = myEncodedUrn, token = myToken)
-resp
-```
 
 # Viewer
 AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in **Prepare a File for the Viewer** above. Then simply pass the `urn` of the file and the `token` to the `viewer3D()` function:
