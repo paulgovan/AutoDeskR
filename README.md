@@ -184,8 +184,6 @@ To extract data from the model, use the `getData()` function.
 resp <- getData(guid = myGuid, urn = myEncodedUrn, token = myToken)
 ```
 
-## Extract Geometry from a File
-
 # Viewer
 AutoDesk provides a WebGL-based viewer for rendering 2D and 3D models. To use the viewer, make sure to first follow the instructions in **Prepare a File for the Viewer** above. Then simply pass the `urn` of the file and the `token` to the `viewer3D()` function:
 
