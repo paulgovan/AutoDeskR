@@ -1,11 +1,11 @@
 Package: AutoDeskR
 Type: Package
-Title: An Interface To The 'AutoDesk' API
-Description: An interface to the AutoDesk APIs including the Authentication API for
-    obtaining authentication to the AutoDesk Forge Platfrom, Data Management API
-    for managing data across the platform's cloud services, Design Automation API
+Title: An Interface to the 'AutoDesk' 'API'
+Description: An interface to the 'AutoDesk' 'APIs' including the Authentication 'API' for
+    obtaining authentication to the 'AutoDesk' Forge Platform, Data Management 'API'
+    for managing data across the platform's cloud services, Design Automation 'API'
     for performing automated tasks on design files in the cloud, Model
-    Derivative API for translating design files into different formats, sending
+    Derivative 'API' for translating design files into different formats, sending
     them to the viewer app, and extracting design data, and Viewer for rendering
     2D and 3D models.
 Version: 0.1.0
