@@ -41,7 +41,6 @@ Then use the `makeBucket()` function to create a bucket, where `bucket` is a nam
 
 ```
 resp <- makeBucket(token = myToken, bucket = "mybucket")
-resp
 ```
 
 To check the status of a bucket:
@@ -91,7 +90,7 @@ resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secre
 myToken <- resp$content$access_token
 ```
 
-The AutoDesk platform requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding the urn. 
+The platform requires that the urn of the file be Base-64 encoded. Fortunately, the `jsonlite` package has a nifty function for encoding the urn. 
 
 ```
 # Here myUrn was generated from the 'uploadFile()' function
