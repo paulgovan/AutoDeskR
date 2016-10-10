@@ -35,7 +35,8 @@ getToken <- function(id = NULL, secret = NULL, scope = "data:write data:read") {
              client_secret = secret,
              grant_type = "client_credentials",
              scope = scope)
-  resp <- POST(url, body = dat, encode = "form")
+  resp <- POST(url, user_agent("https://github.com/paulgovan/AutoDeskR"),
+               body = dat, encode = "form")
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)

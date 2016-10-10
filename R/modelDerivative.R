@@ -42,7 +42,8 @@ translateSvf <- function(urn = NULL, token = NULL) {
       )
     )
   )
-  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)), body = dat, encode = "json")
+  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)),
+               body = dat, encode = "json")
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
@@ -293,7 +294,8 @@ translateObj <- function(urn = NULL, token = NULL) {
       )
     )
   )
-  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)), body = dat, encode = "json")
+  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)),
+               body = dat, encode = "json")
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
@@ -393,10 +395,6 @@ downloadFile <- function(urn = NULL, output_urn = NULL, token = NULL) {
   url <- paste0('https://developer.api.autodesk.com/modelderivative/v2/designdata/', urn, '/manifest/', output_urn)
 
   resp <- GET(url, add_headers(Authorization = paste0("Bearer ", token)))
-
-  # if (http_type(resp) != "application/json") {
-  #   stop("AutoDesk API did not return json", call. = FALSE)
-  # }
 
   warn_for_status(resp)
 

@@ -50,7 +50,8 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
     ActivityId = "PlotToPDF",
     Id = ""
   )
-  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)), body = dat, encode = "json")
+  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)),
+               body = dat, encode = "json")
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
@@ -126,7 +127,8 @@ checkPdf <- function(source = NULL, destination = NULL, token = NULL) {
     Id = ""
   )
 
-  resp <- GET(url, add_headers(Authorization = paste0("Bearer ", token)), body = dat, encode = "json")
+  resp <- GET(url, add_headers(Authorization = paste0("Bearer ", token)),
+              body = dat, encode = "json")
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
   }

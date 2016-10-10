@@ -22,12 +22,14 @@ makeBucket <- function(token = NULL, bucket = "mybucket", policy = "transient") 
   if (is.null(token)) stop("token is null")
   if (is.null(bucket)) stop("bucket is null")
   if (is.null(policy)) stop("policy is null")
-  if (policy != "transient" || "temporary" || "persistent")
-    stop("Please select a bucket policy of 'transient', 'temporary', or 'persistent'")
+  # if (policy != "transient" | policy != "temporary" | policy != "persistent")
+  #   stop("Please select a bucket policy of 'transient', 'temporary', or 'persistent'")
 
   url <- 'https://developer.api.autodesk.com/oss/v2/buckets'
   dat <- list(bucketKey = bucket, policyKey = policy)
-  resp <- POST(url, add_headers(Authorization = paste0("Bearer ", token)), body = dat, encode = "json")
+  resp <- POST(url, user_agent("https://github.com/paulgovan/AutoDeskR"),
+               add_headers(Authorization = paste0("Bearer ", token)),
+               body = dat, encode = "json")
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
@@ -70,7 +72,8 @@ checkBucket <- function(token = NULL, bucket = "mybucket") {
   if (is.null(bucket)) stop("bucket is null")
 
   url <- paste0('https://developer.api.autodesk.com/oss/v2/buckets/', bucket, '/details')
-  resp <- GET(url, add_headers(Authorization = paste0("Bearer ", token)))
+  resp <- GET(url, user_agent("https://github.com/paulgovan/AutoDeskR"),
+              add_headers(Authorization = paste0("Bearer ", token)))
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
@@ -120,7 +123,9 @@ uploadFile <- function(file = NULL, token = NULL, bucket = "mybucket") {
   if (is.null(bucket)) stop("bucket is null")
 
   url <- paste0("https://developer.api.autodesk.com/oss/v2/buckets/", bucket, "/objects/", basename(file))
-  resp <- PUT(url, add_headers(Authorization = paste0("Bearer ", token)), body = upload_file(file))
+  resp <- PUT(url, user_agent("https://github.com/paulgovan/AutoDeskR"),
+              add_headers(Authorization = paste0("Bearer ", token)),
+              body = upload_file(file))
 
   if (http_type(resp) != "application/json") {
     stop("AutoDesk API did not return json", call. = FALSE)
