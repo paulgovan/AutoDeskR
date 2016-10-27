@@ -23,3 +23,6 @@ Imports:
     jsonlite,
     shiny
 RoxygenNote: 5.0.1
+Suggests: knitr,
+    rmarkdown
+VignetteBuilder: knitr
