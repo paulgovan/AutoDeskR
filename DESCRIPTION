@@ -7,7 +7,7 @@ Description: An interface to the 'AutoDesk' 'APIs' including the Authentication 
     for performing automated tasks on design files in the cloud, Model
     Derivative 'API' for translating design files into different formats, sending
     them to the viewer app, and extracting design data, and Viewer for rendering
-    2D and 3D models.
+    2D and 3D models (see <https://developer.autodesk.com> for more information).
 Version: 0.1.1
 URL: https://github.com/paulgovan/autodeskr
 BugReports: https://github.com/paulgovan/autodeskr/issues
