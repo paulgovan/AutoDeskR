@@ -18,6 +18,12 @@ AutoDeskR is an R package that provides an interface to the: Authentication API 
 To install AutoDeskR in [R](https://www.r-project.org):
 
 ```c
+install.packages("AutoDeskR")
+```
+
+Or to install the development version:
+
+```c
 devtools::install_github('paulgovan/autodeskr')
 ```
 
