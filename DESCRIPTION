@@ -18,7 +18,6 @@ Depends:
 License: Apache License | file LICENSE
 LazyData: TRUE
 Imports:
-    htmlwidgets,
     httr,
     jsonlite,
     shiny
