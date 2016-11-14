@@ -1,6 +1,6 @@
 ![AutoDeskR](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 
-# The AutoDeskR Package
+# Introduction
 AutoDeskR is an R package that provides an interface to the:
 * Authentication API for obtaining authentication to the AutoDesk Forge Platfrom.
 * Data Management API for managing data across the platform's cloud services. 
