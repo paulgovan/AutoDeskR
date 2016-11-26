@@ -36,8 +36,11 @@ myToken <- resp$content$access_token
 ```
 
 # Data Management
+
+The Data Management API provides users a way to store and access data across the Forge Platform.
+
 ## Create a Bucket and Upload a File
-The Data Management API provides a way to store and access data on the platform. Model files are hosted in the cloud and organized into buckets. To create a bucket, first get a token with the `bucket:create`, `bucket:read`, and `data:write` scopes. 
+To create a bucket, first get a token with the `bucket:create`, `bucket:read`, and `data:write` scopes. 
 
 ```
 resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
@@ -67,8 +70,11 @@ myUrn <- resp$content$objectId
 ```
 
 # Design Automation
+
+The Design Automation API provides users the ability to perform automated tasks on design files in the cloud.
+
 ##  Convert a DWG File to a PDF File
-The Design Automation API provides the ability to run automated scripts on design files. For example, to convert a DWG file to a PDF file, use the `makePdf` function, where `source` and `destination` are the publicly accessible source of the DWG file and destination for the PDF file, respectively. 
+To convert a DWG file to a PDF file, use the `makePdf` function, where `source` and `destination` are the publicly accessible source of the DWG file and destination for the PDF file, respectively. 
 
 ```
 mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
