@@ -134,7 +134,7 @@ resp
 Depending on the type of file and translation process, the response may contain multiple output `urn`s for different file types (e.g. obj, svf, png). In order to find the correct OBJ file, look through the `resp` object for a `urn` than ends in ".obj" and assign this `urn` to `myOutputUrn`, which should look similar to the following:
 
 ```
-myOutputUrn < "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWxkZXJpdmF0aXZlL0E1LmlhbQ/output/geometry/bc3339b2-73cd-4fba-9cb3-15363703a354.obj"
+myOutputUrn <- "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWxkZXJpdmF0aXZlL0E1LmlhbQ/output/geometry/bc3339b2-73cd-4fba-9cb3-15363703a354.obj"
 ```
 
 Finally, to download the OBJ file locally:
