@@ -70,7 +70,7 @@ resp
 Finally, to upload a file to the bucket, use the `uploadFile()` function, which returns an object containing the `bucketKey`, `objectId` (i.e. urn), `objectKey` (i.e. file name), `size`, `contentType` (i.e. "application/octet-stream"), `location` and other content information. Note the unique urn of the file and store it in `.Renviron` for future use. 
 
 ```c
-resp <- uploadFile(file = system.file("inst/samples/aerial.dwg", package = "AutoDeskR"),
+resp <- uploadFile(file = system.file("samples/aerial.dwg", package = "AutoDeskR"),
             token = myToken, bucket = "mybucket")
 myUrn <- resp$content$objectId
 ```
