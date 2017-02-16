@@ -12,7 +12,7 @@
 
 <meta name="author" content="Paul Govan" />
 
-<meta name="date" content="2016-11-13" />
+<meta name="date" content="2017-02-15" />
 
 <title>AutoDeskR: An R Interface to the AutoDesk APIs</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">AutoDeskR: An R Interface to the AutoDesk APIs</h1>
 <h4 class="author"><em>Paul Govan</em></h4>
-<h4 class="date"><em>2016-11-13</em></h4>
+<h4 class="date"><em>2017-02-15</em></h4>
 
 
 
@@ -96,9 +96,10 @@ myToken &lt;- resp$content$access_token</code></pre></div>
 </div>
 <div id="data-management" class="section level1">
 <h1>Data Management</h1>
+<p>The Data Management API provides users a way to store and access data across the Forge Platform.</p>
 <div id="create-a-bucket-and-upload-a-file" class="section level2">
 <h2>Create a Bucket and Upload a File</h2>
-<p>The Data Management API provides a way to store and access data on the platform. Model files are hosted in the cloud and organized into buckets. To create a bucket, first get a token with the <code>bucket:create</code>, <code>bucket:read</code>, and <code>data:write</code> scopes.</p>
+<p>To create a bucket, first get a token with the <code>bucket:create</code>, <code>bucket:read</code>, and <code>data:write</code> scopes.</p>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">resp &lt;- getToken(id = Sys.getenv(<span class="st">&quot;client_id&quot;</span>), secret = Sys.getenv(<span class="st">&quot;client_secret&quot;</span>), 
             scope = <span class="st">&quot;bucket:create bucket:read data:write&quot;</span>)
 myToken &lt;- resp$content$access_token</code></pre></div>
@@ -115,9 +116,10 @@ myUrn &lt;- resp$content$objectId</code></pre></div>
 </div>
 <div id="design-automation" class="section level1">
 <h1>Design Automation</h1>
+<p>The Design Automation API provides users the ability to perform automated tasks on design files in the cloud.</p>
 <div id="convert-a-dwg-file-to-a-pdf-file" class="section level2">
 <h2>Convert a DWG File to a PDF File</h2>
-<p>The Design Automation API provides the ability to run automated scripts on design files. For example, to convert a DWG file to a PDF file, use the <code>makePdf</code> function, where <code>source</code> and <code>destination</code> are the publicly accessible source of the DWG file and destination for the PDF file, respectively.</p>
+<p>To convert a DWG file to a PDF file, use the <code>makePdf</code> function, where <code>source</code> and <code>destination</code> are the publicly accessible source of the DWG file and destination for the PDF file, respectively.</p>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">mySource &lt;- <span class="st">&quot;http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg&quot;</span>
 myDestination &lt;- <span class="st">&quot;https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&amp;usp=sharing&quot;</span>
 resp &lt;- makePdf(source = mySource, destination = myDestination, token = myToken)</code></pre></div>

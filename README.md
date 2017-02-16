@@ -8,8 +8,6 @@ AutoDeskR is an R package that provides an interface to the:
 * Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting model data.
 * Viewer for rendering 2D and 3D models.
 
-I am writing a short [GitBook](https://www.gitbook.com) that provides an introduction to `AutoDeskR`. Check it out at [paulgovan.gitbooks.io/autodeskr/](https://paulgovan.gitbooks.io/autodeskr/).
-
 # Quick Start
 To install AutoDeskR in [R](https://www.r-project.org):
 
