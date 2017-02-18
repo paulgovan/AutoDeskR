@@ -11,7 +11,7 @@ Description: An interface to the 'AutoDesk' 'API' Platform including the Authent
 Version: 0.1.2
 URL: 
     https://github.com/paulgovan/autodeskr
-    https://paulgovan.gitbooks.io/autodeskr/
+    https://paulgovan.gitbooks.io/autodeskr/content/
 BugReports: https://github.com/paulgovan/autodeskr/issues
 Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com",
     role = c("aut", "cre"))
