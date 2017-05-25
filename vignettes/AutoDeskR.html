@@ -12,7 +12,7 @@
 
 <meta name="author" content="Paul Govan" />
 
-<meta name="date" content="2017-02-15" />
+<meta name="date" content="2017-04-02" />
 
 <title>AutoDeskR: An R Interface to the AutoDesk APIs</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">AutoDeskR: An R Interface to the AutoDesk APIs</h1>
 <h4 class="author"><em>Paul Govan</em></h4>
-<h4 class="date"><em>2017-02-15</em></h4>
+<h4 class="date"><em>2017-04-02</em></h4>
 
 
 
@@ -109,7 +109,7 @@ myToken &lt;- resp$content$access_token</code></pre></div>
 <div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">resp &lt;- checkBucket(token = myToken, bucket = <span class="st">&quot;mybucket&quot;</span>)
 resp</code></pre></div>
 <p>Finally, to upload a file to the bucket, use the <code>uploadFile()</code> function, which returns an object containing the <code>bucketKey</code>, <code>objectId</code> (i.e. urn), <code>objectKey</code> (i.e. file name), <code>size</code>, <code>contentType</code> (i.e. “application/octet-stream”), <code>location</code> and other content information. Note the unique urn of the file and store it in <code>.Renviron</code> for future use.</p>
-<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">resp &lt;- uploadFile(file = system.file(<span class="st">&quot;inst/samples/aerial.dwg&quot;</span>, package = <span class="st">&quot;AutoDeskR&quot;</span>),
+<div class="sourceCode"><pre class="sourceCode c"><code class="sourceCode c">resp &lt;- uploadFile(file = system.file(<span class="st">&quot;samples/aerial.dwg&quot;</span>, package = <span class="st">&quot;AutoDeskR&quot;</span>),
             token = myToken, bucket = <span class="st">&quot;mybucket&quot;</span>)
 myUrn &lt;- resp$content$objectId</code></pre></div>
 </div>

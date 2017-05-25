@@ -15,8 +15,8 @@ Base64 encoded. To encode the URN, see, for example, the
 with \code{data:read} scope.}
 
 \item{viewerType}{A string. The type of viewer to instantiate. Either
-"header" for the default viewer or "headless" for a viewer without toolbar
-or panels.}
+"header" for the default viewer, "headless" for a viewer without toolbar
+or panels, or "vr" to enter WebVR mode on a mobile device.}
 }
 \description{
 Launch the Viewer.

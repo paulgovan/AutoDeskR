@@ -6,8 +6,8 @@
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{data:read} scope.
 #' @param viewerType A string. The type of viewer to instantiate. Either
-#'   "header" for the default viewer or "headless" for a viewer without toolbar
-#'   or panels.
+#'   "header" for the default viewer, "headless" for a viewer without toolbar
+#'   or panels, or "vr" to enter WebVR mode on a mobile device.
 #' @seealso
 #' \url{https://developer.autodesk.com/en/docs/viewer/v2/overview/}
 #' @examples
@@ -31,6 +31,8 @@ viewer3D <- function(urn = NULL, token = NULL, viewerType = "header") {
   # Choose an html template
   if (viewerType == "header") {
     template <- "template.html"
+  } else if (viewerType == "vr"){
+    template <- "vr.html"
   } else {
     template <- "headless.html"
   }
@@ -86,6 +88,8 @@ viewerUI <- function(id, urn = NULL, token = NULL, viewerType = "header") {
   # Choose an html template
   if (viewerType == "header") {
     template <- "template.html"
+  } else if (viewerType == "vr"){
+    template <- "vr.html"
   } else {
     template <- "headless.html"
   }
