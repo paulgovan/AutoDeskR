@@ -1,5 +1,4 @@
-# AutoDeskR 0.1.2
+# AutoDeskR 0.1.3
 
-## Minor Changes
-* Corrected typos in README and vignette
-* Updated documentation
+## Major Changes
+* WebVR support
