@@ -1,11 +1,2 @@
 language: r
-
 cache: packages
-
-install:
-  - Rscript -e 'install.packages(c("devtools","roxygen2"))'
-
-notifications:
-  email:
-    on_success: change
-    on_failure: change
