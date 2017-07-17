@@ -1,6 +1,6 @@
-[![DOI](https://zenodo.org/badge/53454606.svg)](https://zenodo.org/badge/latestdoi/53454606)
-
 ![AutoDeskR](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
+
+[![DOI](https://zenodo.org/badge/53454606.svg)](https://zenodo.org/badge/latestdoi/53454606)
 
 # Introduction
 AutoDeskR is an R package that provides an interface to the:
