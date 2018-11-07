@@ -28,4 +28,3 @@ resp
 \seealso{
 \url{https://developer.autodesk.com/en/docs/data/v2/overview/}
 }
-

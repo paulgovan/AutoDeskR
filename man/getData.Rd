@@ -32,4 +32,3 @@ resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
 \seealso{
 \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 }
-

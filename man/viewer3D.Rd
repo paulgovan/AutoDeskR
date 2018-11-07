@@ -31,4 +31,3 @@ viewer3D(urn <- myEncodedUrn, token = myToken)
 \seealso{
 \url{https://developer.autodesk.com/en/docs/viewer/v2/overview/}
 }
-

@@ -39,4 +39,3 @@ myToken <- resp$content$access_token
 \seealso{
 \url{https://developer.autodesk.com/en/docs/oauth/v2/overview/}
 }
-

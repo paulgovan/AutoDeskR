@@ -38,4 +38,3 @@ shiny::shinyApp(ui, server)
 \seealso{
 \url{https://developer.autodesk.com/en/docs/viewer/v2/overview/}
 }
-
