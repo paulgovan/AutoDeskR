@@ -226,12 +226,9 @@ shiny::shinyApp(ui, server)
 
 # Common Issues
 P: Some of the functions seem to work, others don't.
-
 S: Make sure to sign up for the correct APIs and services through [AutoDesk Forge](https://forge.autodesk.com/). 
 
-
 P: I can't create bucket "mybucket".
-
 S: Try a unique bucket name.
 
 # Acknowledgements
