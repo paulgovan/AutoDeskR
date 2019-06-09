@@ -231,6 +231,9 @@ S: Make sure to sign up for the correct APIs and services through [AutoDesk Forg
 P: I can't create bucket "mybucket".
 S: Try a unique bucket name.
 
+P: I was able to create a bucket and upload a file, but I can't translate the file. 
+S: Each task requires different scopes. Make sure to have the "data:read data:write" scopes in order to translate a file. 
+
 # Acknowledgements
 Many thanks to the developers at [AutoDesk](https://github.com/Developer-Autodesk) for providing this great set of tools and for the support needed to learn and implement these APIs.
 
