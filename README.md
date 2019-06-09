@@ -224,11 +224,12 @@ server <- function(input, output, session) {
 shiny::shinyApp(ui, server)
 ```
 
+# FAQs
+Q: Why do some of the functions seem to work while others don't?
+A: Make sure to sign up for the correct APIs and services through [AutoDesk Forge](https://forge.autodesk.com/). 
+
 # Acknowledgements
 Many thanks to the developers at [AutoDesk](https://github.com/Developer-Autodesk) for providing this great set of tools and for the support needed to learn and implement these APIs.
-
-# Issues
-This project is in its *very* early stages. Please let us know if there are any issues using the GitHub issue tracker at [https://github.com/paulgovan/AutoDeskR/issues](https://github.com/paulgovan/AutoDeskR/issues)
 
 # Contributions
 Contributions are welcome by sending a [pull request](https://github.com/paulgovan/AutoDeskR/pulls)
