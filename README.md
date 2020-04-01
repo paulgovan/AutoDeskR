@@ -42,7 +42,7 @@ myToken <- resp$content$access_token
 
 # Data Management
 
-The Data Management API provides users a way to store and access data across the Forge Platform.
+The Data Management API provides developers a way to store and access data across the Forge Platform.
 
 ## Create a Bucket and Upload a File
 To create a bucket, first get a token with the `bucket:create`, `bucket:read`, and `data:write` scopes. 
@@ -53,7 +53,7 @@ resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secre
 myToken <- resp$content$access_token
 ```
 
-Then use the `makeBucket()` function to create a bucket, where `bucket` is a name for the bucket. 
+Then use the `makeBucket()` function to create a bucket, where `bucket` is a unique name for the bucket. 
 
 ```
 resp <- makeBucket(token = myToken, bucket = "mybucket")
@@ -76,7 +76,7 @@ myUrn <- resp$content$objectId
 
 # Design Automation
 
-The Design Automation API provides users the ability to perform automated tasks on design files in the cloud.
+The Design Automation API provides developers the ability to perform automated tasks on design files in the cloud.
 
 ##  Convert a DWG File to a PDF File
 To convert a DWG file to a PDF file, use the `makePdf` function, where `source` and `destination` are the publicly accessible source of the DWG file and destination for the PDF file, respectively. 
@@ -98,7 +98,7 @@ resp
 ```
 
 # Model Derivative
-The Model Derivative API enables users to translate their designs into different formats and extract valuable data.
+The Model Derivative API enables developers to translate their designs into different formats and extract valuable data.
 
 ## Translate a File into OBJ Format
 To translate a supported file into OBJ format, first get an access token with the `data:read` and `data:write` scopes. Note that only certain types of files can be translated into OBJ format. To find out which types of files can be translated into what format, see the [Supported Translation Formats Table](https://developer.autodesk.com/en/docs/model-derivative/v2/overview/supported-translations/).
