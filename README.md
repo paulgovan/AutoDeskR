@@ -3,7 +3,7 @@
 
 ![](http://www.r-pkg.org/badges/version/AutoDeskR)
 ![](http://cranlogs.r-pkg.org/badges/grand-total/AutoDeskR)
-![](https://travis-ci.org/paulgovan/AutoDeskR.svg?branch=master)
+![](http://cranlogs.r-pkg.org/badges/AutoDeskR)
 [![DOI](https://zenodo.org/badge/53454606.svg)](https://zenodo.org/badge/latestdoi/53454606)
 
 # Introduction
