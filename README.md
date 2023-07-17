@@ -27,5 +27,9 @@ Or to install the development version:
 devtools::install_github('paulgovan/autodeskr')
 ```
 
+## Code of Conduct
+
+Please note that the AutoDeskR project is released with a [Contributor Code of Conduct](http://paulgovan.github.io/AutoDeskR/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+
 # Acknowledgements
 Many thanks to the developers at [AutoDesk](https://github.com/Developer-Autodesk) for providing this great set of tools and for the support needed to learn and implement these APIs.

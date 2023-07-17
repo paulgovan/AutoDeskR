@@ -1,0 +1,27 @@
+citHeader("To cite AutoDeskR in publications use:")
+
+citEntry(
+  entry    = "Book",
+  title    = "AutoDeskR: An R Interface to the AutoDesk API Platform",
+  author   = "Paul Govan",
+  year     = "2018",
+  publisher = "GitBook",
+  edition  = "1",
+  url      = "https://paulgovan.gitbook.io/autodeskr",
+  doi      = "10.5281/zenodo.1137877",
+  textVersion = paste(
+
+  )
+)
+
+citEntry(
+  entry    = "Manual",
+  title    = "AutoDeskR: An R Interface to the AutoDesk API Platform",
+  author   = "Paul Govan",
+  year     = "2017",
+  url      = "https://CRAN.R-project.org/package=AutoDeskR",
+  doi      = "10.5281/zenodo.822815",
+  textVersion = paste(
+
+  )
+)
