@@ -12,7 +12,7 @@ Version: 0.1.4
 URL: https://github.com/paulgovan/autodeskr,
     http://paulgovan.github.io/AutoDeskR/
 BugReports: https://github.com/paulgovan/autodeskr/issues
-Authors@R: person("Paul", "Govan", email = "pgovan1@aggienetwork.com",
+Authors@R: person("Paul", "Govan", email = "paul.govan2@gmail.com",
     role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-1821-8492"))
 Depends:
     R (>= 2.10.0)
