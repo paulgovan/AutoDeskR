@@ -1,7 +1,10 @@
-![](http://www.r-pkg.org/badges/version/AutoDeskR)
-![](http://cranlogs.r-pkg.org/badges/grand-total/AutoDeskR)
-![](http://cranlogs.r-pkg.org/badges/AutoDeskR)
-[![DOI](https://zenodo.org/badge/53454606.svg)](https://zenodo.org/badge/latestdoi/53454606)
+<!-- badges: start -->
+[![CRAN status](https://www.r-pkg.org/badges/version/AutoDeskR)](https://CRAN.R-project.org/package=AutoDeskR)
+[![CRAN checks](https://badges.cranchecks.info/summary/AutoDeskR.svg)](https://cran.r-project.org/web/checks/check_results_AutoDeskR.html)
+[![](http://cranlogs.r-pkg.org/badges/last-month/AutoDeskR)](https://cran.r-project.org/package=AutoDeskR)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/AutoDeskR)](https://cran.r-project.org/package=AutoDeskR)
+[![](https://img.shields.io/badge/doi-10.32614/CRAN.package.AutoDeskR-green.svg)](https://doi.org/10.32614/CRAN.package.AutoDeskR)
+<!-- badges: end -->
 
 ![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 
