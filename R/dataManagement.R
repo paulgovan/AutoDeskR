@@ -9,7 +9,6 @@
 #'   \code{persistent}.
 #' @return An object containing the \code{bucketKey}, \code{bucketOwner}, and
 #'   \code{createdDate}.
-#' @seealso \url{https://developer.autodesk.com/en/docs/data/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Make a transient bucket with the name "mybucket"
@@ -57,7 +56,6 @@ makeBucket <- function(token = NULL, bucket = "mybucket", policy = "transient") 
 #' @param bucket A string. Name of the bucket. Defaults to \code{mybucket}.
 #' @return An object containing the \code{bucketKey}, \code{bucketOwner}, and
 #'   \code{createdDate}.
-#' @seealso \url{https://developer.autodesk.com/en/docs/data/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Check the status of a bucket with the name "mybucket"
@@ -106,7 +104,6 @@ checkBucket <- function(token = NULL, bucket = "mybucket") {
 #'   urn), \code{objectKey} (i.e. file name), \code{size}, \code{contentType}
 #'   (i.e. "application/octet-stream"), \code{location}. and other content
 #'   information.
-#' @seealso \url{https://developer.autodesk.com/en/docs/data/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Upload the "aerial.dwg" file to "mybucket"

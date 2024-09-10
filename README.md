@@ -8,7 +8,7 @@
 
 ![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 
-# Introduction
+## Introduction
 AutoDeskR is an R package that provides an interface to the:
 
 * Authentication API for obtaining authentication to the AutoDesk Forge Platfrom.
@@ -17,7 +17,7 @@ AutoDeskR is an R package that provides an interface to the:
 * Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting model data.
 * Viewer for rendering 2D and 3D models.
 
-# Quick Start
+## Quick Start
 To install AutoDeskR in [R](https://www.r-project.org):
 
 ```
@@ -31,8 +31,7 @@ devtools::install_github('paulgovan/autodeskr')
 ```
 
 ## Code of Conduct
-
 Please note that the AutoDeskR project is released with a [Contributor Code of Conduct](http://paulgovan.github.io/AutoDeskR/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
 
-# Acknowledgements
-Many thanks to the developers at [AutoDesk](https://github.com/Developer-Autodesk) for providing this great set of tools and for the support needed to learn and implement these APIs.
+## Acknowledgements
+Many thanks to the developers at [https://aps.autodesk.com](https://aps.autodesk.com) for providing this great set of tools and for the support needed to learn and implement these APIs.

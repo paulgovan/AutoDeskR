@@ -26,6 +26,3 @@ myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLT
 resp <- makePdf(mySource, myDestination, token = myToken)
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/design-automation/v2/overview/}
-}

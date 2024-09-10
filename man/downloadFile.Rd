@@ -31,6 +31,3 @@ myEncodedOutputUrn <- jsonlite::base64_enc(myOutputUrn)
 resp <- downloadFile(urn <- myEncodedUrn, output_urn <- myEncodedOutputUrn, token = myToken)
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
-}

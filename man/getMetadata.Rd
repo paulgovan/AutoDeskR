@@ -28,6 +28,3 @@ resp <- getMetadata(urn <- myEncodedUrn, token = myToken)
 myGuid <- resp$content$data$metadata[[1]]$guid
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
-}

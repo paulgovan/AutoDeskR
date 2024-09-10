@@ -14,7 +14,6 @@
 #'   combination of these.
 #' @return An object containing the \code{access_token}, \code{code_type}, and
 #'   \code{expires_in} milliseconds.
-#' @seealso \url{https://developer.autodesk.com/en/docs/oauth/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Get a 2-legged token with the "data:read" and "data:write" scopes

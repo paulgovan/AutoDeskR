@@ -30,6 +30,3 @@ resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
 resp
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
-}

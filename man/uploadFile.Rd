@@ -32,6 +32,3 @@ resp <- uploadFile(file = system.file("inst/samples/aerial.dwg", package = "Auto
 myUrn <- resp$content$objectId
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/data/v2/overview/}
-}

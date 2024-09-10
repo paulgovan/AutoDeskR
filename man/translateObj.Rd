@@ -27,6 +27,3 @@ Translate an uploaded file into OBJ format using the Model Derivative API.
 resp <- translateObj(urn <- myEncodedUrn, token = myToken)
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
-}

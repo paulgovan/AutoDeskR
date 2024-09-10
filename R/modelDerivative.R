@@ -8,8 +8,6 @@
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the \code{result}, \code{urn}, and additional
 #'   activity information.
-#' @seealso
-#'   \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into a svf file
@@ -72,8 +70,6 @@ translateSvf <- function(urn = NULL, token = NULL) {
 #'   \code{jsonlite::base64_enc} function.
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{data:read} and \code{data:write} scopes.
-#' @seealso
-#'   \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Check the status of the translated "aerial.dwg" svf file
@@ -120,8 +116,6 @@ checkFile <- function(urn = NULL, token = NULL) {
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the \code{type}, \code{name}, and \code{guid} of
 #'   the file.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Get the metadata for the "aerial.dwg" svf file
@@ -168,8 +162,6 @@ getMetadata <- function(urn = NULL, token = NULL) {
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the geometry data for the selected file.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Get the geometry data for the "aerial.dwg" svf file
@@ -217,8 +209,6 @@ getData <- function(guid = NULL, urn = NULL, token = NULL) {
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the object tree for the selected file. the file.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Get the object tree for the "aerial.dwg" svf file
@@ -265,8 +255,6 @@ getObjectTree <- function(guid = NULL, urn = NULL, token = NULL){
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the \code{result}, \code{urn}, and additional
 #'   activity information.
-#' @seealso
-#'   \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into a obj file
@@ -326,8 +314,6 @@ translateObj <- function(urn = NULL, token = NULL) {
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the \code{result}, \code{urn}, and additional
 #'   activity information.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Get the output urn for the "aerial.dwg" obj file
@@ -376,8 +362,6 @@ getOutputUrn <- function(urn, token) {
 #'   with \code{data:read} and \code{data:write} scopes.
 #' @return An object containing the \code{result}, \code{urn}, and additional
 #'   activity information.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/model-derivative/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # Download the "aerial.dwg" png file

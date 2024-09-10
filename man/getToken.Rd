@@ -36,6 +36,3 @@ resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secre
 myToken <- resp$content$access_token
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/oauth/v2/overview/}
-}

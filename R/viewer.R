@@ -8,8 +8,6 @@
 #' @param viewerType A string. The type of viewer to instantiate. Either
 #'   "header" for the default viewer, "headless" for a viewer without toolbar
 #'   or panels, or "vr" to enter WebVR mode on a mobile device.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/viewer/v2/overview/}
 #' @examples
 #' \dontrun{
 #' # View the "aerial.dwg" file in the AutoDesk viewer
@@ -59,8 +57,6 @@ viewer3D <- function(urn = NULL, token = NULL, viewerType = "header") {
 #' @param viewerType A string. The type of viewer to instantiate. Either
 #'   "header" for the default viewer or "headless" for a viewer without toolbar
 #'   or panels.
-#' @seealso
-#' \url{https://developer.autodesk.com/en/docs/viewer/v2/overview/}
 #' @examples
 #' \dontrun{
 #' ui <- function(request) {

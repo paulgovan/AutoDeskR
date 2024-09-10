@@ -28,6 +28,3 @@ resp <- checkPdf(mySource, myDestination, token = myToken)
 resp
 }
 }
-\seealso{
-\url{https://developer.autodesk.com/en/docs/design-automation/v2/overview/}
-}

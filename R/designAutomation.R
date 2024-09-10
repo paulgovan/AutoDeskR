@@ -7,8 +7,6 @@
 #'   pdf file.
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{code:all} scope.
-#' @seealso
-#'   \url{https://developer.autodesk.com/en/docs/design-automation/v2/overview/}
 #' @examples
 #' \dontrun{
 #' mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
@@ -82,8 +80,6 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
 #'   pdf file.
 #' @param token A string. Token generated with \code{\link{getToken}} function
 #'   with \code{code:all} scope.
-#' @seealso
-#'   \url{https://developer.autodesk.com/en/docs/design-automation/v2/overview/}
 #' @examples
 #' \dontrun{
 #' mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
