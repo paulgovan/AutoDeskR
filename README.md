@@ -1,7 +1,8 @@
-[![Lifecycle:
-deprecated](https://img.shields.io/badge/lifecycle-deprecated-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#deprecated)
+
 
 <!-- badges: start -->
+[![Lifecycle:
+deprecated](https://img.shields.io/badge/lifecycle-deprecated-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#deprecated)
 [![CRAN status](https://www.r-pkg.org/badges/version/AutoDeskR)](https://CRAN.R-project.org/package=AutoDeskR)
 [![CRAN checks](https://badges.cranchecks.info/summary/AutoDeskR.svg)](https://cran.r-project.org/web/checks/check_results_AutoDeskR.html)
 [![](http://cranlogs.r-pkg.org/badges/last-month/AutoDeskR)](https://cran.r-project.org/package=AutoDeskR)
