@@ -9,3 +9,5 @@
 ^\.github$
 ^CODE_OF_CONDUCT\.md$
 ^CRAN-SUBMISSION$
+^codemeta\.json$
+^README\.Rmd$
