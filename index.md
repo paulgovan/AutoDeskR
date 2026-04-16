@@ -1,3 +1,5 @@
+# AutoDeskR
+
 ![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 
 ## Introduction
@@ -18,11 +20,15 @@ AutoDeskR is an R package that provides an interface to the:
 
 To install AutoDeskR in [R](https://www.r-project.org):
 
-    install.packages("AutoDeskR")
+``` R
+install.packages("AutoDeskR")
+```
 
 Or to install the development version:
 
-    devtools::install_github('paulgovan/autodeskr')
+``` R
+devtools::install_github('paulgovan/autodeskr')
+```
 
 ## Code of Conduct
 

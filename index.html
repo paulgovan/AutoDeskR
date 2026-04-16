@@ -13,6 +13,7 @@
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="An Interface to the AutoDesk API Platform">
 <meta name="description" content="An interface to the AutoDesk API Platform including the Authentication API for obtaining authentication to the AutoDesk Forge Platform, Data Management API for managing data across the platforms cloud services, Design Automation API for performing automated tasks on design files in the cloud, Model Derivative API' for translating design files into different formats, sending them to the viewer app, and extracting design data, and Viewer for rendering 2D and 3D models.">
 <meta property="og:description" content="An interface to the AutoDesk API Platform including the Authentication API for obtaining authentication to the AutoDesk Forge Platform, Data Management API for managing data across the platforms cloud services, Design Automation API for performing automated tasks on design files in the cloud, Model Derivative API' for translating design files into different formats, sending them to the viewer app, and extracting design data, and Viewer for rendering 2D and 3D models.">
+<meta property="og:image" content="http://paulgovan.github.io/AutoDeskR/logo.png">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -57,7 +58,15 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header">
+<img src="logo.png" class="logo" alt=""><h1 id="autodeskr-">AutoDeskR 
+<a class="anchor" aria-label="anchor" href="#autodeskr-"></a>
+</h1>
+</div>
+<!-- badges: start -->
+
+<!-- badges: end -->
 <p><img src="https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true"></p>
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
@@ -75,9 +84,9 @@
 <h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <p>To install AutoDeskR in <a href="https://www.r-project.org" class="external-link">R</a>:</p>
-<pre><code><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"AutoDeskR"</span><span class="op">)</span></span></code></pre>
+<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"AutoDeskR"</span>)</span></code></pre></div>
 <p>Or to install the development version:</p>
-<pre><code><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">'paulgovan/autodeskr'</span><span class="op">)</span></span></code></pre>
+<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'paulgovan/autodeskr'</span>)</span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
@@ -87,9 +96,9 @@
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
 </h2>
-<p>Many thanks to the developers at <a href="https://aps.autodesk.com" class="external-link">https://aps.autodesk.com</a> for providing this great set of tools and for the support needed to learn and implement these APIs.</p>
+<p>Many thanks to the developers at <a href="https://aps.autodesk.com" class="external-link uri">https://aps.autodesk.com</a> for providing this great set of tools and for the support needed to learn and implement these APIs.</p>
 </div>
-
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
