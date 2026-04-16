@@ -40,6 +40,8 @@
   : Translate a File into SVF Format.
 - [`uploadFile()`](http://paulgovan.github.io/AutoDeskR/reference/uploadFile.md)
   : Upload a File to an App-Managed Bucket.
+- [`uploadFileSigned()`](http://paulgovan.github.io/AutoDeskR/reference/uploadFileSigned.md)
+  : Upload a File Using Signed S3 URLs.
 - [`viewer3D()`](http://paulgovan.github.io/AutoDeskR/reference/viewer3D.md)
   : Launch the Viewer.
 - [`viewerUI()`](http://paulgovan.github.io/AutoDeskR/reference/viewerUI.md)

@@ -34,6 +34,6 @@ information.
 ``` r
 if (FALSE) { # \dontrun{
 # Translate the "aerial.dwg" file into an obj file
-resp <- translateObj(urn <- myEncodedUrn, token = myToken)
+resp <- translateObj(urn = myEncodedUrn, token = myToken)
 } # }
 ```

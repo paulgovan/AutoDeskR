@@ -33,7 +33,7 @@ information.
 ``` r
 if (FALSE) { # \dontrun{
 # Get the output urn for the "aerial.dwg" obj file
-resp <- getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+resp <- getOutputUrn(urn = myUrn, token = Sys.getenv("token"))
 resp
 } # }
 ```

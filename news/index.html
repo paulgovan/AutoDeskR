@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,6 +41,31 @@
       <small>Source: <a href="https://github.com/paulgovan/AutoDeskR/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.3.0" id="autodeskr-030">AutoDeskR 0.3.0<a class="anchor" aria-label="anchor" href="#autodeskr-030"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-0-3-0">Bug Fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-0-3-0"></a></h3>
+<ul><li>Fixed <code>&lt;-</code> arrow-assignment bugs in <code><a href="../reference/getData.html">getData()</a></code>, <code><a href="../reference/getObjectTree.html">getObjectTree()</a></code>, <code><a href="../reference/translateObj.html">translateObj()</a></code>, <code><a href="../reference/translateStl.html">translateStl()</a></code>, and <code><a href="../reference/getOutputUrn.html">getOutputUrn()</a></code> roxygen examples.</li>
+<li>Fixed unreachable <code>vr</code> template branch in <code><a href="../reference/viewerUI.html">viewerUI()</a></code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="major-changes-0-3-0">Major Changes<a class="anchor" aria-label="anchor" href="#major-changes-0-3-0"></a></h3>
+<ul><li>Updated viewer CDN URLs from deprecated <code>viewingservice/v1/viewers/</code> to <code>modelderivative/v2/viewers/7.*</code>. Templates also modernized to use <code>Autodesk.Viewing.GuiViewer3D</code> and <code>Document.load()</code> (v7 API).</li>
+<li>Added <code>req_timeout(60)</code> to all API requests.</li>
+<li>Updated all remaining “AutoDesk Forge” terminology to “AutoDesk Platform Services (APS)” across README, vignettes, and HTML templates.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="new-functions-0-3-0">New Functions<a class="anchor" aria-label="anchor" href="#new-functions-0-3-0"></a></h3>
+<ul><li>
+<code><a href="../reference/uploadFileSigned.html">uploadFileSigned()</a></code> — signed S3 URL upload supporting files of any size.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="infrastructure-0-3-0">Infrastructure<a class="anchor" aria-label="anchor" href="#infrastructure-0-3-0"></a></h3>
+<ul><li>Added <code>Config/testthat/edition: 3</code> for testthat 3rd-edition behavior.</li>
+<li>Added <code><a href="https://rdrr.io/r/base/print.html" class="external-link">print()</a></code> S3 methods for all 18 response classes.</li>
+<li>Expanded test coverage: NULL-token guards for all functions, DELETE mock fixtures, <code>downloadFile</code> JSON response path.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="autodeskr-020">AutoDeskR 0.2.0<a class="anchor" aria-label="anchor" href="#autodeskr-020"></a></h2>
 <div class="section level3">

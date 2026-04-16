@@ -34,6 +34,6 @@ information.
 ``` r
 if (FALSE) { # \dontrun{
 # Translate the "aerial.dwg" file into an stl file
-resp <- translateStl(urn <- myEncodedUrn, token = myToken)
+resp <- translateStl(urn = myEncodedUrn, token = myToken)
 } # }
 ```

@@ -38,7 +38,7 @@ An object containing the object tree for the selected file.
 ``` r
 if (FALSE) { # \dontrun{
 # Get the object tree for the "aerial.dwg" svf file
-resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getObjectTree(guid = myGuid, urn = myEncodedUrn, token = myToken)
 resp
 } # }
 ```

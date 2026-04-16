@@ -7,7 +7,7 @@ Here is a running list of common issues that users have run into:
 Problem: Some of the functions seem to work, others don’t.
 
 Solution: Make sure to sign up for the correct APIs and services through
-AutoDesk Forge.
+AutoDesk Platform Services (APS) at <https://aps.autodesk.com>.
 
 Problem: I can’t create bucket “mybucket”.
 

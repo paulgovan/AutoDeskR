@@ -38,6 +38,6 @@ An object containing the geometry data for the selected file.
 ``` r
 if (FALSE) { # \dontrun{
 # Get the geometry data for the "aerial.dwg" svf file
-resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getData(guid = myGuid, urn = myEncodedUrn, token = myToken)
 } # }
 ```
