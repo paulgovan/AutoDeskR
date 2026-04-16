@@ -36,6 +36,7 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_body_json(dat) |>
     req_perform()
@@ -88,6 +89,7 @@ checkPdf <- function(id = NULL, token = NULL, source = NULL, destination = NULL)
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 

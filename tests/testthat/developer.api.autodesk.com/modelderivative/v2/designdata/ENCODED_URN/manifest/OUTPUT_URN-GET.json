@@ -1,0 +1,7 @@
+{
+  "type": "resource",
+  "urn": "OUTPUT_URN",
+  "role": "obj",
+  "mime": "application/octet-stream",
+  "status": "success"
+}

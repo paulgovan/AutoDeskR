@@ -26,6 +26,7 @@ makeBucket <- function(token = NULL, bucket = "mybucket", policy = "transient") 
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_body_json(list(bucketKey = bucket, policyKey = policy)) |>
     req_perform()
@@ -66,6 +67,7 @@ checkBucket <- function(token = NULL, bucket = "mybucket") {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 
@@ -109,6 +111,7 @@ listBuckets <- function(token = NULL, limit = 10, startAt = NULL, region = "US")
 
   req <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_url_query(limit = limit, region = region)
 
@@ -153,6 +156,7 @@ deleteBucket <- function(token = NULL, bucket = "mybucket") {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_method("DELETE") |>
     req_perform()
@@ -200,6 +204,7 @@ uploadFile <- function(file = NULL, token = NULL, bucket = "mybucket") {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_method("PUT") |>
     req_body_raw(file_raw, type = "application/octet-stream") |>
@@ -243,6 +248,7 @@ listObjects <- function(token = NULL, bucket = "mybucket", limit = 10) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_url_query(limit = limit) |>
     req_perform()
@@ -284,6 +290,7 @@ deleteObject <- function(token = NULL, bucket = "mybucket", object = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_method("DELETE") |>
     req_perform()
@@ -295,5 +302,75 @@ deleteObject <- function(token = NULL, bucket = "mybucket", object = NULL) {
       response = resp
     ),
     class = "deleteObject"
+  )
+}
+
+#' Upload a File Using Signed S3 URLs.
+#'
+#' Upload a design file of any size to an app-managed bucket using the signed
+#' S3 URL approach recommended by AutoDesk Platform Services (APS). Unlike
+#' \code{\link{uploadFile}}, this function supports files larger than 100 MB.
+#' @param file A string. File path.
+#' @param token A string. Token generated with \code{\link{getToken}} function
+#'   with \code{data:write} scope.
+#' @param bucket A string. Unique bucket name. Defaults to \code{mybucket}.
+#' @return An object containing the finalized upload response with
+#'   \code{bucketKey}, \code{objectId}, \code{objectKey}, \code{size}, and
+#'   \code{location}.
+#' @examples
+#' \dontrun{
+#' # Upload a large file using signed S3 URLs
+#' resp <- uploadFileSigned(
+#'   file   = "path/to/large_model.rvt",
+#'   token  = myToken,
+#'   bucket = "mybucket"
+#' )
+#' myUrn <- resp$content$objectId
+#' }
+#' @import httr2
+#' @import jsonlite
+#' @export
+uploadFileSigned <- function(file = NULL, token = NULL, bucket = "mybucket") {
+  if (is.null(file)) stop("file is null")
+  if (is.null(token)) stop("token is null")
+  if (is.null(bucket)) stop("bucket is null")
+
+  object_key <- basename(file)
+  base_url   <- paste0("https://developer.api.autodesk.com/oss/v2/buckets/", bucket, "/objects/", object_key)
+
+  # Step 1: obtain signed S3 upload URL
+  init_resp <- request(paste0(base_url, "/signeds3upload")) |>
+    req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
+    req_headers(Authorization = paste0("Bearer ", token)) |>
+    req_perform()
+  init_parsed <- resp_body_json(init_resp, simplifyVector = FALSE)
+  upload_url  <- init_parsed$urls[[1]]
+  upload_key  <- init_parsed$uploadKey
+
+  # Step 2: PUT directly to S3 (no APS auth header required)
+  file_raw <- readBin(file, "raw", n = file.info(file)$size)
+  request(upload_url) |>
+    req_timeout(300) |>
+    req_method("PUT") |>
+    req_body_raw(file_raw, type = "application/octet-stream") |>
+    req_perform()
+
+  # Step 3: finalize the upload with APS
+  final_resp <- request(paste0(base_url, "/signeds3upload")) |>
+    req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
+    req_headers(Authorization = paste0("Bearer ", token)) |>
+    req_body_json(list(uploadKey = upload_key)) |>
+    req_perform()
+  final_parsed <- resp_body_json(final_resp, simplifyVector = FALSE)
+
+  structure(
+    list(
+      content  = final_parsed,
+      path     = base_url,
+      response = final_resp
+    ),
+    class = "uploadFileSigned"
   )
 }

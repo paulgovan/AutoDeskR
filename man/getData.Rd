@@ -26,6 +26,6 @@ Get the geometry of an uploaded file using the Model Derivative API.
 \examples{
 \dontrun{
 # Get the geometry data for the "aerial.dwg" svf file
-resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getData(guid = myGuid, urn = myEncodedUrn, token = myToken)
 }
 }

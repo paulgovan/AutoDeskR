@@ -26,7 +26,7 @@ Get the object tree of an uploaded file using the Model Derivative API.
 \examples{
 \dontrun{
 # Get the object tree for the "aerial.dwg" svf file
-resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+resp <- getObjectTree(guid = myGuid, urn = myEncodedUrn, token = myToken)
 resp
 }
 }

@@ -27,6 +27,10 @@ test_that("translateObj stops when urn is NULL", {
   expect_error(translateObj(urn = NULL, token = "t"), "urn is null")
 })
 
+test_that("translateObj stops when token is NULL", {
+  expect_error(translateObj(urn = "u", token = NULL), "token is null")
+})
+
 test_that("translateObj returns correct structure", {
   with_mock_api({
     resp <- translateObj(urn = "ENCODED_URN", token = "test_token")
@@ -59,6 +63,10 @@ test_that("checkFile stops when urn is NULL", {
   expect_error(checkFile(urn = NULL, token = "t"), "urn is null")
 })
 
+test_that("checkFile stops when token is NULL", {
+  expect_error(checkFile(urn = "u", token = NULL), "token is null")
+})
+
 test_that("checkFile returns correct structure", {
   with_mock_api({
     resp <- checkFile(urn = "ENCODED_URN", token = "test_token")
@@ -71,6 +79,10 @@ test_that("checkFile returns correct structure", {
 
 test_that("getMetadata stops when urn is NULL", {
   expect_error(getMetadata(urn = NULL, token = "t"), "urn is null")
+})
+
+test_that("getMetadata stops when token is NULL", {
+  expect_error(getMetadata(urn = "u", token = NULL), "token is null")
 })
 
 test_that("getMetadata returns correct structure", {
@@ -101,8 +113,16 @@ test_that("getData stops when guid is NULL", {
   expect_error(getData(guid = NULL, urn = "u", token = "t"), "guid is null")
 })
 
+test_that("getData stops when token is NULL", {
+  expect_error(getData(guid = "g", urn = "u", token = NULL), "token is null")
+})
+
 test_that("getObjectTree stops when urn is NULL", {
   expect_error(getObjectTree(guid = "g", urn = NULL, token = "t"), "urn is null")
+})
+
+test_that("getObjectTree stops when guid is NULL", {
+  expect_error(getObjectTree(guid = NULL, urn = "u", token = "t"), "guid is null")
 })
 
 # downloadFile --------------------------------------------------------------
@@ -117,4 +137,12 @@ test_that("downloadFile stops when output_urn is NULL", {
 
 test_that("downloadFile stops when token is NULL", {
   expect_error(downloadFile(urn = "u", output_urn = "o", token = NULL), "token is null")
+})
+
+test_that("downloadFile returns parsed JSON when response is JSON", {
+  with_mock_api({
+    resp <- downloadFile(urn = "ENCODED_URN", output_urn = "OUTPUT_URN", token = "test_token")
+    expect_s3_class(resp, "downloadFile")
+    expect_named(resp, c("content", "path", "response"))
+  })
 })

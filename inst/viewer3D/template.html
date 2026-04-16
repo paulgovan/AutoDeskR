@@ -5,8 +5,7 @@
         <meta charset="utf-8">
 
         <!-- The Viewer CSS -->
-        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css" type="text/css">
-        <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/A360.css" type="text/css">
+        <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
 
         <!-- Developer CSS -->
         <style>
@@ -24,27 +23,36 @@
         <div id="MyViewerDiv"></div>
 
         <!-- The Viewer JS -->
-        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.min.js"></script>
-        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.min.js"></script>
-        <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/Autodesk360App.js"></script>
+        <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
 
         <!-- Developer JS -->
         <script>
-            var viewerApp;
+            var viewer;
             var options = {
               env: 'AutodeskProduction',
+              api: 'derivativeV2',
               getAccessToken: function(onGetAccessToken) {
                 var accessToken = {{ accessToken }};
                 var expireTimeSeconds = 60 * 30;
                 onGetAccessToken(accessToken, expireTimeSeconds);
               }
-            }
+            };
             var documentId = {{ documentID }};
-            Autodesk.Viewing.Initializer(options, function onInitialized(){
-                viewerApp = new Autodesk.A360ViewingApplication('MyViewerDiv');
-                viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D                 );
-                viewerApp.loadDocumentWithItemAndObject(documentId);
+            Autodesk.Viewing.Initializer(options, function onInitialized() {
+                var container = document.getElementById('MyViewerDiv');
+                viewer = new Autodesk.Viewing.GuiViewer3D(container);
+                viewer.start();
+                Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
             });
+
+            function onDocumentLoadSuccess(doc) {
+                var viewables = doc.getRoot().getDefaultGeometry();
+                viewer.loadDocumentNode(doc, viewables);
+            }
+
+            function onDocumentLoadFailure(viewerErrorCode) {
+                console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
+            }
         </script>
     </body>
 </html>

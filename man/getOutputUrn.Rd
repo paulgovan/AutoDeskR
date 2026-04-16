@@ -24,7 +24,7 @@ Get the output urn of a translated file using the Model Derivative API.
 \examples{
 \dontrun{
 # Get the output urn for the "aerial.dwg" obj file
-resp <- getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+resp <- getOutputUrn(urn = myUrn, token = Sys.getenv("token"))
 resp
 }
 }

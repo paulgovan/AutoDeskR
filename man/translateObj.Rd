@@ -24,6 +24,6 @@ Translate an uploaded file into OBJ format using the Model Derivative API.
 \examples{
 \dontrun{
 # Translate the "aerial.dwg" file into an obj file
-resp <- translateObj(urn <- myEncodedUrn, token = myToken)
+resp <- translateObj(urn = myEncodedUrn, token = myToken)
 }
 }

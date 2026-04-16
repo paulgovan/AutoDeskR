@@ -33,6 +33,7 @@ getToken <- function(id = NULL, secret = NULL, scope = "data:write data:read") {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_body_form(
       client_id     = id,
       client_secret = secret,

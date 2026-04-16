@@ -1,3 +1,27 @@
+# AutoDeskR 0.3.0
+
+## Bug Fixes
+* Fixed `<-` arrow-assignment bugs in `getData()`, `getObjectTree()`,
+  `translateObj()`, `translateStl()`, and `getOutputUrn()` roxygen examples.
+* Fixed unreachable `vr` template branch in `viewerUI()`.
+
+## Major Changes
+* Updated viewer CDN URLs from deprecated `viewingservice/v1/viewers/` to
+  `modelderivative/v2/viewers/7.*`. Templates also modernized to use
+  `Autodesk.Viewing.GuiViewer3D` and `Document.load()` (v7 API).
+* Added `req_timeout(60)` to all API requests.
+* Updated all remaining "AutoDesk Forge" terminology to "AutoDesk Platform
+  Services (APS)" across README, vignettes, and HTML templates.
+
+## New Functions
+* `uploadFileSigned()` — signed S3 URL upload supporting files of any size.
+
+## Infrastructure
+* Added `Config/testthat/edition: 3` for testthat 3rd-edition behavior.
+* Added `print()` S3 methods for all 18 response classes.
+* Expanded test coverage: NULL-token guards for all functions, DELETE mock
+  fixtures, `downloadFile` JSON response path.
+
 # AutoDeskR 0.2.0
 
 ## Breaking Changes

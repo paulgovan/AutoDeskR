@@ -33,6 +33,7 @@ translateSvf <- function(urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_body_json(dat) |>
     req_perform()
@@ -74,6 +75,7 @@ checkFile <- function(urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 
@@ -116,6 +118,7 @@ getMetadata <- function(urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 
@@ -145,7 +148,7 @@ getMetadata <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the geometry data for the "aerial.dwg" svf file
-#' resp <- getData(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+#' resp <- getData(guid = myGuid, urn = myEncodedUrn, token = myToken)
 #' }
 #' @import httr2
 #' @import jsonlite
@@ -159,6 +162,7 @@ getData <- function(guid = NULL, urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 
@@ -188,7 +192,7 @@ getData <- function(guid = NULL, urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the object tree for the "aerial.dwg" svf file
-#' resp <- getObjectTree(guid <- myGuid, urn <- myEncodedUrn, token = myToken)
+#' resp <- getObjectTree(guid = myGuid, urn = myEncodedUrn, token = myToken)
 #' resp
 #' }
 #' @import httr2
@@ -203,6 +207,7 @@ getObjectTree <- function(guid = NULL, urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 
@@ -231,7 +236,7 @@ getObjectTree <- function(guid = NULL, urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into an obj file
-#' resp <- translateObj(urn <- myEncodedUrn, token = myToken)
+#' resp <- translateObj(urn = myEncodedUrn, token = myToken)
 #' }
 #' @import httr2
 #' @import jsonlite
@@ -248,6 +253,7 @@ translateObj <- function(urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_body_json(dat) |>
     req_perform()
@@ -277,7 +283,7 @@ translateObj <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Translate the "aerial.dwg" file into an stl file
-#' resp <- translateStl(urn <- myEncodedUrn, token = myToken)
+#' resp <- translateStl(urn = myEncodedUrn, token = myToken)
 #' }
 #' @import httr2
 #' @import jsonlite
@@ -294,6 +300,7 @@ translateStl <- function(urn = NULL, token = NULL) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_body_json(dat) |>
     req_perform()
@@ -323,7 +330,7 @@ translateStl <- function(urn = NULL, token = NULL) {
 #' @examples
 #' \dontrun{
 #' # Get the output urn for the "aerial.dwg" obj file
-#' resp <- getOutputUrn(urn <- myUrn, token = Sys.getenv("token"))
+#' resp <- getOutputUrn(urn = myUrn, token = Sys.getenv("token"))
 #' resp
 #' }
 #' @import httr2
@@ -337,6 +344,7 @@ getOutputUrn <- function(urn, token) {
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 
@@ -385,6 +393,7 @@ downloadFile <- function(urn = NULL, output_urn = NULL, token = NULL, destfile =
 
   resp <- request(url) |>
     req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
+    req_timeout(60) |>
     req_headers(Authorization = paste0("Bearer ", token)) |>
     req_perform()
 

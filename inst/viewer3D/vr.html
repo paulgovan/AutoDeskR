@@ -5,7 +5,7 @@
     <meta charset="utf-8">
 
     <!-- The Viewer CSS -->
-    <link rel="stylesheet" href="https://developer.api.autodesk.com/viewingservice/v1/viewers/style.min.css?v=2.13" type="text/css">
+    <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/style.min.css" type="text/css">
 
     <!-- Developer CSS -->
     <style>
@@ -27,67 +27,42 @@
     <div id="MyViewerDiv"></div>
 
     <!-- The Viewer JS -->
-    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/three.js?v=2.13"></script>
-    <script src="https://developer.api.autodesk.com/viewingservice/v1/viewers/viewer3D.js?v=2.13"></script>
+    <script src="https://developer.api.autodesk.com/modelderivative/v2/viewers/7.*/viewer3D.min.js"></script>
 
     <!-- Developer JS -->
     <script>
-        var viewerApp;
+        var viewer;
         var options = {
             env: 'AutodeskProduction',
+            api: 'derivativeV2',
             getAccessToken: function(onGetAccessToken) {
                 //
                 // TODO: Replace static access token string below with call to fetch new token from your backend
-                // Both values are provided by Forge's Authentication (OAuth) API.
-                //
-                // Example Forge's Authentication (OAuth) API return value:
-                // {
-                //    "access_token": "<YOUR_APPLICATION_TOKEN>",
-                //    "token_type": "Bearer",
-                //    "expires_in": 86400
-                // }
+                // Both values are provided by the APS Authentication (OAuth) API.
                 //
                 var accessToken = {{ accessToken }};
                 var expireTimeSeconds = 60 * 30;
                 onGetAccessToken(accessToken, expireTimeSeconds);
             }
-
         };
         var documentId = {{ documentID }};
 
-        Autodesk.Viewing.Initializer(options, function(){
-            viewerApp = new Autodesk.Viewing.ViewingApplication('MyViewerDiv');
-            viewerApp.registerViewer(viewerApp.k3D, Autodesk.Viewing.Private.GuiViewer3D);
-            viewerApp.loadDocument(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
-            viewerApp.loadExtension('Autodesk.Viewing.WebVR');
+        Autodesk.Viewing.Initializer(options, function onInitialized() {
+            var container = document.getElementById('MyViewerDiv');
+            viewer = new Autodesk.Viewing.GuiViewer3D(container, { extensions: ['Autodesk.Viewing.WebVR'] });
+            viewer.start();
+            Autodesk.Viewing.Document.load(documentId, onDocumentLoadSuccess, onDocumentLoadFailure);
         });
 
         function onDocumentLoadSuccess(doc) {
-
-            // We could still make use of Document.getSubItemsWithProperties()
-            // However, when using a ViewingApplication, we have access to the **bubble** attribute,
-            // which references the root node of a graph that wraps each object from the Manifest JSON.
-            var viewables = viewerApp.bubble.search({'type':'geometry'});
-            if (viewables.length === 0) {
-                console.error('Document contains no viewables.');
-                return;
-            }
-
-            // Choose any of the avialble viewables
-            viewerApp.selectItem(viewables[1].data, onItemLoadSuccess, onItemLoadFail);
+            var viewables = doc.getRoot().getDefaultGeometry();
+            viewer.loadDocumentNode(doc, viewables).then(function() {
+                console.log('onItemLoadSuccess()!');
+            });
         }
 
         function onDocumentLoadFailure(viewerErrorCode) {
             console.error('onDocumentLoadFailure() - errorCode:' + viewerErrorCode);
-        }
-
-        function onItemLoadSuccess(viewer, item) {
-            console.log('onItemLoadSuccess()!');
-            console.log(viewer);
-            console.log(item);
-
-            // Congratulations! The viewer is now ready to be used.
-            console.log('Viewers are equal: ' + (viewer === viewerApp.getCurrentViewer()));
         }
 
         function onItemLoadFail(errorCode) {

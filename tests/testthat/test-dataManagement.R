@@ -94,10 +94,26 @@ test_that("deleteBucket stops when token is NULL", {
   expect_error(deleteBucket(token = NULL), "token is null")
 })
 
+test_that("deleteBucket returns status on success", {
+  with_mock_api({
+    resp <- deleteBucket(token = "test_token", bucket = "mybucket")
+    expect_s3_class(resp, "deleteBucket")
+    expect_equal(resp$content$status, 200L)
+  })
+})
+
 test_that("deleteObject stops when object is NULL", {
   expect_error(deleteObject(token = "t", bucket = "b", object = NULL), "object is null")
 })
 
 test_that("deleteObject stops when token is NULL", {
   expect_error(deleteObject(token = NULL, bucket = "b", object = "f.dwg"), "token is null")
+})
+
+test_that("deleteObject returns status on success", {
+  with_mock_api({
+    resp <- deleteObject(token = "test_token", bucket = "mybucket", object = "aerial.dwg")
+    expect_s3_class(resp, "deleteObject")
+    expect_equal(resp$content$status, 200L)
+  })
 })

@@ -24,6 +24,6 @@ Translate an uploaded file into STL format using the Model Derivative API.
 \examples{
 \dontrun{
 # Translate the "aerial.dwg" file into an stl file
-resp <- translateStl(urn <- myEncodedUrn, token = myToken)
+resp <- translateStl(urn = myEncodedUrn, token = myToken)
 }
 }

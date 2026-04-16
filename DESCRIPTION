@@ -8,7 +8,7 @@ Description: An interface to the 'AutoDesk' 'API' Platform including the Authent
     Derivative 'API' for translating design files into different formats, sending
     them to the viewer app, and extracting design data, and Viewer for rendering 
     2D and 3D models.
-Version: 0.2.0
+Version: 0.3.0
 URL: https://aps.autodesk.com, https://paulgovan.gitbook.io/autodeskr, http://paulgovan.github.io/AutoDeskR/, https://github.com/paulgovan/AutoDeskR
 BugReports: https://github.com/paulgovan/AutoDeskR/issues
 Authors@R: person("Paul", "Govan", email = "paul.govan2@gmail.com",
@@ -27,3 +27,4 @@ Suggests: knitr,
     testthat (>= 3.0.0),
     httptest2
 VignetteBuilder: knitr
+Config/testthat/edition: 3

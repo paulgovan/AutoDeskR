@@ -9,7 +9,7 @@ vignette: >
 
 # Data Management
 
-The Data Management API provides users a way to store and access data across the Forge Platform.
+The Data Management API provides users a way to store and access data across the AutoDesk Platform Services (APS).
 
 ## Create a Bucket and Upload a File
 To create a bucket, first get a token with the `bucket:create`, `bucket:read`, and `data:write` scopes. 

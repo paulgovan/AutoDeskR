@@ -82,13 +82,7 @@ viewerUI <- function(id, urn = NULL, token = NULL, viewerType = "header") {
   accessToken <- paste0("'", token, "'")
 
   # Choose an html template
-  if (viewerType == "header") {
-    template <- "template.html"
-  } else if (viewerType == "vr"){
-    template <- "vr.html"
-  } else {
-    template <- "headless.html"
-  }
+  template <- if (viewerType == "header") "template.html" else "headless.html"
 
   # Send the htmlTemplate to Shiny
   ns <- shiny::NS(id)
