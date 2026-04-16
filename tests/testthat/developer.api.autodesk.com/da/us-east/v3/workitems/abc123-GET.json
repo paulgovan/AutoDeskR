@@ -1,0 +1,8 @@
+{
+  "id": "abc123",
+  "status": "success",
+  "stats": {
+    "timeQueued": "2024-01-01T00:00:00Z",
+    "timeFinished": "2024-01-01T00:01:00Z"
+  }
+}

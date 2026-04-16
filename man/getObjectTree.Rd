@@ -18,7 +18,7 @@ Base64 encoded. To encode the URN, see, for example, the
 with \code{data:read} and \code{data:write} scopes.}
 }
 \value{
-An object containing the object tree for the selected file. the file.
+An object containing the object tree for the selected file.
 }
 \description{
 Get the object tree of an uploaded file using the Model Derivative API.

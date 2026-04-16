@@ -1,0 +1,12 @@
+{
+  "data": {
+    "type": "metadata",
+    "metadata": [
+      {
+        "name": "aerial",
+        "role": "3d",
+        "guid": "test-guid-1234"
+      }
+    ]
+  }
+}

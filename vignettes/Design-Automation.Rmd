@@ -23,9 +23,10 @@ resp <- makePdf(source = mySource, destination = myDestination, token = myToken)
 Note that in this example, the `token` must be generated with the `code:all` scope.
 
 
-To check the status of the conversion process:
+To check the status of the conversion process, use the WorkItem `id` returned by `makePdf()`:
 
 ```c
-resp <- checkPdf(source = mySource, destination = myDestination, token = myToken)
+myWorkItemId <- resp$content$id
+resp <- checkPdf(id = myWorkItemId, token = myToken)
 resp
 ```

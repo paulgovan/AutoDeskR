@@ -21,12 +21,12 @@ Dev Portal.}
 combination of these.}
 }
 \value{
-An object containing the \code{access_token}, \code{code_type}, and
-  \code{expires_in} milliseconds.
+An object containing the \code{access_token}, \code{token_type}, and
+  \code{expires_in} seconds.
 }
 \description{
-Get a 2-legged token for OAuth-based authentication to the AutoDesk Forge
-Platform.
+Get a 2-legged token for OAuth-based authentication to the AutoDesk
+Platform Services (APS).
 }
 \examples{
 \dontrun{

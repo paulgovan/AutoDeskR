@@ -74,7 +74,7 @@ viewerUI <- function(id, urn = NULL, token = NULL, viewerType = "header") {
 
   if (is.null(urn)) stop("urn is null")
   if (is.null(token)) stop("token is null")
-  if (viewerType != "header" || "headless")
+  if (!viewerType %in% c("header", "headless"))
     stop("Please choose a viewerType of 'header' or 'headless'")
 
   # Paste strings to be passed to html

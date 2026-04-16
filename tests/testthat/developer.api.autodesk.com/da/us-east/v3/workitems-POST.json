@@ -1,0 +1,7 @@
+{
+  "id": "abc123",
+  "status": "pending",
+  "stats": {
+    "timeQueued": "2024-01-01T00:00:00Z"
+  }
+}

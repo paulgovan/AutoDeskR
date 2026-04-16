@@ -1,0 +1,10 @@
+{
+  "items": [
+    {
+      "bucketKey": "mybucket",
+      "createdDate": 1680000000000,
+      "policyKey": "transient"
+    }
+  ],
+  "next": null
+}

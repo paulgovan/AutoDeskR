@@ -1,0 +1,17 @@
+{
+  "type": "manifest",
+  "hasThumbnail": "false",
+  "status": "success",
+  "progress": "complete",
+  "region": "US",
+  "urn": "ENCODED_URN",
+  "derivatives": [
+    {
+      "name": "aerial.dwg",
+      "hasThumbnail": "false",
+      "status": "success",
+      "progress": "complete",
+      "outputType": "svf"
+    }
+  ]
+}

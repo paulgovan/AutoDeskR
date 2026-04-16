@@ -1,0 +1,7 @@
+{
+  "bucketKey": "mybucket",
+  "bucketOwner": "testOwner",
+  "createdDate": 1680000000000,
+  "permissions": [{"authId": "testOwner", "access": "full"}],
+  "policyKey": "transient"
+}

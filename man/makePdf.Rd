@@ -7,22 +7,28 @@
 makePdf(source = NULL, destination = NULL, token = NULL)
 }
 \arguments{
-\item{source}{A string. Publicly accessible web address of the input dwg
+\item{source}{A string. Publicly accessible web address of the input DWG
 file.}
 
 \item{destination}{A string. Publicly accessible web address for the output
-pdf file.}
+PDF file.}
 
 \item{token}{A string. Token generated with \code{\link{getToken}} function
 with \code{code:all} scope.}
 }
+\value{
+An object containing the WorkItem \code{id}, \code{status}, and
+  \code{stats}. Use \code{id} with \code{\link{checkPdf}} to poll for
+  completion.
+}
 \description{
-Convert a publicly accessible DWG file to a publicly accessible PDF using the Design Automation API.
+Convert a publicly accessible DWG file to a publicly accessible PDF using the Design Automation API v3.
 }
 \examples{
 \dontrun{
 mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
-myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
+myDestination <- "https://example.com/output/aerial.pdf"
 resp <- makePdf(mySource, myDestination, token = myToken)
+myWorkItemId <- resp$content$id
 }
 }

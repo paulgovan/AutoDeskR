@@ -33,10 +33,40 @@ resp <- checkBucket(token = myToken, bucket = "mybucket")
 resp
 ```
 
-Finally, to upload a file to the bucket, use the `uploadFile()` function, which returns an object containing the `bucketKey`, `objectId` (i.e. urn), `objectKey` (i.e. file name), `size`, `contentType` (i.e. "application/octet-stream"), `location` and other content information. Note the unique urn of the file and store it in `.Renviron` for future use. 
+Finally, to upload a file to the bucket, use the `uploadFile()` function, which returns an object containing the `bucketKey`, `objectId` (i.e. urn), `objectKey` (i.e. file name), `size`, `contentType` (i.e. "application/octet-stream"), `location` and other content information. Note the unique urn of the file and store it in `.Renviron` for future use.
 
 ```c
 resp <- uploadFile(file = system.file("samples/aerial.dwg", package = "AutoDeskR"),
             token = myToken, bucket = "mybucket")
 myUrn <- resp$content$objectId
+```
+
+## List Buckets and Objects
+
+To list all buckets associated with your app:
+
+```c
+resp <- listBuckets(token = myToken)
+resp$content$items
+```
+
+To list objects stored in a specific bucket:
+
+```c
+resp <- listObjects(token = myToken, bucket = "mybucket")
+resp$content$items
+```
+
+## Delete Objects and Buckets
+
+To delete an object from a bucket:
+
+```c
+resp <- deleteObject(token = myToken, bucket = "mybucket", object = "aerial.dwg")
+```
+
+To delete an entire bucket (the bucket must be empty first):
+
+```c
+resp <- deleteBucket(token = myToken, bucket = "mybucket")
 ```

@@ -1,0 +1,13 @@
+{
+  "items": [
+    {
+      "bucketKey": "mybucket",
+      "objectKey": "aerial.dwg",
+      "objectId": "urn:adsk.objects:os.object:mybucket/aerial.dwg",
+      "size": 1024,
+      "contentType": "application/octet-stream",
+      "location": "https://developer.api.autodesk.com/oss/v2/buckets/mybucket/objects/aerial.dwg"
+    }
+  ],
+  "next": null
+}

@@ -52,9 +52,25 @@ Depending on the type of file and translation process, the response may contain 
 myOutputUrn < "urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWxkZXJpdmF0aXZlL0E1LmlhbQ/output/geometry/bc3339b2-73cd-4fba-9cb3-15363703a354.obj"
 ```
 
-Finally, to download the OBJ file locally:
+Finally, to download the OBJ file locally. Use the `destfile` parameter to specify where the file should be saved:
 
 ```c
 myEncodedOutputUrn = jsonlite::base64_enc(myOutputUrn)
-resp <- downloadFile(urn = myEncodedUrn, output_urn <- myEncodedOutputUrn, token = myToken)
+resp <- downloadFile(urn = myEncodedUrn, output_urn = myEncodedOutputUrn, token = myToken,
+                     destfile = "aerial.obj")
+```
+
+## Translate a File into STL Format
+
+To translate a supported file into STL format, use `translateStl()`, which follows the same pattern as `translateObj()`:
+
+```c
+resp <- translateStl(urn = myEncodedUrn, token = myToken)
+```
+
+To check the status of the translation process:
+
+```c
+resp <- checkFile(urn = myEncodedUrn, token = myToken)
+resp
 ```

@@ -2,29 +2,38 @@
 % Please edit documentation in R/designAutomation.R
 \name{checkPdf}
 \alias{checkPdf}
-\title{Check the status of a PDF.}
+\title{Check the Status of a PDF WorkItem.}
 \usage{
-checkPdf(source = NULL, destination = NULL, token = NULL)
+checkPdf(id = NULL, token = NULL, source = NULL, destination = NULL)
 }
 \arguments{
-\item{source}{A string. Publicly accessible web address of the input dwg
-file.}
-
-\item{destination}{A string. Publicly accessible web address for the output
-pdf file.}
+\item{id}{A string. WorkItem ID returned by \code{\link{makePdf}} in
+\code{resp$content$id}.}
 
 \item{token}{A string. Token generated with \code{\link{getToken}} function
 with \code{code:all} scope.}
+
+\item{source}{Deprecated. Ignored with a warning.}
+
+\item{destination}{Deprecated. Ignored with a warning.}
+}
+\value{
+An object containing the WorkItem \code{id}, \code{status}, and
+  \code{stats}.
 }
 \description{
-Check the status of a recently created PDF file using the Design Automation
-API.
+Check the status of a Design Automation WorkItem using the Design Automation
+API v3.
 }
 \examples{
 \dontrun{
 mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
-myDestination <- "https://drive.google.com/folderview?id=0BygncDVHf60mTDZVNDltLThLNmM&usp=sharing"
-resp <- checkPdf(mySource, myDestination, token = myToken)
+myDestination <- "https://example.com/output/aerial.pdf"
+resp <- makePdf(mySource, myDestination, token = myToken)
+myWorkItemId <- resp$content$id
+
+# Poll for completion
+resp <- checkPdf(id = myWorkItemId, token = myToken)
 resp
 }
 }
