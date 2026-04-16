@@ -1,0 +1,76 @@
+# Data-Management
+
+## Data Management
+
+The Data Management API provides users a way to store and access data
+across the Forge Platform.
+
+### Create a Bucket and Upload a File
+
+To create a bucket, first get a token with the `bucket:create`,
+`bucket:read`, and `data:write` scopes.
+
+``` c
+resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"), 
+            scope = "bucket:create bucket:read data:write")
+myToken <- resp$content$access_token
+```
+
+Then use the
+[`makeBucket()`](http://paulgovan.github.io/AutoDeskR/reference/makeBucket.md)
+function to create a bucket, where `bucket` is a name for the bucket.
+
+``` c
+resp <- makeBucket(token = myToken, bucket = "mybucket")
+```
+
+To check the status of a bucket:
+
+``` c
+resp <- checkBucket(token = myToken, bucket = "mybucket")
+resp
+```
+
+Finally, to upload a file to the bucket, use the
+[`uploadFile()`](http://paulgovan.github.io/AutoDeskR/reference/uploadFile.md)
+function, which returns an object containing the `bucketKey`, `objectId`
+(i.e. urn), `objectKey` (i.e. file name), `size`, `contentType`
+(i.e. “application/octet-stream”), `location` and other content
+information. Note the unique urn of the file and store it in `.Renviron`
+for future use.
+
+``` c
+resp <- uploadFile(file = system.file("samples/aerial.dwg", package = "AutoDeskR"),
+            token = myToken, bucket = "mybucket")
+myUrn <- resp$content$objectId
+```
+
+### List Buckets and Objects
+
+To list all buckets associated with your app:
+
+``` c
+resp <- listBuckets(token = myToken)
+resp$content$items
+```
+
+To list objects stored in a specific bucket:
+
+``` c
+resp <- listObjects(token = myToken, bucket = "mybucket")
+resp$content$items
+```
+
+### Delete Objects and Buckets
+
+To delete an object from a bucket:
+
+``` c
+resp <- deleteObject(token = myToken, bucket = "mybucket", object = "aerial.dwg")
+```
+
+To delete an entire bucket (the bucket must be empty first):
+
+``` c
+resp <- deleteBucket(token = myToken, bucket = "mybucket")
+```

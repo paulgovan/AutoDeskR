@@ -20,7 +20,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.1.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.2.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -109,9 +109,23 @@ through the <code>resp</code> object for a <code>urn</code> than ends in
 “.obj” and assign this <code>urn</code> to <code>myOutputUrn</code>,
 which should look similar to the following:</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>myOutputUrn <span class="op">&lt;</span> <span class="st">"urn:adsk.viewing:fs.file:dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bW9kZWxkZXJpdmF0aXZlL0E1LmlhbQ/output/geometry/bc3339b2-73cd-4fba-9cb3-15363703a354.obj"</span></span></code></pre></div>
-<p>Finally, to download the OBJ file locally:</p>
+<p>Finally, to download the OBJ file locally. Use the
+<code>destfile</code> parameter to specify where the file should be
+saved:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a>myEncodedOutputUrn <span class="op">=</span> jsonlite<span class="op">::</span>base64_enc<span class="op">(</span>myOutputUrn<span class="op">)</span></span>
-<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>resp <span class="op">&lt;-</span> downloadFile<span class="op">(</span>urn <span class="op">=</span> myEncodedUrn<span class="op">,</span> output_urn <span class="op">&lt;-</span> myEncodedOutputUrn<span class="op">,</span> token <span class="op">=</span> myToken<span class="op">)</span></span></code></pre></div>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a>resp <span class="op">&lt;-</span> downloadFile<span class="op">(</span>urn <span class="op">=</span> myEncodedUrn<span class="op">,</span> output_urn <span class="op">=</span> myEncodedOutputUrn<span class="op">,</span> token <span class="op">=</span> myToken<span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>                     destfile <span class="op">=</span> <span class="st">"aerial.obj"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="translate-a-file-into-stl-format">Translate a File into STL Format<a class="anchor" aria-label="anchor" href="#translate-a-file-into-stl-format"></a>
+</h3>
+<p>To translate a supported file into STL format, use
+<code><a href="../reference/translateStl.html">translateStl()</a></code>, which follows the same pattern as
+<code><a href="../reference/translateObj.html">translateObj()</a></code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>resp <span class="op">&lt;-</span> translateStl<span class="op">(</span>urn <span class="op">=</span> myEncodedUrn<span class="op">,</span> token <span class="op">=</span> myToken<span class="op">)</span></span></code></pre></div>
+<p>To check the status of the translation process:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a>resp <span class="op">&lt;-</span> checkFile<span class="op">(</span>urn <span class="op">=</span> myEncodedUrn<span class="op">,</span> token <span class="op">=</span> myToken<span class="op">)</span></span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>resp</span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
@@ -125,7 +139,7 @@ which should look similar to the following:</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>

@@ -1,0 +1,46 @@
+# Get a 2-Legged Token for Authentication.
+
+Get a 2-legged token for OAuth-based authentication to the AutoDesk
+Platform Services (APS).
+
+## Usage
+
+``` r
+getToken(id = NULL, secret = NULL, scope = "data:write data:read")
+```
+
+## Arguments
+
+- id:
+
+  A string. Client ID for the app generated from the AutoDesk Dev
+  Portal.
+
+- secret:
+
+  A string. Client Secret for the app generated from the AutoDesk Dev
+  Portal.
+
+- scope:
+
+  A string. Space-separated list of required scopes. May be
+  `user-profile:read`, `data:read`, `data:write`, `data:create`,
+  `data:search`, `bucket:create`, `bucket:read`, `bucket:update`,
+  `bucket:delete`, `code:all`, `account:read`, `account:write`, or a
+  combination of these.
+
+## Value
+
+An object containing the `access_token`, `token_type`, and `expires_in`
+seconds.
+
+## Examples
+
+``` r
+if (FALSE) { # \dontrun{
+# Get a 2-legged token with the "data:read" and "data:write" scopes
+resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
+           scope = "data:write data:read")
+myToken <- resp$content$access_token
+} # }
+```

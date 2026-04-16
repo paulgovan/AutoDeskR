@@ -1,5 +1,6 @@
 <urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
 <url><loc>http://paulgovan.github.io/AutoDeskR/404.html</loc></url>
+<url><loc>http://paulgovan.github.io/AutoDeskR/CLAUDE.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/CODE_OF_CONDUCT.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/LICENSE-text.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/articles/Authentication.html</loc></url>
@@ -15,6 +16,8 @@
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/checkBucket.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/checkFile.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/checkPdf.html</loc></url>
+<url><loc>http://paulgovan.github.io/AutoDeskR/reference/deleteBucket.html</loc></url>
+<url><loc>http://paulgovan.github.io/AutoDeskR/reference/deleteObject.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/downloadFile.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/getData.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/getMetadata.html</loc></url>
@@ -22,9 +25,12 @@
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/getOutputUrn.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/getToken.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/index.html</loc></url>
+<url><loc>http://paulgovan.github.io/AutoDeskR/reference/listBuckets.html</loc></url>
+<url><loc>http://paulgovan.github.io/AutoDeskR/reference/listObjects.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/makeBucket.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/makePdf.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/translateObj.html</loc></url>
+<url><loc>http://paulgovan.github.io/AutoDeskR/reference/translateStl.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/translateSvf.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/uploadFile.html</loc></url>
 <url><loc>http://paulgovan.github.io/AutoDeskR/reference/viewer3D.html</loc></url>
