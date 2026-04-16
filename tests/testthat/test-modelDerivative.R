@@ -1,5 +1,4 @@
 library(testthat)
-library(httptest2)
 library(AutoDeskR)
 
 # translateSvf --------------------------------------------------------------
@@ -13,7 +12,10 @@ test_that("translateSvf stops when token is NULL", {
 })
 
 test_that("translateSvf returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- translateSvf(urn = "ENCODED_URN", token = "test_token")
     expect_s3_class(resp, "translateSvf")
     expect_named(resp, c("content", "path", "response"))
@@ -32,7 +34,10 @@ test_that("translateObj stops when token is NULL", {
 })
 
 test_that("translateObj returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- translateObj(urn = "ENCODED_URN", token = "test_token")
     expect_s3_class(resp, "translateObj")
     expect_equal(resp$content$result, "created")
@@ -50,7 +55,10 @@ test_that("translateStl stops when token is NULL", {
 })
 
 test_that("translateStl returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- translateStl(urn = "ENCODED_URN", token = "test_token")
     expect_s3_class(resp, "translateStl")
     expect_equal(resp$content$result, "created")
@@ -68,7 +76,10 @@ test_that("checkFile stops when token is NULL", {
 })
 
 test_that("checkFile returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- checkFile(urn = "ENCODED_URN", token = "test_token")
     expect_s3_class(resp, "checkFile")
     expect_equal(resp$content$status, "success")
@@ -86,7 +97,10 @@ test_that("getMetadata stops when token is NULL", {
 })
 
 test_that("getMetadata returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- getMetadata(urn = "ENCODED_URN", token = "test_token")
     expect_s3_class(resp, "getMetadata")
     expect_equal(resp$content$data$metadata[[1]]$guid, "test-guid-1234")
@@ -100,7 +114,10 @@ test_that("getOutputUrn stops when urn is NULL", {
 })
 
 test_that("getOutputUrn returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- getOutputUrn(urn = "ENCODED_URN", token = "test_token")
     expect_s3_class(resp, "getOutputUrn")
     expect_equal(resp$content$status, "success")
@@ -140,7 +157,10 @@ test_that("downloadFile stops when token is NULL", {
 })
 
 test_that("downloadFile returns parsed JSON when response is JSON", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- downloadFile(urn = "ENCODED_URN", output_urn = "OUTPUT_URN", token = "test_token")
     expect_s3_class(resp, "downloadFile")
     expect_named(resp, c("content", "path", "response"))

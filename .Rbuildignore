@@ -11,3 +11,7 @@
 ^CRAN-SUBMISSION$
 ^codemeta\.json$
 ^README\.Rmd$
+^CLAUDE\.md$
+^\.claude$
+^Rplots\.pdf$
+^tests/testthat/developer\.api\.autodesk\.com

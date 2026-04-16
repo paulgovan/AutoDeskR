@@ -1,8 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Bash(Rscript -e \"devtools::document\\(\\)\")",
-      "Bash(Rscript -e \"cat\\(system.file\\(package='hexSticker'\\)\\)\")"
-    ]
-  }
-}

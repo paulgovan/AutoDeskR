@@ -1,5 +1,4 @@
 library(testthat)
-library(httptest2)
 library(AutoDeskR)
 
 # makeBucket ----------------------------------------------------------------
@@ -17,7 +16,10 @@ test_that("makeBucket stops when policy is NULL", {
 })
 
 test_that("makeBucket returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- makeBucket(token = "test_token", bucket = "mybucket", policy = "transient")
     expect_s3_class(resp, "makeBucket")
     expect_named(resp, c("content", "path", "response"))
@@ -37,7 +39,10 @@ test_that("checkBucket stops when bucket is NULL", {
 })
 
 test_that("checkBucket returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- checkBucket(token = "test_token", bucket = "mybucket")
     expect_s3_class(resp, "checkBucket")
     expect_equal(resp$content$bucketKey, "mybucket")
@@ -51,7 +56,10 @@ test_that("listBuckets stops when token is NULL", {
 })
 
 test_that("listBuckets returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- listBuckets(token = "test_token")
     expect_s3_class(resp, "listBuckets")
     expect_named(resp, c("content", "path", "response"))
@@ -71,7 +79,10 @@ test_that("listObjects stops when bucket is NULL", {
 })
 
 test_that("listObjects returns correct structure", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- listObjects(token = "test_token", bucket = "mybucket")
     expect_s3_class(resp, "listObjects")
     expect_equal(resp$content$items[[1]]$objectKey, "aerial.dwg")
@@ -95,7 +106,10 @@ test_that("deleteBucket stops when token is NULL", {
 })
 
 test_that("deleteBucket returns status on success", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- deleteBucket(token = "test_token", bucket = "mybucket")
     expect_s3_class(resp, "deleteBucket")
     expect_equal(resp$content$status, 200L)
@@ -111,7 +125,10 @@ test_that("deleteObject stops when token is NULL", {
 })
 
 test_that("deleteObject returns status on success", {
-  with_mock_api({
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
     resp <- deleteObject(token = "test_token", bucket = "mybucket", object = "aerial.dwg")
     expect_s3_class(resp, "deleteObject")
     expect_equal(resp$content$status, 200L)
