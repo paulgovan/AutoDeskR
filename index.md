@@ -1,7 +1,5 @@
 # AutoDeskR
 
-![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
-
 ## Introduction
 
 AutoDeskR is an R package that provides an interface to the:
@@ -15,6 +13,8 @@ AutoDeskR is an R package that provides an interface to the:
 - Model Derivative API for translating design files into different
   formats, sending them to the viewer app, and extracting model data.
 - Viewer for rendering 2D and 3D models.
+
+![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 
 ## Quick Start
 
