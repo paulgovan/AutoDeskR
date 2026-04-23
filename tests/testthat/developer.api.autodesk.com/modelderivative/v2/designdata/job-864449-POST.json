@@ -1,0 +1,9 @@
+{
+  "result": "created",
+  "urn": "dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6bXlidWNrZXQvYWVyaWFsLmR3Zw",
+  "acceptedJobs": {
+    "output": {
+      "formats": [{"type": "svf2", "views": ["2d", "3d"]}]
+    }
+  }
+}

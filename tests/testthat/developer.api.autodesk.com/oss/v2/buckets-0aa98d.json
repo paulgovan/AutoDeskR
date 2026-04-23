@@ -2,6 +2,7 @@
   "items": [
     {
       "bucketKey": "mybucket",
+      "bucketOwner": "testapp",
       "createdDate": 1680000000000,
       "policyKey": "transient"
     }

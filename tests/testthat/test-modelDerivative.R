@@ -134,12 +134,58 @@ test_that("getData stops when token is NULL", {
   expect_error(getData(guid = "g", urn = "u", token = NULL), "token is null")
 })
 
+test_that("getData returns correct structure", {
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
+    resp <- getData(guid = "test-guid-1234", urn = "ENCODED_URN", token = "test_token")
+    expect_s3_class(resp, "getData")
+    expect_named(resp, c("content", "path", "response"))
+    expect_equal(resp$content$data$collection[[1]]$name, "aerial")
+  })
+})
+
 test_that("getObjectTree stops when urn is NULL", {
   expect_error(getObjectTree(guid = "g", urn = NULL, token = "t"), "urn is null")
 })
 
 test_that("getObjectTree stops when guid is NULL", {
   expect_error(getObjectTree(guid = NULL, urn = "u", token = "t"), "guid is null")
+})
+
+test_that("getObjectTree returns correct structure", {
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
+    resp <- getObjectTree(guid = "test-guid-1234", urn = "ENCODED_URN", token = "test_token")
+    expect_s3_class(resp, "getObjectTree")
+    expect_named(resp, c("content", "path", "response"))
+    expect_equal(resp$content$data$objects[[1]]$objectCount, 5)
+  })
+})
+
+# translateSvf2 ---------------------------------------------------------------
+
+test_that("translateSvf2 stops when urn is NULL", {
+  expect_error(translateSvf2(urn = NULL, token = "t"), "urn is null")
+})
+
+test_that("translateSvf2 stops when token is NULL", {
+  expect_error(translateSvf2(urn = "u", token = NULL), "token is null")
+})
+
+test_that("translateSvf2 returns correct structure", {
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  httptest2::with_mock_api({
+    resp <- translateSvf2(urn = "ENCODED_URN", token = "test_token")
+    expect_s3_class(resp, "translateSvf2")
+    expect_named(resp, c("content", "path", "response"))
+    expect_equal(resp$content$result, "created")
+  })
 })
 
 # downloadFile --------------------------------------------------------------
