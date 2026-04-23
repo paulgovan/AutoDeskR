@@ -12,9 +12,7 @@ deleteBucket(token = NULL, bucket = "mybucket")
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `bucket:delete` scope.
+  A string or `aps_token` object with `bucket:delete` scope.
 
 - bucket:
 

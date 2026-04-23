@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,6 +22,7 @@
     <li><a class="dropdown-item" href="articles/Data-Management.html">Data-Management</a></li>
     <li><a class="dropdown-item" href="articles/Design-Automation.html">Design-Automation</a></li>
     <li><a class="dropdown-item" href="articles/Model-Derivative.html">Model-Derivative</a></li>
+    <li><a class="dropdown-item" href="articles/Reality-Capture.html">Reality Capture</a></li>
     <li><a class="dropdown-item" href="articles/Troubleshooting.html">Troubleshooting</a></li>
     <li><a class="dropdown-item" href="articles/Viewer.html">Viewer</a></li>
   </ul></li>
@@ -45,7 +46,7 @@
 <p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
 <div class="section level2">
 <h2 id="package-overview">Package Overview<a class="anchor" aria-label="anchor" href="#package-overview"></a></h2>
-<p>AutoDeskR is an R client library for the <strong>AutoDesk Platform Services (APS)</strong> API (formerly AutoDesk Forge). It is published on CRAN and is currently marked as <strong>deprecated</strong>. It exposes five AutoDesk APIs to R users: Authentication, Data Management, Design Automation, Model Derivative, and a Shiny-based Viewer.</p>
+<p>AutoDeskR is an R client library for the <strong>AutoDesk Platform Services (APS)</strong> API (formerly AutoDesk Forge). It is published on CRAN. It exposes five AutoDesk APIs to R users: Authentication, Data Management, Design Automation, Model Derivative, and a Shiny-based Viewer.</p>
 </div>
 <div class="section level2">
 <h2 id="common-commands">Common Commands<a class="anchor" aria-label="anchor" href="#common-commands"></a></h2>
@@ -61,7 +62,7 @@
 <span></span>
 <span><span class="co"># Build pkgdown documentation site</span></span>
 <span><span class="fu">pkgdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgdown.r-lib.org/reference/build_site.html" class="external-link">build_site</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>There is no test suite — the <code>tests/</code> directory does not exist.</p>
+<p>A <code>testthat</code> + <code>httptest2</code> test suite lives in <code>tests/testthat/</code>. Mocked API fixtures are stored under <code>tests/testthat/developer.api.autodesk.com/</code>. Run with <code>devtools::test()</code>. No live AutoDesk credentials are required.</p>
 </div>
 <div class="section level2">
 <h2 id="architecture">Architecture<a class="anchor" aria-label="anchor" href="#architecture"></a></h2>
@@ -75,25 +76,37 @@
 </tr><tr class="even"><td><code>dataManagement.R</code></td>
 <td>Data Management (OSS v2)</td>
 <td>
-<code><a href="reference/makeBucket.html">makeBucket()</a></code>, <code><a href="reference/checkBucket.html">checkBucket()</a></code>, <code><a href="reference/uploadFile.html">uploadFile()</a></code>
-</td>
+<code><a href="reference/makeBucket.html">makeBucket()</a></code>, <code><a href="reference/checkBucket.html">checkBucket()</a></code>, <code><a href="reference/uploadFile.html">uploadFile()</a></code>, <code><a href="reference/listBuckets.html">listBuckets()</a></code>, <code><a href="reference/listObjects.html">listObjects()</a></code>, etc.</td>
 </tr><tr class="odd"><td><code>designAutomation.R</code></td>
-<td>Design Automation (AutoCAD.io)</td>
+<td>Design Automation v3</td>
 <td>
 <code><a href="reference/makePdf.html">makePdf()</a></code>, <code><a href="reference/checkPdf.html">checkPdf()</a></code>
 </td>
 </tr><tr class="even"><td><code>modelDerivative.R</code></td>
 <td>Model Derivative v2</td>
 <td>
-<code><a href="reference/translateSvf.html">translateSvf()</a></code>, <code><a href="reference/translateObj.html">translateObj()</a></code>, <code><a href="reference/checkFile.html">checkFile()</a></code>, <code><a href="reference/getMetadata.html">getMetadata()</a></code>, <code><a href="reference/getData.html">getData()</a></code>, <code><a href="reference/getObjectTree.html">getObjectTree()</a></code>, <code><a href="reference/getOutputUrn.html">getOutputUrn()</a></code>, <code><a href="reference/downloadFile.html">downloadFile()</a></code>
+<code><a href="reference/translateSvf.html">translateSvf()</a></code>, <code><a href="reference/translateSvf2.html">translateSvf2()</a></code>, <code><a href="reference/translateObj.html">translateObj()</a></code>, <code><a href="reference/translateStl.html">translateStl()</a></code>, <code><a href="reference/checkFile.html">checkFile()</a></code>, <code><a href="reference/getMetadata.html">getMetadata()</a></code>, <code><a href="reference/getData.html">getData()</a></code>, <code><a href="reference/getObjectTree.html">getObjectTree()</a></code>, <code><a href="reference/getOutputUrn.html">getOutputUrn()</a></code>, <code><a href="reference/downloadFile.html">downloadFile()</a></code>
 </td>
-</tr><tr class="odd"><td><code>viewer.R</code></td>
+</tr><tr class="odd"><td><code>realityCapture.R</code></td>
+<td>Reality Capture</td>
+<td>
+<code><a href="reference/createPhotoscene.html">createPhotoscene()</a></code>, <code><a href="reference/uploadImages.html">uploadImages()</a></code>, <code><a href="reference/processPhotoscene.html">processPhotoscene()</a></code>, <code><a href="reference/checkPhotoscene.html">checkPhotoscene()</a></code>
+</td>
+</tr><tr class="even"><td><code>viewer.R</code></td>
 <td>Viewer</td>
 <td>
 <code><a href="reference/viewer3D.html">viewer3D()</a></code>, <code><a href="reference/viewerUI.html">viewerUI()</a></code>
 </td>
+</tr><tr class="odd"><td><code>utils.R</code></td>
+<td>Utilities</td>
+<td>
+<code><a href="reference/aps_error.html">aps_error()</a></code>, <code><a href="reference/is_expired.html">is_expired()</a></code>, <code><a href="reference/waitForFile.html">waitForFile()</a></code>, <code><a href="reference/waitForWorkItem.html">waitForWorkItem()</a></code>, <code><a href="reference/as_tibble.listBuckets.html">as_tibble.listBuckets()</a></code>, <code><a href="reference/as_tibble.listObjects.html">as_tibble.listObjects()</a></code>
+</td>
+</tr><tr class="even"><td><code>print.R</code></td>
+<td>Print methods</td>
+<td>S3 <code>print.*</code> methods for all response classes</td>
 </tr></tbody></table><p><strong>Typical workflow</strong>: <code><a href="reference/getToken.html">getToken()</a></code> → <code><a href="reference/makeBucket.html">makeBucket()</a></code> → <code><a href="reference/uploadFile.html">uploadFile()</a></code> → <code><a href="reference/translateSvf.html">translateSvf()</a></code> → <code><a href="reference/viewer3D.html">viewer3D()</a></code> or <code><a href="reference/downloadFile.html">downloadFile()</a></code></p>
-<p>All HTTP calls use <code>httr</code>; JSON parsing uses <code>jsonlite</code>. The viewer integrates with Shiny via <code><a href="reference/viewerUI.html">viewerUI()</a></code> for embedding in apps, or <code><a href="reference/viewer3D.html">viewer3D()</a></code> for a standalone app (supports header/headless/VR modes).</p>
+<p>All HTTP calls use <code>httr2</code>; JSON parsing uses <code>jsonlite</code>. The viewer integrates with Shiny via <code><a href="reference/viewerUI.html">viewerUI()</a></code> for embedding in apps, or <code><a href="reference/viewer3D.html">viewer3D()</a></code> for a standalone app (supports header/headless/VR modes).</p>
 </div>
 <div class="section level2">
 <h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a></h2>
@@ -104,7 +117,7 @@
 </ul></div>
 <div class="section level2">
 <h2 id="dependencies">Dependencies<a class="anchor" aria-label="anchor" href="#dependencies"></a></h2>
-<p>Core: <code>httr</code> (HTTP requests), <code>jsonlite</code> (JSON), <code>shiny</code> (viewer UI). All are listed in <code>DESCRIPTION</code> under <code>Imports</code>.</p>
+<p>Core: <code>httr2</code> (HTTP requests), <code>jsonlite</code> (JSON), <code>shiny</code> (viewer UI). All are listed in <code>DESCRIPTION</code> under <code>Imports</code>. <code>tibble</code> is in <code>Suggests</code> for optional tidy output via <code>as_tibble()</code> methods.</p>
 </div>
 </div>
 

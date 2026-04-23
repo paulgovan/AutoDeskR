@@ -13,9 +13,8 @@ checkBucket(token = NULL, bucket = "mybucket")
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `bucket:create`, `bucket:read`, and `data:write` scopes.
+  A string or `aps_token` object with `bucket:create`, `bucket:read`,
+  and `data:write` scopes.
 
 - bucket:
 

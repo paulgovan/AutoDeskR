@@ -19,9 +19,7 @@ checkPdf(id = NULL, token = NULL, source = NULL, destination = NULL)
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `code:all` scope.
+  A string or `aps_token` object with `code:all` scope.
 
 - source:
 

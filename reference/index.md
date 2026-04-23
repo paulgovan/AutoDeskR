@@ -2,12 +2,22 @@
 
 ## All functions
 
+- [`aps_error()`](http://paulgovan.github.io/AutoDeskR/reference/aps_error.md)
+  : Create an APS API Error Condition.
+- [`as_tibble(`*`<listBuckets>`*`)`](http://paulgovan.github.io/AutoDeskR/reference/as_tibble.listBuckets.md)
+  : Convert a listBuckets Response to a Tibble.
+- [`as_tibble(`*`<listObjects>`*`)`](http://paulgovan.github.io/AutoDeskR/reference/as_tibble.listObjects.md)
+  : Convert a listObjects Response to a Tibble.
 - [`checkBucket()`](http://paulgovan.github.io/AutoDeskR/reference/checkBucket.md)
   : Check the Status of an App-Managed Bucket.
 - [`checkFile()`](http://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
   : Check the Status of a Translated File.
 - [`checkPdf()`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
   : Check the Status of a PDF WorkItem.
+- [`checkPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
+  : Check Reality Capture Processing Progress.
+- [`createPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md)
+  : Create a Photoscene for Reality Capture.
 - [`deleteBucket()`](http://paulgovan.github.io/AutoDeskR/reference/deleteBucket.md)
   : Delete an App-Managed Bucket.
 - [`deleteObject()`](http://paulgovan.github.io/AutoDeskR/reference/deleteObject.md)
@@ -24,6 +34,8 @@
   : Get the Output URN for a File.
 - [`getToken()`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
   : Get a 2-Legged Token for Authentication.
+- [`is_expired()`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
+  : Check Whether an aps_token Has Expired.
 - [`listBuckets()`](http://paulgovan.github.io/AutoDeskR/reference/listBuckets.md)
   : List All App-Managed Buckets.
 - [`listObjects()`](http://paulgovan.github.io/AutoDeskR/reference/listObjects.md)
@@ -32,17 +44,29 @@
   : Make a Bucket for an App.
 - [`makePdf()`](http://paulgovan.github.io/AutoDeskR/reference/makePdf.md)
   : Convert a DWG to a PDF.
+- [`processPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/processPhotoscene.md)
+  : Start Reality Capture Processing.
 - [`translateObj()`](http://paulgovan.github.io/AutoDeskR/reference/translateObj.md)
   : Translate a File into OBJ Format.
 - [`translateStl()`](http://paulgovan.github.io/AutoDeskR/reference/translateStl.md)
   : Translate a File into STL Format.
 - [`translateSvf()`](http://paulgovan.github.io/AutoDeskR/reference/translateSvf.md)
   : Translate a File into SVF Format.
+- [`translateSvf2()`](http://paulgovan.github.io/AutoDeskR/reference/translateSvf2.md)
+  : Translate a File into SVF2 Format.
 - [`uploadFile()`](http://paulgovan.github.io/AutoDeskR/reference/uploadFile.md)
   : Upload a File to an App-Managed Bucket.
 - [`uploadFileSigned()`](http://paulgovan.github.io/AutoDeskR/reference/uploadFileSigned.md)
   : Upload a File Using Signed S3 URLs.
+- [`uploadImages()`](http://paulgovan.github.io/AutoDeskR/reference/uploadImages.md)
+  : Upload Images to a Photoscene.
 - [`viewer3D()`](http://paulgovan.github.io/AutoDeskR/reference/viewer3D.md)
   : Launch the Viewer.
 - [`viewerUI()`](http://paulgovan.github.io/AutoDeskR/reference/viewerUI.md)
   : UI Module Function.
+- [`waitForFile()`](http://paulgovan.github.io/AutoDeskR/reference/waitForFile.md)
+  : Wait for a Model Derivative Translation to Complete.
+- [`waitForPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/waitForPhotoscene.md)
+  : Wait for Reality Capture Processing to Complete.
+- [`waitForWorkItem()`](http://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
+  : Wait for a Design Automation WorkItem to Complete.

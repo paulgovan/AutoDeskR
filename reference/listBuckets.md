@@ -12,9 +12,7 @@ listBuckets(token = NULL, limit = 10, startAt = NULL, region = "US")
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `bucket:read` scope.
+  A string or `aps_token` object with `bucket:read` scope.
 
 - limit:
 

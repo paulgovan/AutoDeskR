@@ -9,7 +9,7 @@ Platform Services (APS)."><meta property="og:image" content="http://paulgovan.gi
 
     <a class="navbar-brand me-2" href="../index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,6 +24,7 @@ Platform Services (APS)."><meta property="og:image" content="http://paulgovan.gi
     <li><a class="dropdown-item" href="../articles/Data-Management.html">Data-Management</a></li>
     <li><a class="dropdown-item" href="../articles/Design-Automation.html">Design-Automation</a></li>
     <li><a class="dropdown-item" href="../articles/Model-Derivative.html">Model-Derivative</a></li>
+    <li><a class="dropdown-item" href="../articles/Reality-Capture.html">Reality Capture</a></li>
     <li><a class="dropdown-item" href="../articles/Troubleshooting.html">Troubleshooting</a></li>
     <li><a class="dropdown-item" href="../articles/Viewer.html">Viewer</a></li>
   </ul></li>
@@ -78,17 +79,20 @@ combination of these.</p></dd>
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>An object containing the <code>access_token</code>, <code>token_type</code>, and
-  <code>expires_in</code> seconds.</p>
+    <p>An <code>aps_token</code> object containing the <code>access_token</code>,
+  <code>token_type</code>, <code>expires_in</code>, and <code>expires_at</code>. The token can
+  be passed directly to other AutoDeskR functions. Use
+  <code><a href="is_expired.html">is_expired</a></code> to check whether the token needs refreshing.
+  Legacy access via <code>resp$content$access_token</code> continues to work.</p>
     </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
-<span class="r-in"><span><span class="co"># Get a 2-legged token with the "data:read" and "data:write" scopes</span></span></span>
-<span class="r-in"><span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu">getToken</span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"client_id"</span><span class="op">)</span>, secret <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"client_secret"</span><span class="op">)</span>,</span></span>
-<span class="r-in"><span>           scope <span class="op">=</span> <span class="st">"data:write data:read"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">myToken</span> <span class="op">&lt;-</span> <span class="va">resp</span><span class="op">$</span><span class="va">content</span><span class="op">$</span><span class="va">access_token</span></span></span>
+<span class="r-in"><span><span class="va">tok</span> <span class="op">&lt;-</span> <span class="fu">getToken</span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"client_id"</span><span class="op">)</span>, secret <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"client_secret"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>         scope <span class="op">=</span> <span class="st">"data:write data:read"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">myToken</span> <span class="op">&lt;-</span> <span class="va">tok</span><span class="op">$</span><span class="va">access_token</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="is_expired.html">is_expired</a></span><span class="op">(</span><span class="va">tok</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

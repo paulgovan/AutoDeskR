@@ -25,9 +25,8 @@ getData(guid = NULL, urn = NULL, token = NULL)
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `data:read` and `data:write` scopes.
+  A string or `aps_token` object with `data:read` and `data:write`
+  scopes.
 
 ## Value
 

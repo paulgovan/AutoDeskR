@@ -13,9 +13,7 @@ deleteObject(token = NULL, bucket = "mybucket", object = NULL)
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `data:write` scope.
+  A string or `aps_token` object with `data:write` scope.
 
 - bucket:
 

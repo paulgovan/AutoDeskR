@@ -21,16 +21,16 @@ makePdf(source = NULL, destination = NULL, token = NULL)
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `code:all` scope.
+  A string or `aps_token` object with `code:all` scope.
 
 ## Value
 
 An object containing the WorkItem `id`, `status`, and `stats`. Use `id`
 with
 [`checkPdf`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
-to poll for completion.
+to poll for completion, or use
+[`waitForWorkItem`](http://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
+to block until done.
 
 ## Examples
 

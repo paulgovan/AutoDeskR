@@ -13,9 +13,7 @@ listObjects(token = NULL, bucket = "mybucket", limit = 10)
 
 - token:
 
-  A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
-  function with `data:read` scope.
+  A string or `aps_token` object with `data:read` scope.
 
 - bucket:
 

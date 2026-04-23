@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,6 +22,7 @@
     <li><a class="dropdown-item" href="../articles/Data-Management.html">Data-Management</a></li>
     <li><a class="dropdown-item" href="../articles/Design-Automation.html">Design-Automation</a></li>
     <li><a class="dropdown-item" href="../articles/Model-Derivative.html">Model-Derivative</a></li>
+    <li><a class="dropdown-item" href="../articles/Reality-Capture.html">Reality Capture</a></li>
     <li><a class="dropdown-item" href="../articles/Troubleshooting.html">Troubleshooting</a></li>
     <li><a class="dropdown-item" href="../articles/Viewer.html">Viewer</a></li>
   </ul></li>
@@ -65,15 +66,15 @@ PDF file.</p></dd>
 
 
 <dt id="arg-token">token<a class="anchor" aria-label="anchor" href="#arg-token"></a></dt>
-<dd><p>A string. Token generated with <code><a href="getToken.html">getToken</a></code> function
-with <code>code:all</code> scope.</p></dd>
+<dd><p>A string or <code>aps_token</code> object with <code>code:all</code>
+scope.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     <p>An object containing the WorkItem <code>id</code>, <code>status</code>, and
   <code>stats</code>. Use <code>id</code> with <code><a href="checkPdf.html">checkPdf</a></code> to poll for
-  completion.</p>
+  completion, or use <code><a href="waitForWorkItem.html">waitForWorkItem</a></code> to block until done.</p>
     </div>
 
     <div class="section level2">

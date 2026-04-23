@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.3.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,6 +22,7 @@
     <li><a class="dropdown-item" href="../articles/Data-Management.html">Data-Management</a></li>
     <li><a class="dropdown-item" href="../articles/Design-Automation.html">Design-Automation</a></li>
     <li><a class="dropdown-item" href="../articles/Model-Derivative.html">Model-Derivative</a></li>
+    <li><a class="dropdown-item" href="../articles/Reality-Capture.html">Reality Capture</a></li>
     <li><a class="dropdown-item" href="../articles/Troubleshooting.html">Troubleshooting</a></li>
     <li><a class="dropdown-item" href="../articles/Viewer.html">Viewer</a></li>
   </ul></li>
@@ -40,6 +41,39 @@
       <small>Source: <a href="https://github.com/paulgovan/AutoDeskR/blob/master/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="pkg-version" data-toc-text="0.4.0" id="autodeskr-040">AutoDeskR 0.4.0<a class="anchor" aria-label="anchor" href="#autodeskr-040"></a></h2>
+<div class="section level3">
+<h3 id="new-functions-0-4-0">New Functions<a class="anchor" aria-label="anchor" href="#new-functions-0-4-0"></a></h3>
+<ul><li>
+<code><a href="../reference/translateSvf2.html">translateSvf2()</a></code> — translate design files to SVF2 format (~30% smaller than SVF, faster rendering in the Viewer).</li>
+<li>
+<code><a href="../reference/createPhotoscene.html">createPhotoscene()</a></code>, <code><a href="../reference/uploadImages.html">uploadImages()</a></code>, <code><a href="../reference/processPhotoscene.html">processPhotoscene()</a></code>, <code><a href="../reference/checkPhotoscene.html">checkPhotoscene()</a></code> — Reality Capture API for photogrammetry and 3D model generation from images.</li>
+<li>
+<code><a href="../reference/waitForFile.html">waitForFile()</a></code> — poll <code><a href="../reference/checkFile.html">checkFile()</a></code> until a Model Derivative translation completes.</li>
+<li>
+<code><a href="../reference/waitForWorkItem.html">waitForWorkItem()</a></code> — poll <code><a href="../reference/checkPdf.html">checkPdf()</a></code> until a Design Automation WorkItem completes.</li>
+<li>
+<code><a href="../reference/is_expired.html">is_expired()</a></code> — check whether an <code>aps_token</code> has expired.</li>
+<li>
+<code><a href="../reference/aps_error.html">aps_error()</a></code> — structured S3 error condition for APS API failures; catch with <code>tryCatch(..., aps_error = function(e) ...)</code>.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="improvements-0-4-0">Improvements<a class="anchor" aria-label="anchor" href="#improvements-0-4-0"></a></h3>
+<ul><li>
+<code><a href="../reference/getToken.html">getToken()</a></code> now returns an <code>aps_token</code> object with expiry tracking (<code>$expires_at</code>, <code><a href="../reference/is_expired.html">is_expired()</a></code>). Existing code using <code>resp$content$access_token</code> continues to work unchanged.</li>
+<li>All API functions now accept an <code>aps_token</code> object in place of a raw token string. Expired tokens trigger a warning.</li>
+<li>API errors now include decoded JSON messages from APS rather than raw HTTP error text.</li>
+<li>
+<code><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble()</a></code> methods added for <code>listBuckets</code> and <code>listObjects</code> response objects (requires the <code>tibble</code> package).</li>
+</ul></div>
+<div class="section level3">
+<h3 id="infrastructure-0-4-0">Infrastructure<a class="anchor" aria-label="anchor" href="#infrastructure-0-4-0"></a></h3>
+<ul><li>Minimum R version bumped from 2.10.0 to 4.1.0.</li>
+<li>
+<code>tibble</code> added to <code>Suggests</code>.</li>
+</ul></div>
+</div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.3.0" id="autodeskr-030">AutoDeskR 0.3.0<a class="anchor" aria-label="anchor" href="#autodeskr-030"></a></h2>
 <div class="section level3">

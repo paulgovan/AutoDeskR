@@ -1,5 +1,52 @@
 # Changelog
 
+## AutoDeskR 0.4.0
+
+### New Functions
+
+- [`translateSvf2()`](http://paulgovan.github.io/AutoDeskR/reference/translateSvf2.md)
+  — translate design files to SVF2 format (~30% smaller than SVF, faster
+  rendering in the Viewer).
+- [`createPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md),
+  [`uploadImages()`](http://paulgovan.github.io/AutoDeskR/reference/uploadImages.md),
+  [`processPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/processPhotoscene.md),
+  [`checkPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
+  — Reality Capture API for photogrammetry and 3D model generation from
+  images.
+- [`waitForFile()`](http://paulgovan.github.io/AutoDeskR/reference/waitForFile.md)
+  — poll
+  [`checkFile()`](http://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
+  until a Model Derivative translation completes.
+- [`waitForWorkItem()`](http://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
+  — poll
+  [`checkPdf()`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
+  until a Design Automation WorkItem completes.
+- [`is_expired()`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
+  — check whether an `aps_token` has expired.
+- [`aps_error()`](http://paulgovan.github.io/AutoDeskR/reference/aps_error.md)
+  — structured S3 error condition for APS API failures; catch with
+  `tryCatch(..., aps_error = function(e) ...)`.
+
+### Improvements
+
+- [`getToken()`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
+  now returns an `aps_token` object with expiry tracking (`$expires_at`,
+  [`is_expired()`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)).
+  Existing code using `resp$content$access_token` continues to work
+  unchanged.
+- All API functions now accept an `aps_token` object in place of a raw
+  token string. Expired tokens trigger a warning.
+- API errors now include decoded JSON messages from APS rather than raw
+  HTTP error text.
+- [`as_tibble()`](https://tibble.tidyverse.org/reference/as_tibble.html)
+  methods added for `listBuckets` and `listObjects` response objects
+  (requires the `tibble` package).
+
+### Infrastructure
+
+- Minimum R version bumped from 2.10.0 to 4.1.0.
+- `tibble` added to `Suggests`.
+
 ## AutoDeskR 0.3.0
 
 ### Bug Fixes

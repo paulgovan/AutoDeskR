@@ -6,9 +6,10 @@ articles:
   Data-Management: Data-Management.html
   Design-Automation: Design-Automation.html
   Model-Derivative: Model-Derivative.html
+  Reality-Capture: Reality-Capture.html
   Troubleshooting: Troubleshooting.html
   Viewer: Viewer.html
-last_built: 2026-04-17T00:11Z
+last_built: 2026-04-23T01:57Z
 urls:
   reference: http://paulgovan.github.io/AutoDeskR/reference
   article: http://paulgovan.github.io/AutoDeskR/articles

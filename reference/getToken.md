@@ -31,16 +31,20 @@ getToken(id = NULL, secret = NULL, scope = "data:write data:read")
 
 ## Value
 
-An object containing the `access_token`, `token_type`, and `expires_in`
-seconds.
+An `aps_token` object containing the `access_token`, `token_type`,
+`expires_in`, and `expires_at`. The token can be passed directly to
+other AutoDeskR functions. Use
+[`is_expired`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
+to check whether the token needs refreshing. Legacy access via
+`resp$content$access_token` continues to work.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# Get a 2-legged token with the "data:read" and "data:write" scopes
-resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
-           scope = "data:write data:read")
-myToken <- resp$content$access_token
+tok <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
+         scope = "data:write data:read")
+myToken <- tok$access_token
+is_expired(tok)
 } # }
 ```
