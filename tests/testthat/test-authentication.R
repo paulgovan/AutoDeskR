@@ -19,10 +19,14 @@ test_that("getToken returns correct structure on success", {
   skip_if_not_installed("httptest2")
   httptest2::with_mock_api({
     resp <- getToken(id = "test_id", secret = "test_secret", scope = "data:read")
+    expect_s3_class(resp, "aps_token")
     expect_s3_class(resp, "getToken")
-    expect_named(resp, c("content", "path", "response"))
+    # Direct field access (new interface)
+    expect_equal(resp$access_token, "test_token_abc123")
+    expect_equal(resp$token_type, "Bearer")
+    expect_equal(resp$path, "https://developer.api.autodesk.com/authentication/v2/token")
+    # Backward-compatible $content access still works via $.aps_token shim
     expect_equal(resp$content$access_token, "test_token_abc123")
     expect_equal(resp$content$token_type, "Bearer")
-    expect_equal(resp$path, "https://developer.api.autodesk.com/authentication/v2/token")
   })
 })
