@@ -12,14 +12,17 @@
 #'   \code{bucket:read}, \code{bucket:update}, \code{bucket:delete},
 #'   \code{code:all}, \code{account:read}, \code{account:write}, or a
 #'   combination of these.
-#' @return An object containing the \code{access_token}, \code{token_type}, and
-#'   \code{expires_in} seconds.
+#' @return An \code{aps_token} object containing the \code{access_token},
+#'   \code{token_type}, \code{expires_in}, and \code{expires_at}. The token can
+#'   be passed directly to other AutoDeskR functions. Use
+#'   \code{\link{is_expired}} to check whether the token needs refreshing.
+#'   Legacy access via \code{resp$content$access_token} continues to work.
 #' @examples
 #' \dontrun{
-#' # Get a 2-legged token with the "data:read" and "data:write" scopes
-#' resp <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
-#'            scope = "data:write data:read")
-#' myToken <- resp$content$access_token
+#' tok <- getToken(id = Sys.getenv("client_id"), secret = Sys.getenv("client_secret"),
+#'          scope = "data:write data:read")
+#' myToken <- tok$access_token
+#' is_expired(tok)
 #' }
 #' @import httr2
 #' @import jsonlite
@@ -31,25 +34,15 @@ getToken <- function(id = NULL, secret = NULL, scope = "data:write data:read") {
 
   url <- 'https://developer.api.autodesk.com/authentication/v2/token'
 
-  resp <- request(url) |>
-    req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
-    req_timeout(60) |>
+  resp <- aps_request(url) |>
     req_body_form(
       client_id     = id,
       client_secret = secret,
       grant_type    = "client_credentials",
       scope         = scope
     ) |>
-    req_perform()
+    aps_perform()
 
   parsed <- resp_body_json(resp, simplifyVector = FALSE)
-
-  structure(
-    list(
-      content  = parsed,
-      path     = url,
-      response = resp
-    ),
-    class = "getToken"
-  )
+  new_aps_token(parsed, url, resp)
 }

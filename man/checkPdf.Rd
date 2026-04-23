@@ -10,8 +10,8 @@ checkPdf(id = NULL, token = NULL, source = NULL, destination = NULL)
 \item{id}{A string. WorkItem ID returned by \code{\link{makePdf}} in
 \code{resp$content$id}.}
 
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{code:all} scope.}
+\item{token}{A string or \code{aps_token} object with \code{code:all}
+scope.}
 
 \item{source}{Deprecated. Ignored with a warning.}
 

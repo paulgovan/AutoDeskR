@@ -13,8 +13,8 @@ Base64 encoded. To encode the URN, see, for example, the
 
 \item{output_urn}{A string. Output URN retrieved via \code{\link{getOutputUrn}}.}
 
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{data:read} and \code{data:write} scopes.}
+\item{token}{A string or \code{aps_token} object with \code{data:read}
+and \code{data:write} scopes.}
 
 \item{destfile}{A string. Local file path to save binary responses (e.g.
 downloaded geometry files). When \code{NULL} and the response is not JSON,

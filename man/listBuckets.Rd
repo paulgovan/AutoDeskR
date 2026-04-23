@@ -7,8 +7,8 @@
 listBuckets(token = NULL, limit = 10, startAt = NULL, region = "US")
 }
 \arguments{
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{bucket:read} scope.}
+\item{token}{A string or \code{aps_token} object with
+\code{bucket:read} scope.}
 
 \item{limit}{An integer. Maximum number of buckets to return. Defaults to
 \code{10}.}

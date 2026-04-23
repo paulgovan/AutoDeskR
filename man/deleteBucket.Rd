@@ -7,8 +7,8 @@
 deleteBucket(token = NULL, bucket = "mybucket")
 }
 \arguments{
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{bucket:delete} scope.}
+\item{token}{A string or \code{aps_token} object with
+\code{bucket:delete} scope.}
 
 \item{bucket}{A string. Name of the bucket to delete. Defaults to
 \code{mybucket}.}

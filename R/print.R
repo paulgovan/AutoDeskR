@@ -162,3 +162,48 @@ print.downloadFile <- function(x, ...) {
   }
   invisible(x)
 }
+
+#' @export
+print.aps_token <- function(x, ...) {
+  cat("<AutoDeskR: aps_token>\n")
+  cat("  Type:    ", x$token_type %||% "unknown", "\n")
+  cat("  Expires: ", format(x$expires_at, "%Y-%m-%d %H:%M:%S"),
+      " (", if (is_expired(x)) "EXPIRED" else "valid", ")\n", sep = "")
+  invisible(x)
+}
+
+#' @export
+print.translateSvf2 <- function(x, ...) {
+  cat("<AutoDeskR: translateSvf2>\n")
+  cat("  Result:", x$content$result %||% "unknown", "\n")
+  cat("  URN:   ", x$content$urn    %||% "unknown", "\n")
+  invisible(x)
+}
+
+#' @export
+print.createPhotoscene <- function(x, ...) {
+  cat("<AutoDeskR: createPhotoscene>\n")
+  cat("  Photoscene ID:", x$content$photoscene$photosceneid %||% "unknown", "\n")
+  invisible(x)
+}
+
+#' @export
+print.uploadImages <- function(x, ...) {
+  cat("<AutoDeskR: uploadImages>\n")
+  cat("  Files uploaded:", x$content$Files$file$filesize %||% "unknown", "bytes\n")
+  invisible(x)
+}
+
+#' @export
+print.processPhotoscene <- function(x, ...) {
+  cat("<AutoDeskR: processPhotoscene>\n")
+  cat("  Photoscene ID:", x$content$photoscene$photosceneid %||% "unknown", "\n")
+  invisible(x)
+}
+
+#' @export
+print.checkPhotoscene <- function(x, ...) {
+  cat("<AutoDeskR: checkPhotoscene>\n")
+  cat("  Progress:", x$content$photoscene$progress %||% "unknown", "\n")
+  invisible(x)
+}

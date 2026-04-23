@@ -9,9 +9,8 @@ uploadFile(file = NULL, token = NULL, bucket = "mybucket")
 \arguments{
 \item{file}{A string. File path.}
 
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{bucket:create}, \code{bucket:read}, and \code{data:write}
-scopes.}
+\item{token}{A string or \code{aps_token} object with
+\code{bucket:create}, \code{bucket:read}, and \code{data:write} scopes.}
 
 \item{bucket}{A string. Unique bucket name. Defaults to \code{mybucket}.}
 }

@@ -13,13 +13,13 @@ file.}
 \item{destination}{A string. Publicly accessible web address for the output
 PDF file.}
 
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{code:all} scope.}
+\item{token}{A string or \code{aps_token} object with \code{code:all}
+scope.}
 }
 \value{
 An object containing the WorkItem \code{id}, \code{status}, and
   \code{stats}. Use \code{id} with \code{\link{checkPdf}} to poll for
-  completion.
+  completion, or use \code{\link{waitForWorkItem}} to block until done.
 }
 \description{
 Convert a publicly accessible DWG file to a publicly accessible PDF using the Design Automation API v3.

@@ -7,9 +7,8 @@
 makeBucket(token = NULL, bucket = "mybucket", policy = "transient")
 }
 \arguments{
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{bucket:create}, \code{bucket:read}, and \code{data:write}
-scopes.}
+\item{token}{A string or \code{aps_token} object with
+\code{bucket:create}, \code{bucket:read}, and \code{data:write} scopes.}
 
 \item{bucket}{A string. Unique bucket name. Defaults to \code{mybucket}.}
 

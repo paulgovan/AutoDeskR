@@ -5,11 +5,11 @@
 #'   file.
 #' @param destination A string. Publicly accessible web address for the output
 #'   PDF file.
-#' @param token A string. Token generated with \code{\link{getToken}} function
-#'   with \code{code:all} scope.
+#' @param token A string or \code{aps_token} object with \code{code:all}
+#'   scope.
 #' @return An object containing the WorkItem \code{id}, \code{status}, and
 #'   \code{stats}. Use \code{id} with \code{\link{checkPdf}} to poll for
-#'   completion.
+#'   completion, or use \code{\link{waitForWorkItem}} to block until done.
 #' @examples
 #' \dontrun{
 #' mySource <- "http://download.autodesk.com/us/samplefiles/acad/visualization_-_aerial.dwg"
@@ -25,6 +25,8 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
   if (is.null(destination)) stop("destination is null")
   if (is.null(token)) stop("token is null")
 
+  token <- .resolve_token(token)
+
   url <- 'https://developer.api.autodesk.com/da/us-east/v3/workitems'
   dat <- list(
     activityId = "Autodesk.PlotToPDF+prod",
@@ -34,12 +36,9 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
     )
   )
 
-  resp <- request(url) |>
-    req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
-    req_timeout(60) |>
-    req_headers(Authorization = paste0("Bearer ", token)) |>
+  resp <- aps_request(url, token) |>
     req_body_json(dat) |>
-    req_perform()
+    aps_perform()
 
   parsed <- resp_body_json(resp, simplifyVector = FALSE)
 
@@ -59,8 +58,8 @@ makePdf <- function(source = NULL, destination = NULL, token = NULL) {
 #' API v3.
 #' @param id A string. WorkItem ID returned by \code{\link{makePdf}} in
 #'   \code{resp$content$id}.
-#' @param token A string. Token generated with \code{\link{getToken}} function
-#'   with \code{code:all} scope.
+#' @param token A string or \code{aps_token} object with \code{code:all}
+#'   scope.
 #' @param source Deprecated. Ignored with a warning.
 #' @param destination Deprecated. Ignored with a warning.
 #' @return An object containing the WorkItem \code{id}, \code{status}, and
@@ -85,13 +84,12 @@ checkPdf <- function(id = NULL, token = NULL, source = NULL, destination = NULL)
   if (is.null(id)) stop("id is null")
   if (is.null(token)) stop("token is null")
 
+  token <- .resolve_token(token)
+
   url <- paste0('https://developer.api.autodesk.com/da/us-east/v3/workitems/', id)
 
-  resp <- request(url) |>
-    req_user_agent("https://github.com/paulgovan/AutoDeskR") |>
-    req_timeout(60) |>
-    req_headers(Authorization = paste0("Bearer ", token)) |>
-    req_perform()
+  resp <- aps_request(url, token) |>
+    aps_perform()
 
   parsed <- resp_body_json(resp, simplifyVector = FALSE)
 

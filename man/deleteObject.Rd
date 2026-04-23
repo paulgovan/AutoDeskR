@@ -7,8 +7,8 @@
 deleteObject(token = NULL, bucket = "mybucket", object = NULL)
 }
 \arguments{
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{data:write} scope.}
+\item{token}{A string or \code{aps_token} object with
+\code{data:write} scope.}
 
 \item{bucket}{A string. Name of the bucket. Defaults to \code{mybucket}.}
 

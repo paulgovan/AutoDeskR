@@ -7,8 +7,8 @@
 listObjects(token = NULL, bucket = "mybucket", limit = 10)
 }
 \arguments{
-\item{token}{A string. Token generated with \code{\link{getToken}} function
-with \code{data:read} scope.}
+\item{token}{A string or \code{aps_token} object with
+\code{data:read} scope.}
 
 \item{bucket}{A string. Name of the bucket. Defaults to \code{mybucket}.}
 
