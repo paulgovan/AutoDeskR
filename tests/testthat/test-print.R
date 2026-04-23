@@ -35,6 +35,22 @@ test_that("print.aps_token shows EXPIRED when token is expired", {
   expect_output(print(make_token(expired = TRUE)), "EXPIRED")
 })
 
+# print.getToken (legacy pre-v0.4.0 shape) ----------------------------------
+
+test_that("print.getToken shows token type and expiry from legacy content shape", {
+  r <- structure(
+    list(
+      content  = list(token_type = "Bearer", expires_in = 3600L),
+      path     = "https://developer.api.autodesk.com/authentication/v2/token",
+      response = list()
+    ),
+    class = "getToken"   # plain getToken, NOT c("aps_token", "getToken")
+  )
+  expect_output(print(r), "getToken")
+  expect_output(print(r), "Bearer")
+  expect_output(print(r), "3600")
+})
+
 # print.makeBucket ----------------------------------------------------------
 
 test_that("print.makeBucket shows bucket key and policy", {

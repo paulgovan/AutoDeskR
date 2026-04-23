@@ -99,6 +99,20 @@ test_that("uploadFile stops when token is NULL", {
   expect_error(uploadFile(file = "f.dwg", token = NULL), "token is null")
 })
 
+# uploadFileSigned ----------------------------------------------------------
+
+test_that("uploadFileSigned stops when file is NULL", {
+  expect_error(uploadFileSigned(file = NULL, token = "t"), "file is null")
+})
+
+test_that("uploadFileSigned stops when token is NULL", {
+  expect_error(uploadFileSigned(file = "big.rvt", token = NULL), "token is null")
+})
+
+test_that("uploadFileSigned stops when bucket is NULL", {
+  expect_error(uploadFileSigned(file = "big.rvt", token = "t", bucket = NULL), "bucket is null")
+})
+
 # deleteBucket / deleteObject -----------------------------------------------
 
 test_that("deleteBucket stops when token is NULL", {
