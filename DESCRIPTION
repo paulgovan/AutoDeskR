@@ -1,15 +1,16 @@
 Package: AutoDeskR
 Type: Package
 Title: An Interface to the 'AutoDesk' 'API' Platform
-Description: An interface to the 'AutoDesk' 'API' Platform including the Authentication 
-    'API' for obtaining authentication to the 'AutoDesk' Forge Platform, Data Management 
-    'API' for managing data across the platform's cloud services, Design Automation 'API'
-    for performing automated tasks on design files in the cloud, Model
-    Derivative 'API' for translating design files into different formats, sending
-    them to the viewer app, and extracting design data, and Viewer for rendering 
-    2D and 3D models.
+Description: An interface to the 'AutoDesk' Platform Services ('APS') 'API' including
+    the Authentication 'API' for obtaining 'OAuth2' tokens with expiry tracking, Data
+    Management 'API' for managing buckets and objects across the platform's cloud
+    services, Design Automation 'API' for running automated tasks on design files in
+    the cloud, Model Derivative 'API' for translating design files into 'SVF', 'SVF2',
+    'OBJ', and 'STL' formats and extracting model data, Reality Capture 'API' for
+    generating 3D models from photogrammetry image sets, and Viewer for rendering 2D
+    and 3D models in 'Shiny' applications.
 Version: 0.4.0
-URL: https://aps.autodesk.com, https://paulgovan.gitbook.io/autodeskr, http://paulgovan.github.io/AutoDeskR/, https://github.com/paulgovan/AutoDeskR
+URL: https://aps.autodesk.com, https://github.com/paulgovan/AutoDeskR, https://paulgovan.github.io/AutoDeskR-Book/
 BugReports: https://github.com/paulgovan/AutoDeskR/issues
 Authors@R: person("Paul", "Govan", email = "paul.govan2@gmail.com",
     role = c("aut", "cre", "cph"), comment = c(ORCID = "0000-0002-1821-8492"))
@@ -28,5 +29,4 @@ Suggests: knitr,
     testthat (>= 3.0.0),
     httptest2,
     tibble
-VignetteBuilder: knitr
 Config/testthat/edition: 3

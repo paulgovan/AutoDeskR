@@ -20,15 +20,17 @@ coverage](https://codecov.io/gh/paulgovan/AutoDeskR/graph/badge.svg)](https://ap
 
 AutoDeskR is an R package that provides an interface to the:
 
-- Authentication API for obtaining authentication to the AutoDesk
-  Platform Services (APS).
-- Data Management API for managing data across the platform’s cloud
-  services.
-- Design Automation API for performing automated tasks on model files in
-  the cloud.
-- Model Derivative API for translating design files into different
-  formats, sending them to the viewer app, and extracting model data.
-- Viewer for rendering 2D and 3D models.
+- **Authentication API** — obtain OAuth2 tokens with expiry tracking via
+  the `aps_token` class.
+- **Data Management API** — manage buckets and objects across the
+  platform’s cloud services.
+- **Design Automation API** — run automated tasks on design files in the
+  cloud.
+- **Model Derivative API** — translate design files into SVF, SVF2, OBJ,
+  and STL formats and extract model data.
+- **Reality Capture API** — generate 3D models from photogrammetry image
+  sets.
+- **Viewer** — render 2D and 3D models in Shiny applications.
 
 ![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 
@@ -36,11 +38,37 @@ AutoDeskR is an R package that provides an interface to the:
 
 To install AutoDeskR in [R](https://www.r-project.org):
 
-    install.packages("AutoDeskR")
+``` r
+install.packages("AutoDeskR")
+```
 
 Or to install the development version:
 
-    devtools::install_github('paulgovan/autodeskr')
+``` r
+devtools::install_github("paulgovan/AutoDeskR")
+```
+
+### Basic workflow
+
+``` r
+library(AutoDeskR)
+
+# 1. Authenticate
+tok <- getToken(id = Sys.getenv("APS_CLIENT_ID"), secret = Sys.getenv("APS_CLIENT_SECRET"))
+is_expired(tok)  # FALSE
+
+# 2. Upload a file
+makeBucket(token = tok, bucket = "mybucket")
+uploadFile(file = "aerial.dwg", token = tok, bucket = "mybucket")
+
+# 3. Translate and wait
+resp <- translateSvf2(urn = myEncodedUrn, token = tok)
+done <- waitForFile(urn = myEncodedUrn, token = tok)
+
+# 4. Tidy output (requires tibble)
+library(tibble)
+listBuckets(token = tok) |> as_tibble()
+```
 
 ## Code of Conduct
 
