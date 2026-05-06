@@ -24,7 +24,9 @@ Imports:
     shiny
 Encoding: UTF-8
 RoxygenNote: 7.3.3
-Suggests: knitr,
+Suggests: ellmer,
+    knitr,
+    mcptools,
     rmarkdown,
     testthat (>= 3.0.0),
     httptest2,
