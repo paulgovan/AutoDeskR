@@ -15,3 +15,4 @@
 ^\.claude$
 ^Rplots\.pdf$
 ^tests/testthat/developer\.api\.autodesk\.com
+^\.positai$
