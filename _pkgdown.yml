@@ -10,11 +10,11 @@ home:
 
 navbar:
   structure:
-    left: [intro, reference, news]
-    right: [book, github]
+    left: [book, intro, reference, news]
+    right: [github]
   components:
     book:
-      text: Book
+      text: "Companion Book"
       href: https://paulgovan.github.io/AutoDeskR-Book/
       icon: fa-book
     github:
