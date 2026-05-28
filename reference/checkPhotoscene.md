@@ -1,7 +1,7 @@
 # Check Reality Capture Processing Progress.
 
 Poll the processing status of a photoscene. Use
-[`waitForPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/waitForPhotoscene.md)
+[`waitForPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/waitForPhotoscene.md)
 to block until processing completes.
 
 ## Usage
@@ -15,7 +15,7 @@ checkPhotoscene(photoscene_id = NULL, token = NULL)
 - photoscene_id:
 
   A string. Photoscene ID returned by
-  [`createPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
+  [`createPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
 
 - token:
 

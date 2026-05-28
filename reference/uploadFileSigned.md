@@ -3,7 +3,7 @@
 Upload a design file of any size to an app-managed bucket using the
 signed S3 URL approach recommended by AutoDesk Platform Services (APS).
 Unlike
-[`uploadFile`](http://paulgovan.github.io/AutoDeskR/reference/uploadFile.md),
+[`uploadFile`](https://paulgovan.github.io/AutoDeskR/reference/uploadFile.md),
 this function supports files larger than 100 MB.
 
 ## Usage

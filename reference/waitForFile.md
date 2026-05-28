@@ -1,7 +1,7 @@
 # Wait for a Model Derivative Translation to Complete.
 
 Polls
-[`checkFile`](http://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
+[`checkFile`](https://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
 at a fixed interval until the translation reaches a terminal state
 (`"success"`, `"failed"`, or `"timeout"`).
 
@@ -36,7 +36,7 @@ waitForFile(urn, token, interval = 5, timeout = 300, verbose = TRUE)
 ## Value
 
 The final
-[`checkFile`](http://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
+[`checkFile`](https://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
 response object.
 
 ## Examples

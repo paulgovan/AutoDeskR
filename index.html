@@ -7,13 +7,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>An Interface to the AutoDesk API Platform • AutoDeskR</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="An Interface to the AutoDesk API Platform">
-<meta name="description" content="An interface to the AutoDesk API Platform including the Authentication API for obtaining authentication to the AutoDesk Forge Platform, Data Management API for managing data across the platforms cloud services, Design Automation API for performing automated tasks on design files in the cloud, Model Derivative API' for translating design files into different formats, sending them to the viewer app, and extracting design data, and Viewer for rendering 2D and 3D models.">
-<meta property="og:description" content="An interface to the AutoDesk API Platform including the Authentication API for obtaining authentication to the AutoDesk Forge Platform, Data Management API for managing data across the platforms cloud services, Design Automation API for performing automated tasks on design files in the cloud, Model Derivative API' for translating design files into different formats, sending them to the viewer app, and extracting design data, and Viewer for rendering 2D and 3D models.">
-<meta property="og:image" content="http://paulgovan.github.io/AutoDeskR/logo.png">
+<meta name="description" content="An interface to the AutoDesk Platform Services (APS) API including the Authentication API for obtaining OAuth2 tokens with expiry tracking, Data Management API for managing buckets and objects across the platforms cloud services, Design Automation API for running automated tasks on design files in the cloud, Model Derivative API for translating design files into SVF, SVF2, OBJ, and STL formats and extracting model data, Reality Capture API for generating 3D models from photogrammetry image sets, and Viewer for rendering 2D and 3D models in Shiny' applications.">
+<meta property="og:description" content="An interface to the AutoDesk Platform Services (APS) API including the Authentication API for obtaining OAuth2 tokens with expiry tracking, Data Management API for managing buckets and objects across the platforms cloud services, Design Automation API for running automated tasks on design files in the cloud, Model Derivative API for translating design files into SVF, SVF2, OBJ, and STL formats and extracting model data, Reality Capture API for generating 3D models from photogrammetry image sets, and Viewer for rendering 2D and 3D models in Shiny' applications.">
+<meta property="og:image" content="https://paulgovan.github.io/AutoDeskR/logo.png">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -23,7 +23,7 @@
 
     <a class="navbar-brand me-2" href="index.html">AutoDeskR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.4.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.4.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,25 +33,11 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
-<li class="nav-item dropdown">
-  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/Authentication.html">Authentication</a></li>
-    <li><a class="dropdown-item" href="articles/Data-Management.html">Data-Management</a></li>
-    <li><a class="dropdown-item" href="articles/Design-Automation.html">Design-Automation</a></li>
-    <li><a class="dropdown-item" href="articles/Model-Derivative.html">Model-Derivative</a></li>
-    <li><a class="dropdown-item" href="articles/Reality-Capture.html">Reality Capture</a></li>
-    <li><a class="dropdown-item" href="articles/Troubleshooting.html">Troubleshooting</a></li>
-    <li><a class="dropdown-item" href="articles/Viewer.html">Viewer</a></li>
-  </ul>
-</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
-<li class="nav-item"><form class="form-inline" role="search">
- <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
-</form></li>
-<li class="nav-item"><a class="external-link nav-link" href="https://github.com/paulgovan/AutoDeskR/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item"><a class="nav-link" href="https://paulgovan.github.io/AutoDeskR-Book/"><span class="fa fa-book"></span> Book</a></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/paulgovan/AutoDeskR"><span class="fa fa-github"></span></a></li>
       </ul>
 </div>
 
@@ -67,17 +53,25 @@
 </div>
 <!-- badges: start -->
 
-<!-- badges: end -->
 <div class="section level2">
 <h2 id="introduction">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
 <p>AutoDeskR is an R package that provides an interface to the:</p>
 <ul>
-<li>Authentication API for obtaining authentication to the AutoDesk Platform Services (APS).</li>
-<li>Data Management API for managing data across the platform’s cloud services.</li>
-<li>Design Automation API for performing automated tasks on model files in the cloud.</li>
-<li>Model Derivative API for translating design files into different formats, sending them to the viewer app, and extracting model data.</li>
-<li>Viewer for rendering 2D and 3D models.</li>
+<li>
+<strong>Authentication API</strong> — obtain OAuth2 tokens with expiry tracking via the <code>aps_token</code> class.</li>
+<li>
+<strong>Data Management API</strong> — manage buckets and objects across the platform’s cloud services.</li>
+<li>
+<strong>Design Automation API</strong> — run automated tasks on design files in the cloud.</li>
+<li>
+<strong>Model Derivative API</strong> — translate design files into SVF, SVF2, OBJ, and STL formats and extract model data.</li>
+<li>
+<strong>Reality Capture API</strong> — generate 3D models from photogrammetry image sets.</li>
+<li>
+<strong>Viewer</strong> — render 2D and 3D models in Shiny applications.</li>
+<li>
+<strong>MCP Tools</strong> — expose AutoDeskR functions to AI models via the Model Context Protocol using <code>ellmer</code> and <code>mcptools</code>.</li>
 </ul>
 <p><img src="https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true"></p>
 </div>
@@ -85,14 +79,51 @@
 <h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
 </h2>
 <p>To install AutoDeskR in <a href="https://www.r-project.org" class="external-link">R</a>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"AutoDeskR"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"AutoDeskR"</span><span class="op">)</span></span></code></pre></div>
 <p>Or to install the development version:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">'paulgovan/autodeskr'</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"paulgovan/AutoDeskR"</span><span class="op">)</span></span></code></pre></div>
+<div class="section level3">
+<h3 id="basic-workflow">Basic workflow<a class="anchor" aria-label="anchor" href="#basic-workflow"></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://aps.autodesk.com" class="external-link">AutoDeskR</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 1. Authenticate</span></span>
+<span><span class="va">tok</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/getToken.html">getToken</a></span><span class="op">(</span>id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"APS_CLIENT_ID"</span><span class="op">)</span>, secret <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"APS_CLIENT_SECRET"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/is_expired.html">is_expired</a></span><span class="op">(</span><span class="va">tok</span><span class="op">)</span>  <span class="co"># FALSE</span></span>
+<span></span>
+<span><span class="co"># 2. Upload a file</span></span>
+<span><span class="fu"><a href="reference/makeBucket.html">makeBucket</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">tok</span>, bucket <span class="op">=</span> <span class="st">"mybucket"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/uploadFile.html">uploadFile</a></span><span class="op">(</span>file <span class="op">=</span> <span class="st">"aerial.dwg"</span>, token <span class="op">=</span> <span class="va">tok</span>, bucket <span class="op">=</span> <span class="st">"mybucket"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 3. Translate and wait</span></span>
+<span><span class="va">resp</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/translateSvf2.html">translateSvf2</a></span><span class="op">(</span>urn <span class="op">=</span> <span class="va">myEncodedUrn</span>, token <span class="op">=</span> <span class="va">tok</span><span class="op">)</span></span>
+<span><span class="va">done</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/waitForFile.html">waitForFile</a></span><span class="op">(</span>urn <span class="op">=</span> <span class="va">myEncodedUrn</span>, token <span class="op">=</span> <span class="va">tok</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># 4. Tidy output (requires tibble)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/listBuckets.html">listBuckets</a></span><span class="op">(</span>token <span class="op">=</span> <span class="va">tok</span><span class="op">)</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html" class="external-link">as_tibble</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="mcp-tools">MCP Tools<a class="anchor" aria-label="anchor" href="#mcp-tools"></a>
+</h2>
+<p>AutoDeskR exposes its functions to AI models via the <a href="https://modelcontextprotocol.io" class="external-link">Model Context Protocol</a> (MCP). Use <code><a href="reference/autodeskr_mcp_tools.html">autodeskr_mcp_tools()</a></code> to start an MCP server that AI assistants can call directly — no token argument required; credentials are read from the <code>APS_CLIENT_ID</code> and <code>APS_CLIENT_SECRET</code> environment variables.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Requires the ellmer and mcptools packages</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"ellmer"</span>, <span class="st">"mcptools"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/Sys.setenv.html" class="external-link">Sys.setenv</a></span><span class="op">(</span>APS_CLIENT_ID <span class="op">=</span> <span class="st">"your_id"</span>, APS_CLIENT_SECRET <span class="op">=</span> <span class="st">"your_secret"</span><span class="op">)</span></span>
+<span><span class="va">tools</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/autodeskr_mcp_tools.html">autodeskr_mcp_tools</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu">mcptools</span><span class="fu">::</span><span class="fu"><a href="https://posit-dev.github.io/mcptools/reference/server.html" class="external-link">mcp_server</a></span><span class="op">(</span>tools <span class="op">=</span> <span class="va">tools</span><span class="op">)</span></span></code></pre></div>
+<p>The server exposes tools for all five APIs: Authentication, Data Management, Model Derivative, Design Automation, and Reality Capture.</p>
 </div>
 <div class="section level2">
 <h2 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h2>
-<p>Please note that the AutoDeskR project is released with a <a href="http://paulgovan.github.io/AutoDeskR/CODE_OF_CONDUCT.html">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the AutoDeskR project is released with a <a href="http://paulgovan.github.io/AutoDeskR/CODE_OF_CONDUCT.html" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 <div class="section level2">
 <h2 id="acknowledgements">Acknowledgements<a class="anchor" aria-label="anchor" href="#acknowledgements"></a>
@@ -106,6 +137,7 @@
 <li><a href="https://cloud.r-project.org/package=AutoDeskR" class="external-link">View on CRAN</a></li>
 <li><a href="https://github.com/paulgovan/AutoDeskR/" class="external-link">Browse source code</a></li>
 <li><a href="https://github.com/paulgovan/AutoDeskR/issues" class="external-link">Report a bug</a></li>
+<li><a href="https://paulgovan.github.io/AutoDeskR-Book/">Companion Book</a></li>
 </ul>
 </div>
 
@@ -138,7 +170,18 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://lifecycle.r-lib.org/articles/stages.html#stable" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></li>
+<li><a href="https://CRAN.R-project.org/package=AutoDeskR" class="external-link"><img src="https://www.r-pkg.org/badges/version/AutoDeskR" alt="CRAN status"></a></li>
+<li><a href="https://github.com/paulgovan/AutoDeskR/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/paulgovan/AutoDeskR/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+<li><a href="https://app.codecov.io/gh/paulgovan/AutoDeskR" class="external-link"><img src="https://codecov.io/gh/paulgovan/AutoDeskR/graph/badge.svg" alt="Codecov test coverage"></a></li>
+<li><a href="https://cran.r-project.org/package=AutoDeskR" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/last-month/AutoDeskR"></a></li>
+<li><a href="https://cran.r-project.org/package=AutoDeskR" class="external-link"><img src="http://cranlogs.r-pkg.org/badges/grand-total/AutoDeskR"></a></li>
+<li><a href="https://doi.org/10.32614/CRAN.package.AutoDeskR" class="external-link"><img src="https://img.shields.io/badge/doi-10.32614/CRAN.package.AutoDeskR-green.svg"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>

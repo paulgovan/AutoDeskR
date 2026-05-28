@@ -14,7 +14,7 @@ uploadImages(photoscene_id = NULL, files = NULL, token = NULL)
 - photoscene_id:
 
   A string. Photoscene ID returned by
-  [`createPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
+  [`createPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
 
 - files:
 

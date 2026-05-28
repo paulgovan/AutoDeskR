@@ -20,7 +20,7 @@ viewer3D(urn = NULL, token = NULL, viewerType = "header")
 - token:
 
   A string. Token generated with
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
+  [`getToken`](https://paulgovan.github.io/AutoDeskR/reference/getToken.md)
   function with `data:read` scope.
 
 - viewerType:

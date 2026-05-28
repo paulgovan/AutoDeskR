@@ -12,7 +12,7 @@ Source:
 
 Govan P (2018). *AutoDeskR: An Interface to the AutoDesk API Platform*,
 1 edition. GitBook.
-[doi:10.5281/zenodo.1137877](https://doi.org/10.5281/zenodo.1137877),
+[doi:10.5281/zenodo.1137877](https://doi.org/10.5281/zenodo.1137877).
 <https://paulgovan.gitbook.io/autodeskr>.
 
     @Book{,
@@ -26,7 +26,7 @@ Govan P (2018). *AutoDeskR: An Interface to the AutoDesk API Platform*,
     }
 
 Govan P (2024). *AutoDeskR: An Interface to the AutoDesk API Platform*.
-[doi:10.32614/CRAN.package.AutoDeskR](https://doi.org/10.32614/CRAN.package.AutoDeskR),
+[doi:10.32614/CRAN.package.AutoDeskR](https://doi.org/10.32614/CRAN.package.AutoDeskR).
 R package version 0.1.5, <https://cran.r-project.org/package=AutoDeskR>.
 
     @Manual{,

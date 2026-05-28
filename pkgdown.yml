@@ -1,15 +1,8 @@
-pandoc: 3.1.11
+pandoc: 3.8.3
 pkgdown: 2.2.0
 pkgdown_sha: ~
-articles:
-  Authentication: Authentication.html
-  Data-Management: Data-Management.html
-  Design-Automation: Design-Automation.html
-  Model-Derivative: Model-Derivative.html
-  Reality-Capture: Reality-Capture.html
-  Troubleshooting: Troubleshooting.html
-  Viewer: Viewer.html
-last_built: 2026-04-23T19:23Z
+articles: {}
+last_built: 2026-05-28T01:53Z
 urls:
-  reference: http://paulgovan.github.io/AutoDeskR/reference
-  article: http://paulgovan.github.io/AutoDeskR/articles
+  reference: https://paulgovan.github.io/AutoDeskR/reference
+  article: https://paulgovan.github.io/AutoDeskR/articles

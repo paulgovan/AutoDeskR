@@ -1,7 +1,7 @@
 # Wait for a Design Automation WorkItem to Complete.
 
 Polls
-[`checkPdf`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
+[`checkPdf`](https://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
 at a fixed interval until the WorkItem reaches a terminal state (any
 status other than `"inprogress"` or `"pending"`).
 
@@ -36,7 +36,7 @@ waitForWorkItem(id, token, interval = 5, timeout = 300, verbose = TRUE)
 ## Value
 
 The final
-[`checkPdf`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
+[`checkPdf`](https://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
 response object.
 
 ## Examples

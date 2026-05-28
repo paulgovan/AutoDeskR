@@ -1,7 +1,7 @@
 # Wait for Reality Capture Processing to Complete.
 
 Polls
-[`checkPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
+[`checkPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
 at a fixed interval until processing reaches 100% or an error occurs.
 
 ## Usage
@@ -21,7 +21,7 @@ waitForPhotoscene(
 - photoscene_id:
 
   A string. Photoscene ID returned by
-  [`createPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
+  [`createPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
 
 - token:
 
@@ -43,7 +43,7 @@ waitForPhotoscene(
 ## Value
 
 The final
-[`checkPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
+[`checkPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
 response object.
 
 ## Examples

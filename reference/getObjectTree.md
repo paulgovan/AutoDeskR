@@ -13,7 +13,7 @@ getObjectTree(guid = NULL, urn = NULL, token = NULL)
 - guid:
 
   A string. GUID retrieved via the
-  [`getMetadata`](http://paulgovan.github.io/AutoDeskR/reference/getMetadata.md)
+  [`getMetadata`](https://paulgovan.github.io/AutoDeskR/reference/getMetadata.md)
   function.
 
 - urn:

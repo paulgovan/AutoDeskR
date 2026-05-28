@@ -21,7 +21,7 @@ downloadFile(urn = NULL, output_urn = NULL, token = NULL, destfile = NULL)
 - output_urn:
 
   A string. Output URN retrieved via
-  [`getOutputUrn`](http://paulgovan.github.io/AutoDeskR/reference/getOutputUrn.md).
+  [`getOutputUrn`](https://paulgovan.github.io/AutoDeskR/reference/getOutputUrn.md).
 
 - token:
 

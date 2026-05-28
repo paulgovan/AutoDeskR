@@ -2,9 +2,9 @@
 
 Create a new photoscene for photogrammetry processing using the Reality
 Capture API. Upload images with
-[`uploadImages`](http://paulgovan.github.io/AutoDeskR/reference/uploadImages.md),
+[`uploadImages`](https://paulgovan.github.io/AutoDeskR/reference/uploadImages.md),
 then start processing with
-[`processPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/processPhotoscene.md).
+[`processPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/processPhotoscene.md).
 
 ## Usage
 

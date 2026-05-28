@@ -14,7 +14,7 @@ checkPdf(id = NULL, token = NULL, source = NULL, destination = NULL)
 - id:
 
   A string. WorkItem ID returned by
-  [`makePdf`](http://paulgovan.github.io/AutoDeskR/reference/makePdf.md)
+  [`makePdf`](https://paulgovan.github.io/AutoDeskR/reference/makePdf.md)
   in `resp$content$id`.
 
 - token:

@@ -4,34 +4,34 @@
 
 ### New Functions
 
-- [`translateSvf2()`](http://paulgovan.github.io/AutoDeskR/reference/translateSvf2.md)
+- [`translateSvf2()`](https://paulgovan.github.io/AutoDeskR/reference/translateSvf2.md)
   — translate design files to SVF2 format (~30% smaller than SVF, faster
   rendering in the Viewer).
-- [`createPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md),
-  [`uploadImages()`](http://paulgovan.github.io/AutoDeskR/reference/uploadImages.md),
-  [`processPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/processPhotoscene.md),
-  [`checkPhotoscene()`](http://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
+- [`createPhotoscene()`](https://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md),
+  [`uploadImages()`](https://paulgovan.github.io/AutoDeskR/reference/uploadImages.md),
+  [`processPhotoscene()`](https://paulgovan.github.io/AutoDeskR/reference/processPhotoscene.md),
+  [`checkPhotoscene()`](https://paulgovan.github.io/AutoDeskR/reference/checkPhotoscene.md)
   — Reality Capture API for photogrammetry and 3D model generation from
   images.
-- [`waitForFile()`](http://paulgovan.github.io/AutoDeskR/reference/waitForFile.md)
+- [`waitForFile()`](https://paulgovan.github.io/AutoDeskR/reference/waitForFile.md)
   — poll
-  [`checkFile()`](http://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
+  [`checkFile()`](https://paulgovan.github.io/AutoDeskR/reference/checkFile.md)
   until a Model Derivative translation completes.
-- [`waitForWorkItem()`](http://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
+- [`waitForWorkItem()`](https://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
   — poll
-  [`checkPdf()`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
+  [`checkPdf()`](https://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
   until a Design Automation WorkItem completes.
-- [`is_expired()`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
+- [`is_expired()`](https://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
   — check whether an `aps_token` has expired.
-- [`aps_error()`](http://paulgovan.github.io/AutoDeskR/reference/aps_error.md)
+- [`aps_error()`](https://paulgovan.github.io/AutoDeskR/reference/aps_error.md)
   — structured S3 error condition for APS API failures; catch with
   `tryCatch(..., aps_error = function(e) ...)`.
 
 ### Improvements
 
-- [`getToken()`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md)
+- [`getToken()`](https://paulgovan.github.io/AutoDeskR/reference/getToken.md)
   now returns an `aps_token` object with expiry tracking (`$expires_at`,
-  [`is_expired()`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)).
+  [`is_expired()`](https://paulgovan.github.io/AutoDeskR/reference/is_expired.md)).
   Existing code using `resp$content$access_token` continues to work
   unchanged.
 - All API functions now accept an `aps_token` object in place of a raw
@@ -52,15 +52,15 @@
 ### Bug Fixes
 
 - Fixed `<-` arrow-assignment bugs in
-  [`getData()`](http://paulgovan.github.io/AutoDeskR/reference/getData.md),
-  [`getObjectTree()`](http://paulgovan.github.io/AutoDeskR/reference/getObjectTree.md),
-  [`translateObj()`](http://paulgovan.github.io/AutoDeskR/reference/translateObj.md),
-  [`translateStl()`](http://paulgovan.github.io/AutoDeskR/reference/translateStl.md),
+  [`getData()`](https://paulgovan.github.io/AutoDeskR/reference/getData.md),
+  [`getObjectTree()`](https://paulgovan.github.io/AutoDeskR/reference/getObjectTree.md),
+  [`translateObj()`](https://paulgovan.github.io/AutoDeskR/reference/translateObj.md),
+  [`translateStl()`](https://paulgovan.github.io/AutoDeskR/reference/translateStl.md),
   and
-  [`getOutputUrn()`](http://paulgovan.github.io/AutoDeskR/reference/getOutputUrn.md)
+  [`getOutputUrn()`](https://paulgovan.github.io/AutoDeskR/reference/getOutputUrn.md)
   roxygen examples.
 - Fixed unreachable `vr` template branch in
-  [`viewerUI()`](http://paulgovan.github.io/AutoDeskR/reference/viewerUI.md).
+  [`viewerUI()`](https://paulgovan.github.io/AutoDeskR/reference/viewerUI.md).
 
 ### Major Changes
 
@@ -73,7 +73,7 @@
 
 ### New Functions
 
-- [`uploadFileSigned()`](http://paulgovan.github.io/AutoDeskR/reference/uploadFileSigned.md)
+- [`uploadFileSigned()`](https://paulgovan.github.io/AutoDeskR/reference/uploadFileSigned.md)
   — signed S3 URL upload supporting files of any size.
 
 ### Infrastructure
@@ -88,7 +88,7 @@
 
 ### Breaking Changes
 
-- [`checkPdf()`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md):
+- [`checkPdf()`](https://paulgovan.github.io/AutoDeskR/reference/checkPdf.md):
   The `source` and `destination` parameters are now deprecated. Pass the
   WorkItem `id` (from `makePdf()$content$id`) as the new `id` parameter
   instead. Using the old parameters issues a deprecation warning.
@@ -102,25 +102,25 @@
   endpoint (`/authentication/v2/token`).
 - Design Automation API updated from the retired AutoCAD.io v2 endpoint
   to the Design Automation v3 API (`/da/us-east/v3/workitems`).
-- [`downloadFile()`](http://paulgovan.github.io/AutoDeskR/reference/downloadFile.md):
+- [`downloadFile()`](https://paulgovan.github.io/AutoDeskR/reference/downloadFile.md):
   Added optional `destfile` parameter and correct handling of binary
   (non-JSON) responses.
 - Bug fix:
-  [`viewerUI()`](http://paulgovan.github.io/AutoDeskR/reference/viewerUI.md)
+  [`viewerUI()`](https://paulgovan.github.io/AutoDeskR/reference/viewerUI.md)
   `viewerType` validation logic was always evaluating to `TRUE`;
   corrected to properly reject invalid types.
 
 ### New Functions
 
-- [`listBuckets()`](http://paulgovan.github.io/AutoDeskR/reference/listBuckets.md)
+- [`listBuckets()`](https://paulgovan.github.io/AutoDeskR/reference/listBuckets.md)
   — list all app-managed buckets.
-- [`deleteBucket()`](http://paulgovan.github.io/AutoDeskR/reference/deleteBucket.md)
+- [`deleteBucket()`](https://paulgovan.github.io/AutoDeskR/reference/deleteBucket.md)
   — delete an app-managed bucket.
-- [`listObjects()`](http://paulgovan.github.io/AutoDeskR/reference/listObjects.md)
+- [`listObjects()`](https://paulgovan.github.io/AutoDeskR/reference/listObjects.md)
   — list objects stored in a bucket.
-- [`deleteObject()`](http://paulgovan.github.io/AutoDeskR/reference/deleteObject.md)
+- [`deleteObject()`](https://paulgovan.github.io/AutoDeskR/reference/deleteObject.md)
   — delete an object from a bucket.
-- [`translateStl()`](http://paulgovan.github.io/AutoDeskR/reference/translateStl.md)
+- [`translateStl()`](https://paulgovan.github.io/AutoDeskR/reference/translateStl.md)
   — translate a design file into STL format.
 
 ### Infrastructure

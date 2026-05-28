@@ -2,7 +2,7 @@
 
 Initiate photogrammetry processing for a photoscene that has had images
 uploaded via
-[`uploadImages`](http://paulgovan.github.io/AutoDeskR/reference/uploadImages.md).
+[`uploadImages`](https://paulgovan.github.io/AutoDeskR/reference/uploadImages.md).
 
 ## Usage
 
@@ -15,7 +15,7 @@ processPhotoscene(photoscene_id = NULL, token = NULL)
 - photoscene_id:
 
   A string. Photoscene ID returned by
-  [`createPhotoscene`](http://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
+  [`createPhotoscene`](https://paulgovan.github.io/AutoDeskR/reference/createPhotoscene.md).
 
 - token:
 

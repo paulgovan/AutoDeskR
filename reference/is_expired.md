@@ -13,7 +13,7 @@ is_expired(token)
 - token:
 
   An `aps_token` object returned by
-  [`getToken`](http://paulgovan.github.io/AutoDeskR/reference/getToken.md).
+  [`getToken`](https://paulgovan.github.io/AutoDeskR/reference/getToken.md).
 
 ## Value
 

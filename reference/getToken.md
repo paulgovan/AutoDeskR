@@ -34,7 +34,7 @@ getToken(id = NULL, secret = NULL, scope = "data:write data:read")
 An `aps_token` object containing the `access_token`, `token_type`,
 `expires_in`, and `expires_at`. The token can be passed directly to
 other AutoDeskR functions. Use
-[`is_expired`](http://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
+[`is_expired`](https://paulgovan.github.io/AutoDeskR/reference/is_expired.md)
 to check whether the token needs refreshing. Legacy access via
 `resp$content$access_token` continues to work.
 

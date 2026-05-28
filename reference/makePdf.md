@@ -27,9 +27,9 @@ makePdf(source = NULL, destination = NULL, token = NULL)
 
 An object containing the WorkItem `id`, `status`, and `stats`. Use `id`
 with
-[`checkPdf`](http://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
+[`checkPdf`](https://paulgovan.github.io/AutoDeskR/reference/checkPdf.md)
 to poll for completion, or use
-[`waitForWorkItem`](http://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
+[`waitForWorkItem`](https://paulgovan.github.io/AutoDeskR/reference/waitForWorkItem.md)
 to block until done.
 
 ## Examples

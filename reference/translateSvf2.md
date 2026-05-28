@@ -3,7 +3,7 @@
 Translate an uploaded file into SVF2 format using the Model Derivative
 API. SVF2 is the next-generation viewer format: approximately 30 SVF and
 faster to load in the Autodesk Viewer. Use it in place of
-[`translateSvf`](http://paulgovan.github.io/AutoDeskR/reference/translateSvf.md)
+[`translateSvf`](https://paulgovan.github.io/AutoDeskR/reference/translateSvf.md)
 for new projects.
 
 ## Usage
