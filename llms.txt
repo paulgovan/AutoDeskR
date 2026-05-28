@@ -4,19 +4,31 @@
 
 AutoDeskR is an R package that provides an interface to the:
 
-- **Authentication API** — obtain OAuth2 tokens with expiry tracking via
-  the `aps_token` class.
-- **Data Management API** — manage buckets and objects across the
-  platform’s cloud services.
-- **Design Automation API** — run automated tasks on design files in the
-  cloud.
-- **Model Derivative API** — translate design files into SVF, SVF2, OBJ,
-  and STL formats and extract model data.
-- **Reality Capture API** — generate 3D models from photogrammetry image
-  sets.
-- **Viewer** — render 2D and 3D models in Shiny applications.
-- **MCP Tools** — expose AutoDeskR functions to AI models via the Model
-  Context Protocol using `ellmer` and `mcptools`.
+- **[Authentication
+  API](https://paulgovan.github.io/AutoDeskR-Book/authentication.html)**
+  — obtain OAuth2 tokens with expiry tracking via the `aps_token` class.
+- **[Data Management
+  API](https://paulgovan.github.io/AutoDeskR-Book/data-management.html)**
+  — manage buckets and objects across the platform’s cloud services.
+- **[Design Automation
+  API](https://paulgovan.github.io/AutoDeskR-Book/design-automation.html)**
+  — run automated tasks on design files in the cloud.
+- **[Model Derivative
+  API](https://paulgovan.github.io/AutoDeskR-Book/model-derivative.html)**
+  — translate design files into SVF, SVF2, OBJ, and STL formats and
+  extract model data.
+- **[Reality Capture
+  API](https://paulgovan.github.io/AutoDeskR-Book/reality-capture.html)**
+  — generate 3D models from photogrammetry image sets.
+- **[Viewer](https://paulgovan.github.io/AutoDeskR-Book/viewer.html)** —
+  render 2D and 3D models in Shiny applications.
+- **[MCP
+  Tools](https://paulgovan.github.io/AutoDeskR-Book/mcp-server.html)** —
+  expose AutoDeskR functions to AI models via the Model Context Protocol
+  using `ellmer` and `mcptools`.
+
+Learn more in the [Companion
+Book](https://paulgovan.github.io/AutoDeskR-Book/getting-started.html).
 
 ![](https://github.com/paulgovan/AutoDeskR/blob/master/inst/images/basicSample.png?raw=true)
 

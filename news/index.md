@@ -2,6 +2,8 @@
 
 ## AutoDeskR 0.5.0
 
+CRAN release: 2026-05-28
+
 ### New Functions
 
 - [`autodeskr_mcp_tools()`](https://paulgovan.github.io/AutoDeskR/reference/autodeskr_mcp_tools.md)
