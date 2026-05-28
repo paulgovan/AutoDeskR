@@ -11,17 +11,17 @@ Source:
 [`inst/CITATION`](https://github.com/paulgovan/AutoDeskR/blob/master/inst/CITATION)
 
 Govan P (2018). *AutoDeskR: An Interface to the AutoDesk API Platform*,
-1 edition. GitBook.
+2 edition. GitHub Pages.
 [doi:10.5281/zenodo.1137877](https://doi.org/10.5281/zenodo.1137877).
-<https://paulgovan.gitbook.io/autodeskr>.
+<https://paulgovan.github.io/AutoDeskR-Book/>.
 
     @Book{,
       title = {AutoDeskR: An Interface to the AutoDesk API Platform},
       author = {Paul Govan},
       year = {2018},
-      publisher = {GitBook},
-      edition = {1},
-      url = {https://paulgovan.gitbook.io/autodeskr},
+      publisher = {GitHub Pages},
+      edition = {2},
+      url = {https://paulgovan.github.io/AutoDeskR-Book/},
       doi = {10.5281/zenodo.1137877},
     }
 

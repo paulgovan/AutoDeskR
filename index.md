@@ -90,6 +90,5 @@ contributing to this project, you agree to abide by its terms.
 
 ## Acknowledgements
 
-Many thanks to the developers at <https://aps.autodesk.com> for
-providing this great set of tools and for the support needed to learn
-and implement these APIs.
+Many thanks to the developers at AutoDesk for providing this great set
+of tools and for the support needed to learn and implement these APIs.
