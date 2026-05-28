@@ -85,4 +85,4 @@ Please note that the AutoDeskR project is released with a [Contributor Code of C
 
 ## Acknowledgements
 
-Many thanks to the developers at [https://aps.autodesk.com](https://aps.autodesk.com) for providing this great set of tools and for the support needed to learn and implement these APIs.
+Many thanks to the developers at AutoDesk for providing this great set of tools and for the support needed to learn and implement these APIs.

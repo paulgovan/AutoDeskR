@@ -1,3 +1,21 @@
+# AutoDeskR 0.5.0
+
+## New Functions
+
+* `autodeskr_mcp_tools()` — expose all AutoDeskR API functions to AI models
+  via the Model Context Protocol (MCP); credentials are read from environment
+  variables so no token argument is required. Requires `ellmer` and `mcptools`.
+* `waitForPhotoscene()` — poll `checkPhotoscene()` until a Reality Capture
+  photoscene processing job completes.
+
+## Infrastructure
+
+* pkgdown site added and deployed to GitHub Pages at
+  <https://paulgovan.github.io/AutoDeskR/> via a new GitHub Actions workflow.
+* `inst/CITATION` updated to reference the current companion book at
+  <https://paulgovan.github.io/AutoDeskR-Book/>.
+* `ellmer` and `mcptools` added to `Suggests`.
+
 # AutoDeskR 0.4.0
 
 ## New Functions

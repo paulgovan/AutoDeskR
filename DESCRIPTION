@@ -9,7 +9,7 @@ Description: An interface to the 'AutoDesk' Platform Services ('APS') 'API' incl
     'OBJ', and 'STL' formats and extracting model data, Reality Capture 'API' for
     generating 3D models from photogrammetry image sets, and Viewer for rendering 2D
     and 3D models in 'Shiny' applications.
-Version: 0.4.0
+Version: 0.5.0
 URL: https://aps.autodesk.com, https://github.com/paulgovan/AutoDeskR, https://paulgovan.github.io/AutoDeskR-Book/
 BugReports: https://github.com/paulgovan/AutoDeskR/issues
 Authors@R: person("Paul", "Govan", email = "paul.govan2@gmail.com",
