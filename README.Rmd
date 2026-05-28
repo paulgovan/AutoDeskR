@@ -5,7 +5,6 @@ output: github_document
 # AutoDeskR <a href="http://paulgovan.github.io/AutoDeskR/"><img src="man/figures/logo.png" align="right" height="139" alt="AutoDeskR website" /></a>
 
 <!-- badges: start -->
-
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![CRAN status](https://www.r-pkg.org/badges/version/AutoDeskR)](https://CRAN.R-project.org/package=AutoDeskR)
 [![R-CMD-check](https://github.com/paulgovan/AutoDeskR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/paulgovan/AutoDeskR/actions/workflows/R-CMD-check.yaml)
@@ -13,7 +12,6 @@ output: github_document
 [![](http://cranlogs.r-pkg.org/badges/last-month/AutoDeskR)](https://cran.r-project.org/package=AutoDeskR)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/AutoDeskR)](https://cran.r-project.org/package=AutoDeskR)
 [![](https://img.shields.io/badge/doi-10.32614/CRAN.package.AutoDeskR-green.svg)](https://doi.org/10.32614/CRAN.package.AutoDeskR)
-
 <!-- badges: end -->
 
 ## Introduction

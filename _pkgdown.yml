@@ -1,0 +1,63 @@
+url: https://paulgovan.github.io/AutoDeskR/
+
+template:
+  bootstrap: 5
+
+home:
+  links:
+  - text: Companion Book
+    href: https://paulgovan.github.io/AutoDeskR-Book/
+
+navbar:
+  structure:
+    left: [intro, reference, news]
+    right: [book, github]
+  components:
+    book:
+      text: Book
+      href: https://paulgovan.github.io/AutoDeskR-Book/
+      icon: fa-book
+    github:
+      icon: fa-github
+      href: https://github.com/paulgovan/AutoDeskR
+
+reference:
+- title: Authentication
+  contents: getToken
+- title: Data Management
+  contents:
+  - makeBucket
+  - checkBucket
+  - uploadFile
+  - listBuckets
+  - listObjects
+- title: Design Automation
+  contents:
+  - makePdf
+  - checkPdf
+- title: Model Derivative
+  contents:
+  - translateSvf
+  - translateSvf2
+  - translateObj
+  - translateStl
+  - checkFile
+  - getMetadata
+  - getData
+  - getObjectTree
+  - getOutputUrn
+  - downloadFile
+- title: Reality Capture
+  contents:
+  - createPhotoscene
+  - uploadImages
+  - processPhotoscene
+  - checkPhotoscene
+- title: Viewer
+  contents:
+  - viewer3D
+  - viewerUI
+- title: Utilities
+  contents:
+  - waitForFile
+  - waitForWorkItem
