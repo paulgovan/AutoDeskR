@@ -28,9 +28,12 @@ reference:
   contents:
   - makeBucket
   - checkBucket
+  - deleteBucket
   - uploadFile
+  - uploadFileSigned
   - listBuckets
   - listObjects
+  - deleteObject
 - title: Design Automation
   contents:
   - makePdf
@@ -53,11 +56,19 @@ reference:
   - uploadImages
   - processPhotoscene
   - checkPhotoscene
+  - waitForPhotoscene
 - title: Viewer
   contents:
   - viewer3D
   - viewerUI
+- title: MCP Tools
+  contents:
+  - autodeskr_mcp_tools
 - title: Utilities
   contents:
   - waitForFile
   - waitForWorkItem
+  - is_expired
+  - aps_error
+  - as_tibble.listBuckets
+  - as_tibble.listObjects
