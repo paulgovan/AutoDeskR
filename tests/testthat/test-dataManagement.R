@@ -99,6 +99,22 @@ test_that("uploadFile stops when token is NULL", {
   expect_error(uploadFile(file = "f.dwg", token = NULL), "token is null")
 })
 
+test_that("uploadFile returns correct structure", {
+  skip_on_cran()
+  skip_if_not(dir.exists(test_path("developer.api.autodesk.com")), "mock fixtures not available")
+  skip_if_not_installed("httptest2")
+  file_path <- file.path(tempdir(), "test.txt")
+  writeLines("hello", file_path)
+  on.exit(unlink(file_path), add = TRUE)
+  httptest2::with_mock_api({
+    resp <- uploadFile(file = file_path, token = "test_token", bucket = "mybucket")
+    expect_s3_class(resp, "uploadFile")
+    expect_named(resp, c("content", "path", "response"))
+    expect_equal(resp$content$bucketKey, "mybucket")
+    expect_equal(resp$content$objectKey, "test.txt")
+  })
+})
+
 # uploadFileSigned ----------------------------------------------------------
 
 test_that("uploadFileSigned stops when file is NULL", {
@@ -111,6 +127,37 @@ test_that("uploadFileSigned stops when token is NULL", {
 
 test_that("uploadFileSigned stops when bucket is NULL", {
   expect_error(uploadFileSigned(file = "big.rvt", token = "t", bucket = NULL), "bucket is null")
+})
+
+test_that("uploadFileSigned returns correct structure", {
+  skip_on_cran()
+  tmp <- file.path(tempdir(), "test.txt")
+  writeLines("hello", tmp)
+  on.exit(unlink(tmp), add = TRUE)
+  aps_call_count <- 0L
+  local_mocked_bindings(
+    aps_perform = function(req, ...) {
+      aps_call_count <<- aps_call_count + 1L
+      structure(list(status_code = 200L, call_num = aps_call_count), class = "httr2_response")
+    },
+    resp_body_json = function(resp, ...) {
+      if (isTRUE(resp$call_num == 1L)) {
+        list(uploadKey = "test-upload-key-abc123",
+             urls = list("https://s3.amazonaws.com/autodesk-test/test.txt?signed=1"))
+      } else {
+        list(bucketKey = "mybucket", objectKey = "test.txt", size = 5L,
+             objectId = "urn:adsk.objects:os.object:mybucket/test.txt",
+             contentType = "application/octet-stream")
+      }
+    },
+    req_perform = function(req, ...) structure(list(status_code = 200L), class = "httr2_response"),
+    .package = "AutoDeskR"
+  )
+  resp <- uploadFileSigned(file = tmp, token = "test_token", bucket = "mybucket")
+  expect_s3_class(resp, "uploadFileSigned")
+  expect_named(resp, c("content", "path", "response"))
+  expect_equal(resp$content$objectKey, "test.txt")
+  expect_equal(aps_call_count, 2L)
 })
 
 # deleteBucket / deleteObject -----------------------------------------------

@@ -38,6 +38,25 @@ test_that("uploadImages stops when token is NULL", {
   expect_error(uploadImages(photoscene_id = "p", files = "f.jpg", token = NULL), "token is null")
 })
 
+test_that("uploadImages returns correct structure", {
+  skip_on_cran()
+  skip_if_not_installed("curl")
+  tmp1 <- file.path(tempdir(), "img1.jpg")
+  tmp2 <- file.path(tempdir(), "img2.jpg")
+  writeBin(as.raw(c(0xff, 0xd8, 0xff)), tmp1)
+  writeBin(as.raw(c(0xff, 0xd8, 0xff)), tmp2)
+  on.exit({ unlink(tmp1); unlink(tmp2) }, add = TRUE)
+  local_mocked_bindings(
+    aps_perform    = function(req, ...) structure(list(status_code = 200L), class = "httr2_response"),
+    resp_body_json = function(resp, ...) list(photoscene = list(photosceneid = "PHOTOSCENE_ID")),
+    .package = "AutoDeskR"
+  )
+  resp <- uploadImages(photoscene_id = "PHOTOSCENE_ID", files = c(tmp1, tmp2), token = "test_token")
+  expect_s3_class(resp, "uploadImages")
+  expect_named(resp, c("content", "path", "response"))
+  expect_equal(resp$content$photoscene$photosceneid, "PHOTOSCENE_ID")
+})
+
 # processPhotoscene ---------------------------------------------------------
 
 test_that("processPhotoscene stops when photoscene_id is NULL", {

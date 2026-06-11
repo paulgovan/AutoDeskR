@@ -141,6 +141,27 @@ test_that("aps_perform falls back to conditionMessage when body has no message f
   expect_match(err$message, "Internal Server Error")
 })
 
+test_that("aps_perform handles non-JSON error body gracefully", {
+  mock_resp <- structure(list(status_code = 500L), class = "httr2_response")
+  mock_err  <- structure(
+    list(message = "HTTP 500 Internal Server Error", resp = mock_resp),
+    class = c("httr2_http_500", "httr2_http", "error", "condition")
+  )
+  local_mocked_bindings(
+    req_perform    = function(req, ...) stop(mock_err),
+    resp_body_json = function(resp, ...) stop("invalid JSON"),
+    resp_status    = function(resp, ...) 500L,
+    .package = "AutoDeskR"
+  )
+  err <- tryCatch(
+    AutoDeskR:::aps_perform(httr2::request("https://example.com")),
+    aps_error = function(e) e
+  )
+  expect_s3_class(err, "aps_error")
+  expect_equal(err$status, 500L)
+  expect_match(conditionMessage(err), "Internal Server Error")
+})
+
 test_that("aps_perform uses reason field when message field is absent", {
   mock_resp <- structure(list(status_code = 403L), class = "httr2_response")
   mock_err  <- structure(
@@ -451,6 +472,40 @@ test_that("as_tibble.listObjects returns a zero-row tibble for empty items", {
   tbl <- tibble::as_tibble(resp)
   expect_equal(nrow(tbl), 0L)
   expect_named(tbl, c("objectKey", "objectId", "size", "location"))
+})
+
+test_that("waitForFile continues polling after a transient error", {
+  call_count <- 0L
+  local_mocked_bindings(
+    checkFile = function(...) {
+      call_count <<- call_count + 1L
+      if (call_count == 1L) stop("transient network error")
+      structure(list(content = list(status = "success"), path = "x", response = list()),
+                class = "checkFile")
+    },
+    .package = "AutoDeskR"
+  )
+  expect_no_error(
+    waitForFile("test_urn", "test_token", interval = 0, timeout = 10, verbose = FALSE)
+  )
+  expect_gte(call_count, 2L)
+})
+
+test_that("waitForWorkItem continues polling after a transient error", {
+  call_count <- 0L
+  local_mocked_bindings(
+    checkPdf = function(...) {
+      call_count <<- call_count + 1L
+      if (call_count == 1L) stop("transient network error")
+      structure(list(content = list(status = "success"), path = "x", response = list()),
+                class = "checkPdf")
+    },
+    .package = "AutoDeskR"
+  )
+  expect_no_error(
+    waitForWorkItem("test_id", "test_token", interval = 0, timeout = 10, verbose = FALSE)
+  )
+  expect_gte(call_count, 2L)
 })
 
 test_that("as_tibble.listObjects via httptest2 returns a tibble with correct columns", {

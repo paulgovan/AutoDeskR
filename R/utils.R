@@ -135,10 +135,18 @@ is_expired.aps_token <- function(token) {
 waitForFile <- function(urn, token, interval = 5, timeout = 300, verbose = TRUE) {
   deadline <- Sys.time() + timeout
   repeat {
-    resp   <- checkFile(urn = urn, token = token)
-    status <- resp$content$status
-    if (verbose) message("Translation status: ", status)
-    if (status %in% c("success", "failed", "timeout")) return(resp)
+    resp <- tryCatch(
+      checkFile(urn = urn, token = token),
+      error = function(e) {
+        if (verbose) message("Poll error (retrying): ", conditionMessage(e))
+        NULL
+      }
+    )
+    if (!is.null(resp)) {
+      status <- resp$content$status
+      if (verbose) message("Translation status: ", status)
+      if (status %in% c("success", "failed", "timeout")) return(resp)
+    }
     if (Sys.time() > deadline)
       stop("waitForFile() timed out after ", timeout, " seconds.")
     Sys.sleep(interval)
@@ -167,11 +175,19 @@ waitForFile <- function(urn, token, interval = 5, timeout = 300, verbose = TRUE)
 waitForWorkItem <- function(id, token, interval = 5, timeout = 300, verbose = TRUE) {
   deadline <- Sys.time() + timeout
   repeat {
-    resp   <- checkPdf(id = id, token = token)
-    status <- resp$content$status
-    if (verbose) message("WorkItem status: ", status)
-    if (!identical(status, "inprogress") && !identical(status, "pending"))
-      return(resp)
+    resp <- tryCatch(
+      checkPdf(id = id, token = token),
+      error = function(e) {
+        if (verbose) message("Poll error (retrying): ", conditionMessage(e))
+        NULL
+      }
+    )
+    if (!is.null(resp)) {
+      status <- resp$content$status
+      if (verbose) message("WorkItem status: ", status)
+      if (!identical(status, "inprogress") && !identical(status, "pending"))
+        return(resp)
+    }
     if (Sys.time() > deadline)
       stop("waitForWorkItem() timed out after ", timeout, " seconds.")
     Sys.sleep(interval)

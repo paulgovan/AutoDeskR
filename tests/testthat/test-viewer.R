@@ -38,3 +38,25 @@ test_that("viewerUI stops for 'vr' viewerType (not supported in viewerUI)", {
     "Please choose a viewerType"
   )
 })
+
+# viewer3D template selection ------------------------------------------------
+
+test_that("viewer3D returns a shiny app for each viewerType", {
+  skip_if_not_installed("shiny")
+  app_header   <- viewer3D(urn = "test_urn", token = "test_token", viewerType = "header")
+  app_headless <- viewer3D(urn = "test_urn", token = "test_token", viewerType = "headless")
+  app_vr       <- viewer3D(urn = "test_urn", token = "test_token", viewerType = "vr")
+  expect_s3_class(app_header,   "shiny.appobj")
+  expect_s3_class(app_headless, "shiny.appobj")
+  expect_s3_class(app_vr,       "shiny.appobj")
+})
+
+# viewerUI template selection ------------------------------------------------
+
+test_that("viewerUI returns an HTML object for valid viewerTypes", {
+  skip_if_not_installed("shiny")
+  ui_header   <- viewerUI("viewer1", urn = "test_urn", token = "test_token", viewerType = "header")
+  ui_headless <- viewerUI("viewer1", urn = "test_urn", token = "test_token", viewerType = "headless")
+  expect_true(!is.null(ui_header))
+  expect_true(!is.null(ui_headless))
+})

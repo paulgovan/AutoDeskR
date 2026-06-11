@@ -1,0 +1,5 @@
+{
+  "uploadKey": "test-upload-key-abc123",
+  "urls": ["https://s3.amazonaws.com/autodesk-test/test.txt?AWSAccessKeyId=test&Expires=9999999999&Signature=abc123"],
+  "uploadExpiration": "2030-01-01T00:00:00Z"
+}

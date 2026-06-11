@@ -1,0 +1,9 @@
+{
+  "bucketKey": "mybucket",
+  "objectId": "urn:adsk.objects:os.object:mybucket/test.txt",
+  "objectKey": "test.txt",
+  "sha1": "da39a3ee5e6b4b0d3255bfef95601890afd80709",
+  "size": 5,
+  "contentType": "application/octet-stream",
+  "location": "https://developer.api.autodesk.com/oss/v2/buckets/mybucket/objects/test.txt"
+}

@@ -212,3 +212,39 @@ test_that("downloadFile returns parsed JSON when response is JSON", {
     expect_named(resp, c("content", "path", "response"))
   })
 })
+
+test_that("downloadFile writes binary to destfile when content is not JSON", {
+  skip_on_cran()
+  fake_raw <- as.raw(c(0x50, 0x4B, 0x03, 0x04))  # ZIP magic bytes
+  tmp_dest <- tempfile(fileext = ".zip")
+  on.exit(unlink(tmp_dest), add = TRUE)
+  local_mocked_bindings(
+    aps_perform       = function(req, ...) structure(list(status_code = 200L), class = "httr2_response"),
+    resp_content_type = function(resp, ...) "application/octet-stream",
+    resp_body_raw     = function(resp, ...) fake_raw,
+    .package = "AutoDeskR"
+  )
+  resp <- downloadFile(urn = "ENCODED_URN", output_urn = "BINARY_URN",
+                       token = "test_token", destfile = tmp_dest)
+  expect_s3_class(resp, "downloadFile")
+  expect_equal(resp$content$destfile, tmp_dest)
+  expect_true(file.exists(tmp_dest))
+  expect_equal(readBin(tmp_dest, "raw", 4L), fake_raw)
+})
+
+test_that("downloadFile returns raw bytes with warning when destfile is NULL and content is binary", {
+  skip_on_cran()
+  fake_raw <- as.raw(c(0x50, 0x4B, 0x03, 0x04))
+  local_mocked_bindings(
+    aps_perform       = function(req, ...) structure(list(status_code = 200L), class = "httr2_response"),
+    resp_content_type = function(resp, ...) "application/octet-stream",
+    resp_body_raw     = function(resp, ...) fake_raw,
+    .package = "AutoDeskR"
+  )
+  expect_warning(
+    resp <- downloadFile(urn = "ENCODED_URN", output_urn = "BINARY_URN", token = "test_token"),
+    regexp = "destfile"
+  )
+  expect_s3_class(resp, "downloadFile")
+  expect_equal(resp$content$raw, fake_raw)
+})
