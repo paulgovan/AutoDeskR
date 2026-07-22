@@ -10,30 +10,28 @@
 Source:
 [`inst/CITATION`](https://github.com/paulgovan/AutoDeskR/blob/master/inst/CITATION)
 
-Govan P (2018). *AutoDeskR: An Interface to the AutoDesk API Platform*,
-2 edition. GitHub Pages.
-[doi:10.5281/zenodo.1137877](https://doi.org/10.5281/zenodo.1137877).
-<https://paulgovan.github.io/AutoDeskR-Book/>.
+Govan P (2026). *R for AEC Data Analysis*, 1 edition. Amazon. ISBN
+9798181210233. <https://paulgovan.github.io/AutoDeskR-Book/>.
 
     @Book{,
-      title = {AutoDeskR: An Interface to the AutoDesk API Platform},
+      title = {R for AEC Data Analysis},
       author = {Paul Govan},
-      year = {2018},
-      publisher = {GitHub Pages},
-      edition = {2},
+      year = {2026},
+      publisher = {Amazon},
+      edition = {1},
       url = {https://paulgovan.github.io/AutoDeskR-Book/},
-      doi = {10.5281/zenodo.1137877},
+      isbn = {9798181210233},
     }
 
-Govan P (2024). *AutoDeskR: An Interface to the AutoDesk API Platform*.
+Govan P (2026). *AutoDeskR: An Interface to the AutoDesk Platform*.
 [doi:10.32614/CRAN.package.AutoDeskR](https://doi.org/10.32614/CRAN.package.AutoDeskR).
-R package version 0.1.5, <https://cran.r-project.org/package=AutoDeskR>.
+R package version 0.5, <https://cran.r-project.org/package=AutoDeskR>.
 
     @Manual{,
-      title = {AutoDeskR: An Interface to the AutoDesk API Platform},
+      title = {AutoDeskR: An Interface to the AutoDesk Platform},
       author = {Paul Govan},
-      year = {2024},
-      note = {R package version 0.1.5},
+      year = {2026},
+      note = {R package version 0.5},
       url = {https://cran.r-project.org/package=AutoDeskR},
       doi = {10.32614/CRAN.package.AutoDeskR},
     }
