@@ -2,21 +2,21 @@ citHeader("To cite AutoDeskR in publications use:")
 
 bibentry(
   bibtype  = "Book",
-  title    = "AutoDeskR: An Interface to the AutoDesk API Platform",
+  title    = "R for AEC Data Analysis",
   author   = "Paul Govan",
-  year     = "2018",
-  publisher = "GitHub Pages",
-  edition  = "2",
+  year     = "2026",
+  publisher = "Amazon",
+  edition  = "1",
   url      = "https://paulgovan.github.io/AutoDeskR-Book/",
-  doi      = "10.5281/zenodo.1137877"
+  isbn      = "9798181210233"
 )
 
 bibentry(
   bibtype   = "Manual",
-  title    = "AutoDeskR: An Interface to the AutoDesk API Platform",
+  title    = "AutoDeskR: An Interface to the AutoDesk Platform",
   author   = "Paul Govan",
-  year     = "2024",
-  note     = "R package version 0.1.5",
+  year     = "2026",
+  note     = "R package version 0.5",
   url = "https://cran.r-project.org/package=AutoDeskR",
   doi = "10.32614/CRAN.package.AutoDeskR"
 )
